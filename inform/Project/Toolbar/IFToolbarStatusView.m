@@ -61,7 +61,7 @@ static float gapBetweenWelcomeImageAndText = 10.0f;
 
         NSString* buildString  = [NSString stringWithFormat: [IFUtility localizedString: @"Build %@"], [IFUtility localizedString: @"Build Version"]];
         NSString* informString = [IFUtility localizedString: @"Inform"];
-        informImage = [IFImageCache loadResourceImage: @"Blob-Logo.tiff"];
+        informImage = [NSImage imageNamed: @"Blob-Logo"];
 
         NSDictionary* dict = @{NSFontAttributeName: [[[NSTextField alloc] init] font]};
         NSSize informSize = [informString sizeWithAttributes: dict];
@@ -133,8 +133,8 @@ static float gapBetweenWelcomeImageAndText = 10.0f;
         // Create cancel button
         cancelButton = [[NSButton alloc] init];
         [cancelButton setButtonType: NSMomentaryChangeButton];
-        [cancelButton setImage: [IFImageCache loadResourceImage: @"App/Toolbar/cancelOut.png"]];
-        [cancelButton setAlternateImage: [IFImageCache loadResourceImage: @"App/Toolbar/cancelIn.png"]];
+        [cancelButton setImage: [NSImage imageNamed: @"App/Toolbar/cancelOut"]];
+        [cancelButton setAlternateImage: [NSImage imageNamed: @"App/Toolbar/cancelIn"]];
         [cancelButton setBordered: NO];
         [cancelButton setAction: @selector(cancelAction)];
         [cancelButton setTarget: self];

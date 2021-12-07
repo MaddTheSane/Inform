@@ -52,8 +52,7 @@
 }
 
 - (NSImage*) toolbarImage {
-	NSImage* image = [NSImage imageNamed: @"NSUser"];
-	if (!image) image = [IFImageCache loadResourceImage: @"App/Preferences/Inspectors.png"];
+	NSImage* image = [NSImage imageNamed: NSImageNameUser];
 	return image;
 }
 

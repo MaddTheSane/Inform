@@ -75,7 +75,7 @@
 	}
 
     // Load the default image
-    NSImage * defaultImage = [IFImageCache loadResourceImage:@"Error.tiff"];
+    NSImage * defaultImage = [NSImage imageNamed:@"App/Interpreter/Error"];
 
     // Return NSData version
     return [defaultImage TIFFRepresentation];
