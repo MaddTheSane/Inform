@@ -227,7 +227,7 @@ DQ
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Gzq-25-dly">
                         <rect key="frame" x="0.0" y="0.0" width="157" height="183"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="156">
                                 <rect key="frame" x="0.0" y="64" width="157" height="183"/>
@@ -476,7 +476,7 @@ DQ
                     <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Lxd-CM-rpc">
                         <rect key="frame" x="0.0" y="0.0" width="157" height="183"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="162">
                                 <rect key="frame" x="0.0" y="55" width="157" height="183"/>
@@ -726,7 +726,7 @@ x{2,4}	2-4 of x</string>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="HxZ-UT-pOS">
                         <rect key="frame" x="0.0" y="0.0" width="157" height="183"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="230">
                                 <rect key="frame" x="0.0" y="0.0" width="157" height="183"/>
@@ -1182,6 +1182,7 @@ $	End of the line  </string>
                     </scroller>
                 </scrollView>
             </subviews>
+            <point key="canvasLocation" x="139" y="-65"/>
         </customView>
         <customView id="266" userLabel="NoMatches">
             <rect key="frame" x="0.0" y="0.0" width="545" height="29"/>
@@ -1197,6 +1198,7 @@ $	End of the line  </string>
                     </textFieldCell>
                 </textField>
             </subviews>
+            <point key="canvasLocation" x="4" y="-237"/>
         </customView>
         <customView id="382" userLabel="Find All">
             <rect key="frame" x="0.0" y="0.0" width="545" height="253"/>
@@ -1216,7 +1218,7 @@ $	End of the line  </string>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" id="zrb-0v-QsL">
                         <rect key="frame" x="1" y="1" width="503" height="206"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" id="351">
                                 <rect key="frame" x="0.0" y="0.0" width="503" height="206"/>
@@ -1226,7 +1228,7 @@ $	End of the line  </string>
                                 <tableViewGridLines key="gridStyleMask" vertical="YES"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn identifier="context" editable="NO" width="491" minWidth="35" maxWidth="1000" id="352">
+                                    <tableColumn identifier="context" editable="NO" width="462" minWidth="35" maxWidth="1000" id="352">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Context">
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -1256,6 +1258,7 @@ $	End of the line  </string>
                     </scroller>
                 </scrollView>
             </subviews>
+            <point key="canvasLocation" x="-132" y="-444"/>
         </customView>
     </objects>
 </document>
