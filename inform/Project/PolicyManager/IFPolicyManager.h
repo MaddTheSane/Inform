@@ -17,7 +17,7 @@
 @property (atomic) IFProjectPolicy* docPolicy;
 @property (atomic) IFProjectPolicy* extensionsPolicy;
 
--(instancetype) init NS_UNAVAILABLE NS_DESIGNATED_INITIALIZER;
+-(instancetype) init NS_UNAVAILABLE;
 -(instancetype) initWithProjectController:(IFProjectController *) projectController NS_DESIGNATED_INITIALIZER;
 
 @end

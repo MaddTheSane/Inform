@@ -31,9 +31,6 @@ extern NSString* ZBufferNeedsFlushingNotification;
 @class ZStyle;
 @class ZBuffer;
 
-#ifndef NS_ENUM
-#import <Foundation/Foundation.h>
-#endif
 typedef NS_ENUM(unsigned int, ZFileType) {
     ZFileQuetzal,
     ZFileTranscript,
@@ -41,7 +38,7 @@ typedef NS_ENUM(unsigned int, ZFileType) {
     ZFileData
 };
 
-enum ZValueTypeMasks {
+typedef NS_OPTIONS(unsigned int, ZValueTypeMasks) {
 	ZValueRoutine = 1,
 	ZValueObject  = 2,
 	ZValueClass   = 4,

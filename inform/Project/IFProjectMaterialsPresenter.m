@@ -18,8 +18,6 @@
     NSOperationQueue* queue;
 }
 
-- (instancetype) init { self = [super init]; return self; }
-
 - (instancetype) initWithURL:(NSURL*) mainURL {
     self = [super init];
     if( self ) {

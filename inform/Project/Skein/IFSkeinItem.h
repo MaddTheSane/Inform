@@ -18,7 +18,7 @@
 @interface IFSkeinItem : NSObject<NSCoding>
 
 #pragma mark - Initialization
-- (instancetype) init NS_UNAVAILABLE NS_DESIGNATED_INITIALIZER;
+- (instancetype) init NS_UNAVAILABLE;
 - (instancetype) initWithSkein:(IFSkein*) skein command: (NSString*) com NS_DESIGNATED_INITIALIZER;
 -(instancetype) initWithCoder: (NSCoder *) decoder;
 

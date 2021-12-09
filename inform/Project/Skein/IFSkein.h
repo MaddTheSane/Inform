@@ -35,7 +35,7 @@ extern NSString* IFSkeinSelectionChangedItemKey;
 // Get the list of commands previously executed
 @property (atomic, readonly, strong)  NSMutableArray* previousCommands;
 
-- (instancetype) init NS_UNAVAILABLE NS_DESIGNATED_INITIALIZER;
+- (instancetype) init NS_UNAVAILABLE;
 - (instancetype) initWithProject:(IFProject*) theProject NS_DESIGNATED_INITIALIZER;
 
 // Acting as an output receiver

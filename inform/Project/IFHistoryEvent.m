@@ -8,9 +8,9 @@
 
 #import "IFHistoryEvent.h"
 
-//
-// Internal class used to create history events by proxy
-//
+///
+/// Internal class used to create history events by proxy
+///
 @interface IFHistoryEventProxy : NSProxy
 
 - (instancetype) initWithEvent: (IFHistoryEvent*) event;
@@ -24,7 +24,6 @@
 
 
 // = Initialisation =
-- (instancetype) init { self = [super init]; return self; }
 
 - (instancetype) initWithInvocation: (NSInvocation*) newInvocation {
 	self = [super init];

@@ -26,8 +26,6 @@
 
 
 // = Initialisation =
-- (instancetype) init { self = [super init]; return self; }
-
 - (instancetype) initWithProjectController: (IFProjectController*) controller {
 	self = [super init];
 

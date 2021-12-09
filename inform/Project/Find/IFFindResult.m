@@ -27,7 +27,6 @@
 }
 
 // = Initialisation =
-- (instancetype) init { self = [super init]; return self; }
 
 -(instancetype)   initWithFilepath: (NSString*)       aFilepath
                        rangeInFile: (NSRange)         aFileRange

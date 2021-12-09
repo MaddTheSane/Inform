@@ -61,7 +61,8 @@ static IFCompilerController* activeController = nil;
 
     double messagesSize;							// When we've got some messages to display, this is how high the pane will be
 
-    IBOutlet NSObject* delegate;					// This object receives our delegate messages
+    /// This object receives our delegate messages
+    id<IFCompilerControllerDelegate> delegate;
 
     IFProjectController*    projectController;      // Project controller
 
@@ -97,7 +98,7 @@ static IFCompilerController* activeController = nil;
                                                             toHaveTrait: NSItalicFontMask];
 
     NSMutableParagraphStyle* centered = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    [centered setAlignment: NSCenterTextAlignment];
+    [centered setAlignment: NSTextAlignmentCenter];
     
     NSDictionary* baseStyle = @{NSFontAttributeName: baseFont,
         NSForegroundColorAttributeName: [NSColor blackColor]};
@@ -1090,13 +1091,7 @@ static IFCompilerController* activeController = nil;
 
 // == Delegate ==
 
-- (void) setDelegate: (NSObject*) dg {
-	delegate = dg;
-}
-
-- (NSObject*) delegate {
-    return delegate;
-}
+@synthesize delegate;
 
 // = Web policy delegate methods =
 

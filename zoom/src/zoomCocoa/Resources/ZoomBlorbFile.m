@@ -350,9 +350,9 @@ static unsigned int Int4(const unsigned char* bytes) {
 - (NSData*) imageDataWithNumber: (int) num {
 	// Get the index	
 	if (!resourceIndex) {
-		if (![self parseResourceIndex]) return NO;
+		if (![self parseResourceIndex]) return nil;
 	}
-	if (!resourceIndex) return NO;
+	if (!resourceIndex) return nil;
 	
 	// Get the resource
 	return [self dataForChunk: 
@@ -362,9 +362,9 @@ static unsigned int Int4(const unsigned char* bytes) {
 - (NSData*) soundDataWithNumber: (int) num {
 	// Get the index	
 	if (!resourceIndex) {
-		if (![self parseResourceIndex]) return NO;
+		if (![self parseResourceIndex]) return nil;
 	}
-	if (!resourceIndex) return NO;
+	if (!resourceIndex) return nil;
 	
 	// Get the resource
 	return [self dataForChunk: 

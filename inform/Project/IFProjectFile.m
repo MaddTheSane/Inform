@@ -36,8 +36,6 @@
     }
 }
 
-- (instancetype) init { self = [super init]; return self; }
-
 // = Empty project creation =
 
 - (instancetype) initWithEmptyProject {

@@ -22,7 +22,6 @@
 @synthesize restrictedTextStorage   = _restrictedTextStorage;
 @synthesize restrictedRange         = _restrictedRange;
 
-- (instancetype) init { self = [super init]; return self; }
 - (instancetype) initWithTextView: (NSTextView*) view
                             range: (NSRange) range {
     self = [super init];
@@ -91,8 +90,6 @@
 @synthesize type            = _type;
 @synthesize undoManager     = _undoManager;
 @synthesize isHighlighting  = _isHighlighting;
-
-- (instancetype) init { self = [super init]; return self; }
 
 - (instancetype) initWithStorage: (NSTextStorage*) aStorage
                             name: (NSString*) aName

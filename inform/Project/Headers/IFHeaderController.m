@@ -12,11 +12,15 @@
 #import "IFIntelSymbol.h"
 
 @implementation IFHeaderController {
-    IFHeader* rootHeader;												// The root of the headers being managed by this object
-    IFHeader* selectedHeader;											// The header that the user has most recently selected
-    IFIntelFile* intelFile;												// The most recent intel file object
+    /// The root of the headers being managed by this object
+    IFHeader* rootHeader;
+    /// The header that the user has most recently selected
+    IFHeader* selectedHeader;
+    /// The most recent intel file object
+    IFIntelFile* intelFile;
 
-    NSMutableArray* headerViews;										// The header views being managed by this controller
+    /// The header views being managed by this controller
+    NSMutableArray<NSView<IFHeaderView>*>* headerViews;
 }
 
 // = Initialisation =
@@ -35,7 +39,7 @@
 
 - (void) refreshHeaders {
 	// Send the refreshHeaders message to all of the views that support it
-	for( NSObject* headerView in headerViews ) {
+	for( NSView<IFHeaderView>* headerView in headerViews ) {
 		if ([headerView respondsToSelector: @selector(refreshHeaders:)]) {
 			[headerView refreshHeaders: self];
 		}
@@ -47,7 +51,7 @@
 	selectedHeader = newSelectedHeader;
 	
 	// Send the setSelectedHeader message to all of the views that support it
-	for( NSObject* headerView in headerViews ) {
+	for( NSView<IFHeaderView>* headerView in headerViews ) {
 		if ([headerView respondsToSelector: @selector(refreshHeaders:)]) {
 			[headerView setSelectedHeader: newSelectedHeader
 							   controller: self];
@@ -163,7 +167,7 @@
 
 // = Managing the views being controlled =
 
-- (void) addHeaderView: (NSView*) newHeaderView {
+- (void) addHeaderView: (NSView<IFHeaderView>*) newHeaderView {
 	if (!newHeaderView) {
 		return;
 	}
@@ -182,7 +186,7 @@
 	}
 }
 
-- (void) removeHeaderView: (NSView*) oldHeaderView {
+- (void) removeHeaderView: (NSView<IFHeaderView>*) oldHeaderView {
 	// Ensure that we don't accidentally self destruct a header view that's in use
 	//[[oldHeaderView retain] autorelease];
 	

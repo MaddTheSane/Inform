@@ -13,6 +13,7 @@
 #import "IFError.h"
 
 @class IFProjectController;
+@protocol IFCompilerControllerDelegate;
 
 // Possible styles (stored in the styles dictionary)
 extern NSString* IFStyleBase;
@@ -50,50 +51,71 @@ typedef NS_ENUM(unsigned int, IFCompilerTabId) {
 
 @end
 
-//
-// The compiler controller handles the interface between the compiler and the UI
-//
-// (In ye olden dayes, this was a window controller as well, but now young whippersnapper
-// compilers can go anywhere, so it's not any more)
-//
+///
+/// The compiler controller handles the interface between the compiler and the UI
+///
+/// (In ye olden dayes, this was a window controller as well, but now young whippersnapper
+/// compilers can go anywhere, so it's not any more)
+///
 @interface IFCompilerController : NSObject<NSTextStorageDelegate, WebPolicyDelegate, WebFrameLoadDelegate>
 
-+ (NSDictionary*) defaultStyles;                            // The default styles for the error messages
+/// The default styles for the error messages
++ (NSDictionary<NSAttributedStringKey,id>*) defaultStyles;
 
-- (void)        resetCompiler;                              // Destroys + recreates the compiler (ie, resets it back to its initial state)	// Sets a specific compiler object to use
-@property (atomic, strong) IFCompiler *compiler;            // Retrieves the current compiler object
+/// Destroys + recreates the compiler (ie, resets it back to its initial state)
+- (void)        resetCompiler;
+/// Sets a specific compiler object to use, or retrieves the current compiler object
+@property (atomic, strong) IFCompiler *compiler;
 
-@property (atomic, readonly) BOOL startCompiling;           // Tells the compiler to start
-@property (atomic, readonly) BOOL abortCompiling;           // Tells the compiler to stop
+/// Tells the compiler to start
+- (BOOL) startCompiling;
+/// Tells the compiler to stop
+- (BOOL) abortCompiling;
 
-- (void) addErrorForFile: (NSString*) file                  // Adds an error to the display
+/// Adds an error to the display
+- (void) addErrorForFile: (NSString*) file
                   atLine: (int) line
                 withType: (IFLex) type
                  message: (NSString*) message;
 
-- (void) showWindow: (id) sender;                           // Displays the window thats displaying the compiler messages
-@property (atomic, strong) NSObject *delegate;              // The delegate object
+/// Displays the window thats displaying the compiler messages
+- (void) showWindow: (id) sender;
+/// The delegate object
+@property (atomic, strong) IBOutlet id<IFCompilerControllerDelegate> delegate;
 
-- (void) overrideProblemsURL: (NSURL*) problemsURL;         // No matter the exit/RTP supplied by the compiler, use this problems URL instead
-- (void) showRuntimeError: (NSURL*) errorURL;               // Creates a tab for the 'runtime error' file given by errorURL (displayed by webkit)
-- (void) showContentsOfFilesIn: (NSFileWrapper*) files      // Creates tabs for the files contained in the given filewrapper (which came from the given path)
+/// No matter the exit/RTP supplied by the compiler, use this problems URL instead
+- (void) overrideProblemsURL: (NSURL*) problemsURL;
+/// Creates a tab for the 'runtime error' file given by errorURL (displayed by webkit)
+- (void) showRuntimeError: (NSURL*) errorURL;
+/// Creates tabs for the files contained in the given filewrapper (which came from the given path)
+- (void) showContentsOfFilesIn: (NSFileWrapper*) files
 					  fromPath: (NSString*) path;
-- (void) clearTabViews;                                     // Gets rid of the file tabs created by the previous function
+/// Gets rid of the file tabs created by the previous function
+- (void) clearTabViews;
 
-@property (atomic, readonly, copy) NSString *blorbLocation; // Where cblorb thinks the final blorb file should be copied to
-@property (atomic, strong) NSSplitView *splitView;			// The splitter view for this object
+/// Where cblorb thinks the final blorb file should be copied to
+@property (atomic, readonly, copy) NSString *blorbLocation;
+/// The splitter view for this object
 
-@property (atomic, readonly) IFCompilerTabId selectedTabId;	// The tab identifier of the currently selected view
-- (void) switchToViewWithTabId: (IFCompilerTabId) tabId;    // Switches to a view with the specified tab identifier
-- (void) switchToSplitView;                                 // Switches to the default split view
-- (void) switchToRuntimeErrorView;                          // Switches to the runtime error view
-@property (atomic, readonly, copy) NSArray *viewTabs;		// Returns the tabs this controller can display
+@property (atomic, strong) NSSplitView *splitView;
+
+/// The tab identifier of the currently selected view
+@property (atomic, readonly) IFCompilerTabId selectedTabId;
+/// Switches to a view with the specified tab identifier
+- (void) switchToViewWithTabId: (IFCompilerTabId) tabId;
+/// Switches to the default split view
+- (void) switchToSplitView;
+/// Switches to the runtime error view
+- (void) switchToRuntimeErrorView;
+/// Returns the tabs this controller can display
+@property (atomic, readonly, copy) NSArray *viewTabs;
+
 - (int) tabIdWithTabIndex: (int) tabIndex;
 
 @end
 
-// Delegate methods
-@interface NSObject(IFCompilerControllerDelegate)
+/// Delegate methods
+@protocol IFCompilerControllerDelegate <NSObject>
 
 // Status updates
 //- (void) compileStarted: (IFCompilerController*) sender;                  // Called when the compiler starts doing things
@@ -102,7 +124,8 @@ typedef NS_ENUM(unsigned int, IFCompilerTabId) {
 
 // User interface notification
 //- (void) errorMessagesCleared: (IFCompilerController*) sender;	// Called when the list of errors are cleared
-- (void) errorMessageHighlighted: (IFCompilerController*) sender	// Called when the user selects a specific error
+/// Called when the user selects a specific error
+- (void) errorMessageHighlighted: (IFCompilerController*) sender
                           atLine: (int) line
                           inFile: (NSString*) file;
 //- (void) compilerAddError: (IFCompilerController*) sender			// Called when the compiler generates a new error
@@ -110,9 +133,12 @@ typedef NS_ENUM(unsigned int, IFCompilerTabId) {
 //                   atLine: (int) line
 //                 withType: (IFLex) type
 //                  message: (NSString*) message;
-- (BOOL) handleURLRequest: (NSURLRequest*) request;					// First chance opportunity to redirect URL requests (used so that NI error URLs are handled)
-- (void) viewSetHasUpdated: (IFCompilerController*) sender;			// Notification that the compiler controller has changed its set of views
-- (void) compiler: (IFCompilerController*) sender					// Notification that the compiler has switched to the specified view
+/// First chance opportunity to redirect URL requests (used so that NI error URLs are handled)
+- (BOOL) handleURLRequest: (NSURLRequest*) request;
+/// Notification that the compiler controller has changed its set of views
+- (void) viewSetHasUpdated: (IFCompilerController*) sender;
+/// Notification that the compiler has switched to the specified view
+- (void) compiler: (IFCompilerController*) sender
    switchedToView: (int) viewIndex;	
 
 // Project controller

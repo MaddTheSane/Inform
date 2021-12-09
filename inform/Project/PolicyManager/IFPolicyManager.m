@@ -12,8 +12,6 @@
 
 @implementation IFPolicyManager
 
--(instancetype) init { self = [super init]; return self; }
-
 -(instancetype) initWithProjectController:(IFProjectController *) projectController {
     self = [super init];
 

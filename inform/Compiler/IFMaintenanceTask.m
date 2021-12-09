@@ -8,15 +8,19 @@
 
 #import "IFMaintenanceTask.h"
 
-NSString* IFMaintenanceTasksStarted = @"IFMaintenanceTasksStarted";
-NSString* IFMaintenanceTasksFinished = @"IFMaintenanceTasksFinished";
+NSString* const IFMaintenanceTasksStarted = @"IFMaintenanceTasksStarted";
+NSString* const IFMaintenanceTasksFinished = @"IFMaintenanceTasksFinished";
 
 @implementation IFMaintenanceTask {
-    NSTask* activeTask;											// The task that's currently running
-    NSMutableArray* pendingTasks;								// The tasks that are going to be run
-    NSString* activeTaskNotificationType;                       // Current notification type for activeTask
+    /// The task that's currently running
+    NSTask* activeTask;
+    /// The tasks that are going to be run
+    NSMutableArray* pendingTasks;
+    /// Current notification type for \c activeTask
+    NSNotificationName activeTaskNotificationType;
 
-    BOOL haveFinished;											// YES if we've notified of a finish event
+    /// \c YES if we've notified of a finish event
+    BOOL haveFinished;
 }
 
 // = Initialisation =
@@ -108,7 +112,7 @@ NSString* IFMaintenanceTasksFinished = @"IFMaintenanceTasksFinished";
 
 - (void) queueTask: (NSString*) command
 	 withArguments: (NSArray*) arguments
-        notifyType: (NSString*) notifyType {
+        notifyType: (NSNotificationName) notifyType {
 
     // Check if the previous item on the queue is exactly the same command, skip if so.
     if( [pendingTasks count] > 0 ) {

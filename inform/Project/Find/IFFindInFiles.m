@@ -17,7 +17,7 @@
 
 @interface IFSearchItem : NSObject
 
--(instancetype) init NS_UNAVAILABLE NS_DESIGNATED_INITIALIZER;
+-(instancetype) init NS_UNAVAILABLE;
 -(instancetype) initWithText: (NSString*) textString
       withFilePath: (NSString*) filepathString
       withLocation: (IFFindLocation) locationType NS_DESIGNATED_INITIALIZER;
@@ -30,8 +30,6 @@
     NSString*       filepath;
     IFFindLocation  location;
 }
-
--(instancetype) init { self = [super init]; return self; }
 
 -(instancetype) initWithText: (NSString*) textString
       withFilePath: (NSString*) filepathString

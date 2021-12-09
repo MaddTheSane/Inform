@@ -9,8 +9,6 @@
 
 @implementation IFRecentFileCellInfo
 
-- (instancetype)init { self = [super init]; return self; }
-
 - (instancetype)initWithTitle: (NSString *) title
                         image: (NSImage *) image
                           url: (NSURL *) url

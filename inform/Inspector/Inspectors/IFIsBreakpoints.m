@@ -16,11 +16,15 @@
 NSString* IFIsBreakpointsInspector = @"IFIsBreakpointsInspector";
 
 @implementation IFIsBreakpoints {
-    NSWindow* activeWin;								// The currently active window
-    IFProject* activeProject;							// The currently active project
-    IFProjectController* activeController;				// The currently active window controller (if it's a ProjectController)
+    /// The currently active window
+    NSWindow* activeWin;
+    /// The currently active project
+    IFProject* activeProject;
+    /// The currently active window controller (if it's a ProjectController)
+    IFProjectController* activeController;
 
-    IBOutlet NSTableView* breakpointTable;				// The table that will contain the list of breakpoints
+    /// The table that will contain the list of breakpoints
+    IBOutlet NSTableView* breakpointTable;
 }
 
 // = Initialisation =
@@ -100,13 +104,13 @@ NSString* IFIsBreakpointsInspector = @"IFIsBreakpointsInspector";
 
 // = Table data source =
 
-- (int)numberOfRowsInTableView: (NSTableView*) aTableView {
+- (NSInteger)numberOfRowsInTableView: (NSTableView*) aTableView {
 	return [activeProject breakpointCount];
 }
 
 - (id)				tableView: (NSTableView*) aTableView 
 	objectValueForTableColumn: (NSTableColumn*) aTableColumn
-						  row: (int) rowIndex {
+						  row: (NSInteger) rowIndex {
 	NSString* ident = [aTableColumn identifier];
 	
 	if ([ident isEqualToString: @"enabled"]) {

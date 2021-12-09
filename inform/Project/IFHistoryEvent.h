@@ -9,15 +9,15 @@
 #import <Cocoa/Cocoa.h>
 
 
-//
-// This represents an event in the history of a project pane. (Ie, an action
-// to perform when the backwards or forwards buttons are pressed)
-//
+///
+/// This represents an event in the history of a project pane. (Ie, an action
+/// to perform when the backwards or forwards buttons are pressed)
+///
 @interface IFHistoryEvent : NSObject
 
 // Initialisation
 
-- (instancetype) init NS_UNAVAILABLE NS_DESIGNATED_INITIALIZER;
+- (instancetype) init NS_UNAVAILABLE;
 - (instancetype) initWithInvocation: (NSInvocation*) invocation NS_DESIGNATED_INITIALIZER;		// Initialise with the specified invocation
 - (instancetype) initWithObject: (id) target NS_DESIGNATED_INITIALIZER;							// Initialise with the specified object as an invocation target
 

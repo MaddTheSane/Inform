@@ -14,7 +14,7 @@
 //
 @interface IFSyntaxRestricted : NSObject
 
-- (instancetype) init NS_UNAVAILABLE NS_DESIGNATED_INITIALIZER;
+- (instancetype) init NS_UNAVAILABLE;
 - (instancetype) initWithTextView: (NSTextView*)view
                             range: (NSRange) range NS_DESIGNATED_INITIALIZER;
 
@@ -38,7 +38,7 @@
 @property (atomic)          bool            isHighlighting;
 
 // Initialisation
-- (instancetype)init NS_UNAVAILABLE NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 -(instancetype) initWithStorage: (NSTextStorage*) aStorage
                  name: (NSString*) aName

@@ -10,15 +10,17 @@
 
 #import "IFInspector.h"
 
-// The inspector key for this window
+/// The inspector key for this window
 extern NSString* IFIsBreakpointsInspector;
 
-//
-// The breakpoints inspector
-//
-@interface IFIsBreakpoints : IFInspector
+///
+/// The breakpoints inspector
+///
+@interface IFIsBreakpoints : IFInspector <NSTableViewDataSource>
 
-+ (IFIsBreakpoints*) sharedIFIsBreakpoints; // Retrieves the shared breakpoint inspector
+/// Retrieves the shared breakpoint inspector
++ (IFIsBreakpoints*) sharedIFIsBreakpoints;
+@property (class, atomic, readonly, strong) IFIsBreakpoints *sharedIFIsBreakpoints;
 
 // Menu actions
 - (IBAction) cut:    (id) sender;			// Cuts the current breakpoint

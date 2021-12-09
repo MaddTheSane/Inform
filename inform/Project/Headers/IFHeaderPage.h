@@ -10,30 +10,40 @@
 
 #import "IFHeaderView.h"
 
+@protocol IFHeaderPageDelegate;
+
 ///
 /// Controller object that manages the headers page
 ///
-@interface IFHeaderPage : NSObject
+@interface IFHeaderPage : NSObject <IFHeaderViewDelegate>
 
 // The controller and view
 
-@property (atomic, readonly, strong) NSView *pageView;										// The view that should be used to display the headers being managed by this class
-@property (atomic, readonly, strong) IFHeaderView *headerView;                               // Header view
-- (void) setController: (IFHeaderController*) controller;	// Specifies the header controller that should be used to manage updates to this page
-- (void) setDelegate: (id) delegate;						// Updates the delegate
+/// The view that should be used to display the headers being managed by this class
+@property (atomic, readonly, strong) NSView *pageView;
+/// Header view
+@property (atomic, readonly, strong) IFHeaderView *headerView;
+/// Specifies the header controller that should be used to manage updates to this page
+- (void) setController: (IFHeaderController*) controller;
+/// Updates the delegate
+@property (atomic, weak) id<IFHeaderPageDelegate> delegate;
 
 // Choosing objects
 
-- (void) selectNode: (IFHeaderNode*) node;					// Marks the specified node as being selected
-- (void) highlightNodeWithLines: (NSRange) lines;			// Sets the node with the specified lines as selected
+/// Marks the specified node as being selected
+- (void) selectNode: (IFHeaderNode*) node;
+/// Sets the node with the specified lines as selected
+- (void) highlightNodeWithLines: (NSRange) lines;
 
 // UI actions
 
-- (IBAction) updateDepthPopup: (id) sender;				// Message sent when the depth popup is changed
+/// Message sent when the depth popup is changed
+- (IBAction) updateDepthPopup: (id) sender;
 
 @end
 
-@interface NSObject(IFHeaderPageDelegate)
+@protocol IFHeaderPageDelegate <IFHeaderViewDelegate>
+@optional
 
 - (void) headerPage: (IFHeaderPage*) page
 	  limitToHeader: (IFHeader*) header;

@@ -16,12 +16,10 @@
 #import <CommonCrypto/CommonDigest.h>       // md5 hash
 
 @implementation IFJSProject {
-    IFProjectPane* pane;
+    __weak IFProjectPane* pane;
 }
 
 // = Initialisation =
-
-- (instancetype) init { self = [super init]; return self; }
 
 - (instancetype) initWithPane: (IFProjectPane*) newPane {
 	self = [super init];

@@ -10,30 +10,41 @@
 
 #import "IFHeader.h"
 #import "IFHeaderNode.h"
+#import "IFHeaderController.h"
 
-@class IFHeaderController;
+@protocol IFHeaderViewDelegate;
 
 //
 // View used to allow the user to restrict the section of the source file that they are
 // browsing
 //
-@interface IFHeaderView : NSView<NSTextViewDelegate>
+@interface IFHeaderView : NSView<NSTextViewDelegate, IFHeaderView>
 
-@property (atomic, readonly, strong) IFHeaderNode *rootHeaderNode;			// Retrieves the root header node
-@property (atomic) int displayDepth;										// Sets/retrieves the display depth for this view
+/// Retrieves the root header node
+@property (atomic, readonly, strong) IFHeaderNode *rootHeaderNode;
+/// Sets/retrieves the display depth for this view
+@property (nonatomic) int displayDepth;
 
-- (void) setBackgroundColour: (NSColor*) colour;							// Sets the background colour for this view
-- (void) setDelegate: (id) delegate;										// Sets the delegate for this view
-- (void) setMessage: (NSString*) message;									// Sets the message to use in this view
+/// Sets the background colour for this view
+@property (atomic, copy) NSColor *backgroundColour;
+/// Sets the delegate for this view
+@property (atomic, weak) id<IFHeaderViewDelegate> delegate;
+/// Sets the message to use in this view
+- (void) setMessage: (NSString*) message;
 
 @end
 
-@interface NSObject(IFHeaderViewDelegate)
+@protocol IFHeaderViewDelegate <NSObject>
 
-- (void) headerView: (IFHeaderView*) view									// Indicates that a header node has been clicked on
+@optional
+/// Indicates that a header node has been clicked on
+- (void) headerView: (IFHeaderView*) view
 	  clickedOnNode: (IFHeaderNode*) node;
-- (void) headerView: (IFHeaderView*) view									// Indicates that the controller should try to update the specified header node
+/// Indicates that the controller should try to update the specified header node
+- (void) headerView: (IFHeaderView*) view
  		 updateNode: (IFHeaderNode*) node
  	   withNewTitle: (NSString*) newTitle;
+/// Request to refresh all of the headers being managed by a view
+- (void) refreshHeaders: (IFHeaderController*) controller;
 
 @end

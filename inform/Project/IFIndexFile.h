@@ -11,7 +11,7 @@
 
 @interface IFIndexFile : NSObject<NSOutlineViewDataSource>
 
-- (instancetype) init NS_UNAVAILABLE NS_DESIGNATED_INITIALIZER;
+- (instancetype) init NS_UNAVAILABLE;
 - (instancetype) initWithContentsOfFile: (NSString*) filename;
 - (instancetype) initWithData: (NSData*) data NS_DESIGNATED_INITIALIZER; // Designated initialiser
 

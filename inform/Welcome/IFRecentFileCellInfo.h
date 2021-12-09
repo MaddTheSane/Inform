@@ -7,7 +7,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-typedef enum IFRecentFileType {
+typedef NS_ENUM(NSInteger, IFRecentFileType) {
     IFRecentFile,
     IFRecentOpen,
     IFRecentCreateProject,
@@ -15,7 +15,7 @@ typedef enum IFRecentFileType {
     IFRecentCopySample,
     IFRecentWebsiteLink,
     IFRecentSaveEPubs,
-} IFRecentFileType;
+};
 
 @interface IFRecentFileCellInfo : NSObject <NSCopying>
 
@@ -24,7 +24,7 @@ typedef enum IFRecentFileType {
 @property (atomic, readwrite, strong) NSURL* url;
 @property (atomic, readwrite) IFRecentFileType type;
 
-- (instancetype)init NS_UNAVAILABLE NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithTitle: (NSString *) title
                         image: (NSImage *) image

@@ -25,7 +25,7 @@ static NSString* IFHeaderBackgroundColour = @"IFHeaderBackgroundColour";
     NSRange highlightLines;									// The highlight range to use
     IFHeaderNode* selectedNode;								// The currently selected header node
 
-    id delegate;											// The delegate for this page object
+    __weak id<IFHeaderPageDelegate> delegate;				// The delegate for this page object
 }
 
 // = Initialisation =
@@ -78,6 +78,8 @@ static NSString* IFHeaderBackgroundColour = @"IFHeaderBackgroundColour";
 
 // = KVC stuff for the page view/header view =
 
+@synthesize pageView;
+@synthesize headerView;
 - (NSView*) pageView {
 	return pageView;
 }
@@ -112,9 +114,7 @@ static NSString* IFHeaderBackgroundColour = @"IFHeaderBackgroundColour";
 	}
 }
 
-- (void) setDelegate: (id) newDelegate {
-	delegate = newDelegate;
-}
+@synthesize delegate;
 
 // = Controller delegate messages (relayed via the view) =
 
@@ -123,7 +123,7 @@ static NSString* IFHeaderBackgroundColour = @"IFHeaderBackgroundColour";
 		[self highlightNodeWithLines: highlightLines];
 	}
 	
-	if (delegate && [delegate respondsToSelector: @selector(refreshHeaders:)]) {
+	if ([delegate respondsToSelector: @selector(refreshHeaders:)]) {
 		[delegate refreshHeaders: control];
 	}
 }
@@ -165,7 +165,7 @@ static NSString* IFHeaderBackgroundColour = @"IFHeaderBackgroundColour";
 
 - (void) headerView: (IFHeaderView*) view
 	  clickedOnNode: (IFHeaderNode*) node {
-	if (delegate && [delegate respondsToSelector: @selector(headerPage:limitToHeader:)]) {
+	if ([delegate respondsToSelector: @selector(headerPage:limitToHeader:)]) {
 		[delegate headerPage: self
 			   limitToHeader: [node header]];
 	}
@@ -174,7 +174,7 @@ static NSString* IFHeaderBackgroundColour = @"IFHeaderBackgroundColour";
 - (void) headerView: (IFHeaderView*) view
  		 updateNode: (IFHeaderNode*) node
  	   withNewTitle: (NSString*) newTitle {
-	if (delegate && [delegate respondsToSelector: @selector(headerView:updateNode:withNewTitle:)]) {
+	if ([delegate respondsToSelector: @selector(headerView:updateNode:withNewTitle:)]) {
 		[delegate headerView: view
 				  updateNode: node
 				withNewTitle: newTitle];

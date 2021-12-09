@@ -38,8 +38,6 @@ NSString* IFSkeinSelectionChangedItemKey      = @"IFSkeinSelectionChangedItemKey
 }
 
 #pragma mark - Initialize
-- (instancetype) init { self = [super init]; return self; }
-
 - (instancetype) initWithProject: (IFProject*) theProject {
 	self = [super init];
 

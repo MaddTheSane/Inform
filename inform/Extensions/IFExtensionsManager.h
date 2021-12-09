@@ -23,7 +23,7 @@ extern NSString* IFCensusFinishedButDontUpdateExtensionsWebPageNotification;
 @property (atomic, strong) NSString* md5Hash;
 @property (atomic)         BOOL      isBuiltIn;
 
--(instancetype) init NS_UNAVAILABLE NS_DESIGNATED_INITIALIZER;
+-(instancetype) init NS_UNAVAILABLE;
 
 -(instancetype) initWithDisplayName: (NSString*) displayName
                  filepath: (NSString*) filepath
@@ -63,7 +63,7 @@ typedef enum IFExtensionDownloadState {
 @property (atomic, strong) NSURL*           url;
 
 // Download and install
-- (instancetype) init NS_UNAVAILABLE NS_DESIGNATED_INITIALIZER;
+- (instancetype) init NS_UNAVAILABLE;
 - (instancetype) initWithURL: (NSURL*) url
                       window: (NSWindow*) aWindow
               notifyDelegate: (NSObject*) notifyDelegate

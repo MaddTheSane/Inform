@@ -15,30 +15,20 @@
     NSRange     range;
 }
 
--(instancetype) init { self = [super init]; return self; }
-
 -(instancetype) initWithName:(NSString*) aName anchorTag:(NSString*) aAnchorTag range:(NSRange)aRange {
 	self = [super init];
 	
 	if (self) {
-        name      = aName;
-        anchorTag = aAnchorTag;
+        name      = [aName copy];
+        anchorTag = [aAnchorTag copy];
         range     = aRange;
     }
     return self;
 }
 
--(NSString *) name {
-    return name;
-}
-
--(NSString *) anchorTag {
-    return anchorTag;
-}
-
--(NSRange) range {
-    return range;
-}
+@synthesize name;
+@synthesize anchorTag;
+@synthesize range;
 @end
 
 @implementation IFCodeInfo {
@@ -46,40 +36,38 @@
     NSRange     range;
 }
 
--(instancetype) init { self = [super init]; return self; }
-
 -(instancetype) initWithAnchorTag:(NSString*) aAnchorTag range:(NSRange)aRange {
 	self = [super init];
 	
 	if (self) {
-        anchorTag = aAnchorTag;
+        anchorTag = [aAnchorTag copy];
         range     = aRange;
     }
     return self;
 }
 
--(NSString *) anchorTag {
-    return anchorTag;
-}
-
--(NSRange) range {
-    return range;
-}
+@synthesize anchorTag;
+@synthesize range;
 @end
 
 @implementation IFDocParser {
     // The parse results
-    NSString*       plainText;				// The plain text version of the HTML document
-    NSDictionary*   attributes;             // The attributes associated with the HTML document
-    NSDictionary*   exampleInfo;            // Dictionary of examples in the document. Keys are string version of example name, values are IFExampleInfo.
-    NSArray*        codeInfo;               // Array of IFCodeInfo specifying ranges in the document where code occurs.
-    NSArray*        definitionInfo;         // Array of IFCodeInfo specifying ranges in the document where definitions occur.
+    /// The plain text version of the HTML document
+    NSString*       plainText;
+    /// The attributes associated with the HTML document
+    NSDictionary*   attributes;
+    /// Dictionary of examples in the document. Keys are string version of example name, values are IFExampleInfo.
+    NSDictionary*   exampleInfo;
+    /// Array of IFCodeInfo specifying ranges in the document where code occurs.
+    NSArray*        codeInfo;
+    /// Array of IFCodeInfo specifying ranges in the document where definitions occur.
+    NSArray*        definitionInfo;
 }
 
-NSString* IFDocHtmlTitleAttribute = @"IFDocHtmlTitle";
-NSString* IFDocTitleAttribute = @"IFDocTitle";
-NSString* IFDocSectionAttribute = @"IFDocSection";
-NSString* IFDocSortAttribute = @"IFDocSort";
+NSString* const IFDocHtmlTitleAttribute = @"IFDocHtmlTitle";
+NSString* const IFDocTitleAttribute = @"IFDocTitle";
+NSString* const IFDocSectionAttribute = @"IFDocSection";
+NSString* const IFDocSortAttribute = @"IFDocSort";
 
 // = Static dictionaries =
 
@@ -110,8 +98,6 @@ typedef NS_ENUM(unsigned int, ParseState) {
 	HtmlCommentEnd2,
 	HtmlEntity
 };
-
--(instancetype) init { self = [super init]; return self; }
 
 - (instancetype) initWithHtml: (NSString*) html {
 	self = [super init];
@@ -459,22 +445,20 @@ typedef NS_ENUM(unsigned int, ParseState) {
 		}
 
 		// Tidy up
-		attr[IFDocHtmlTitleAttribute] = [NSString stringWithCharacters: title
-												 length: titleLength];
+		attr[IFDocHtmlTitleAttribute] = [[NSString alloc] initWithCharactersNoCopy: title
+                                                                            length: titleLength
+                                                                      freeWhenDone: YES];
 
-		plainText       = [NSString stringWithCharacters: result
-                                                  length: resultLength];
-        exampleInfo     = [NSDictionary dictionaryWithDictionary:exInfo];
-        codeInfo        = [NSArray arrayWithArray: cdInfo];
-        definitionInfo  = [NSArray arrayWithArray: dfInfo];
+		plainText       = [[NSString alloc] initWithCharactersNoCopy: result
+                                                              length: resultLength
+                                                        freeWhenDone: YES];
+        exampleInfo     = [exInfo copy];
+        codeInfo        = [cdInfo copy];
+        definitionInfo  = [dfInfo copy];
 
-        exInfo      = nil;
-        cdInfo      = nil;
-		attributes  = attr;
+		attributes  = [attr copy];
 
 		free(chrs);
-		free(result);
-		free(title);
 	}
 
 	return self;
@@ -482,24 +466,10 @@ typedef NS_ENUM(unsigned int, ParseState) {
 
 // = The results =
 
-- (NSString*) plainText {
-	return plainText;
-}
-
-- (NSDictionary*) attributes {
-	return attributes;
-}
-
-- (NSDictionary*) exampleInfo {
-	return exampleInfo;
-}
-
-- (NSArray*) codeInfo {
-	return codeInfo;
-}
-
-- (NSArray*) definitionInfo {
-    return definitionInfo;
-}
+@synthesize plainText;
+@synthesize attributes;
+@synthesize exampleInfo;
+@synthesize codeInfo;
+@synthesize definitionInfo;
 
 @end

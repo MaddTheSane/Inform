@@ -15,8 +15,6 @@
     NSMutableDictionary* filenamesToIndexes;
 }
 
-- (instancetype) init { self = [super init]; return self; }
-
 - (instancetype) initWithContentsOfFile: (NSString*) filename {
 	self = [self initWithData: [NSData dataWithContentsOfFile: filename]];
 	

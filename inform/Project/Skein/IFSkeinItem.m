@@ -27,8 +27,6 @@
 
 
 #pragma mark - Initialization
-- (instancetype) init { self = [super init]; return self; }
-
 - (instancetype) initWithSkein: (IFSkein*) skein
                        command: (NSString*) com {
 	self = [super init];
