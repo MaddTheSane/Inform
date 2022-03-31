@@ -184,13 +184,16 @@
 	}
 	
 	// Load up the data
-	NSData* urlData = [NSData dataWithContentsOfFile: path];
+    NSError* underlying = nil;
+	NSData* urlData = [NSData dataWithContentsOfFile: path
+                                             options: NSDataReadingMappedIfSafe
+                                               error: &underlying];
 	if (urlData == nil) {
 		// Failed to load for some other reason
 		[theClient URLProtocol: self
 			  didFailWithError: [NSError errorWithDomain: NSURLErrorDomain
 													code: NSURLErrorCannotOpenFile
-												userInfo: nil]];
+                                                userInfo: @{NSUnderlyingErrorKey: underlying}]];
 		return;
 	}
 		
