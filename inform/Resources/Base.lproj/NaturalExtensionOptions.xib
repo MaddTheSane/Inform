@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -68,20 +68,22 @@
                 </textField>
             </subviews>
             <constraints>
+                <constraint firstItem="7" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" id="9fi-Rb-bPq"/>
                 <constraint firstItem="26" firstAttribute="top" secondItem="6" secondAttribute="bottom" constant="18" id="LG2-Xd-Wdb"/>
                 <constraint firstItem="6" firstAttribute="firstBaseline" secondItem="7" secondAttribute="firstBaseline" id="N09-FD-SNb"/>
                 <constraint firstAttribute="trailing" secondItem="11" secondAttribute="trailing" constant="20" symbolic="YES" id="O5Z-h8-kO4"/>
-                <constraint firstItem="7" firstAttribute="leading" secondItem="26" secondAttribute="leading" id="XEC-SI-v1m"/>
                 <constraint firstItem="6" firstAttribute="top" secondItem="11" secondAttribute="bottom" constant="10" symbolic="YES" id="XbB-av-thO"/>
-                <constraint firstItem="12" firstAttribute="leading" secondItem="7" secondAttribute="leading" id="bHK-EF-i9H"/>
                 <constraint firstItem="11" firstAttribute="trailing" secondItem="6" secondAttribute="trailing" id="cIq-ep-a8M"/>
                 <constraint firstItem="6" firstAttribute="trailing" secondItem="26" secondAttribute="trailing" id="cvn-tF-gEg"/>
                 <constraint firstItem="11" firstAttribute="leading" secondItem="6" secondAttribute="leading" id="i4B-ro-CGk"/>
                 <constraint firstItem="12" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" id="jFR-HW-RTv"/>
                 <constraint firstItem="11" firstAttribute="leading" secondItem="12" secondAttribute="trailing" constant="8" symbolic="YES" id="oVh-MY-eF5"/>
                 <constraint firstItem="11" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" id="ofC-9n-dZ7"/>
+                <constraint firstItem="12" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" id="rc4-vM-IHu"/>
                 <constraint firstItem="26" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" id="rph-7H-I7o"/>
+                <constraint firstItem="6" firstAttribute="leading" secondItem="7" secondAttribute="trailing" constant="8" symbolic="YES" id="tiJ-qm-Tcg"/>
                 <constraint firstItem="11" firstAttribute="firstBaseline" secondItem="12" secondAttribute="firstBaseline" id="uCh-Dw-Of9"/>
+                <constraint firstItem="26" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" id="zcp-ZT-fLI"/>
             </constraints>
             <connections>
                 <outlet property="nextKeyView" destination="11" id="24"/>
