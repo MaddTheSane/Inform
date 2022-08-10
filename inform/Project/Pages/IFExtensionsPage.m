@@ -25,8 +25,6 @@
     // Page cells
     /// The 'Home' cell
     IFPageBarCell* homeCell;
-    /// The 'Definitions' cell
-    IFPageBarCell* definitionsCell;
     /// The 'Public Library' cell
     IFPageBarCell* publicLibraryCell;
     /// Maps URL paths to cells
@@ -49,11 +47,6 @@
 		[homeCell setTarget: self];
 		[homeCell setAction: @selector(showHome:)];
 
-		definitionsCell = [[IFPageBarCell alloc] initTextCell: [IFUtility localizedString: @"ExtensionDefinitions"
-                                                                                  default: @"Definitions"]];
-		[definitionsCell setTarget: self];
-		[definitionsCell setAction: @selector(showDefinitions:)];
-
 		publicLibraryCell = [[IFPageBarCell alloc] initTextCell: [IFUtility localizedString: @"ExtensionPublicLibrary"
                                                                                     default: @"Public Library"]];
 		[publicLibraryCell setTarget: self];
@@ -61,7 +54,6 @@
 
         // Static dictionary mapping tab names to cells
         tabDictionary = @{@"inform://Extensions/Extensions.html": homeCell,
-                          @"inform://Extensions/ExtIndex.html": definitionsCell,
                           [[IFUtility publicLibraryURL] absoluteString]: publicLibraryCell};
 
 		[[NSNotificationCenter defaultCenter] addObserver: self
@@ -73,7 +65,7 @@
 													 name: IFCensusFinishedNotification
 												   object: nil];
 		
-        // Create the view for the documentation tab
+        // Create the view for the extensions tab
         wView = [[WebView alloc] init];
         [wView setTextSizeMultiplier: [[IFPreferences sharedPreferences] appFontSizeMultiplier]];
         [wView setResourceLoadDelegate: self];
@@ -269,7 +261,7 @@
 #pragma mark - Page bar cells
 
 - (NSArray*) toolbarCells {
-	return @[publicLibraryCell, definitionsCell, homeCell];
+	return @[publicLibraryCell, homeCell];
 }
 
 -(NSString*) urlStringForCell:(IFPageBarCell*) cell {
@@ -283,10 +275,6 @@
 
 - (void) showHome: (id) sender {
 	[self openURL: [NSURL URLWithString: [self urlStringForCell:homeCell]]];
-}
-
-- (void) showDefinitions: (id) sender {
-	[self openURL: [NSURL URLWithString: [self urlStringForCell:definitionsCell]]];
 }
 
 - (void) showPublicLibrary: (id) sender {

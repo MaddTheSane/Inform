@@ -15,6 +15,7 @@
 #import "IFSkeinConstants.h"
 #import "IFUtility.h"
 #import "IFPreferences.h"
+#import "IFDiffer.h"
 
 #define SELECTION_OPTION_1    1
 
@@ -37,6 +38,8 @@ static NSImage* selected;
 static NSImage* unselected;
 /// Output differs from blessed transcript
 static NSImage* differsBadge;
+/// Winning item
+static NSImage* starBadge;
 /// No blessed transcript to test against
 static NSImage* untestedBadge;
 /// Active item
@@ -119,23 +122,24 @@ static NSDictionary* itemTextRootUnselectedAttributes   = nil;
     selected        = [NSImage imageNamed: @"App/Skein/Skein-selected"];
     unselected      = [NSImage imageNamed: @"App/Skein/Skein-unselected"];
     differsBadge    = [NSImage imageNamed: @"App/Skein/SkeinDiffersBadge"];
+    starBadge       = [NSImage imageNamed: @"App/Skein/SkeinStarBadge"];
     activeMenu      = [NSImage imageNamed: @"App/Skein/Skein-active-menu"];
     selectedMenu    = [NSImage imageNamed: @"App/Skein/Skein-selected-menu"];
     unselectedMenu  = [NSImage imageNamed: @"App/Skein/Skein-unselected-menu"];
     overMenu        = [NSImage imageNamed: @"App/Skein/Skein-over-menu"];
 
-    NSColor* selectedColor = [NSColor colorWithCalibratedRed:  43.0/255.0
-                                                       green: 123.0/255.0
-                                                        blue: 156.0/255.0
-                                                       alpha:   1.0];
-    NSColor* activeColor = [NSColor colorWithCalibratedRed: 120.0/255.0
-                                                     green:  74.0/255.0
-                                                      blue: 145.0/255.0
-                                                     alpha:   1.0];
-    NSColor* unselectedColor = [NSColor colorWithCalibratedRed: 93.0/255.0
-                                                         green: 93.0/255.0
-                                                          blue: 93.0/255.0
-                                                         alpha:  1.0];
+//    NSColor* selectedColor = [NSColor colorWithCalibratedRed:  43.0/255.0
+//                                                       green: 123.0/255.0
+//                                                        blue: 156.0/255.0
+//                                                       alpha:   1.0];
+//    NSColor* activeColor = [NSColor colorWithCalibratedRed: 120.0/255.0
+//                                                     green:  74.0/255.0
+//                                                      blue: 145.0/255.0
+//                                                     alpha:   1.0];
+//    NSColor* unselectedColor = [NSColor colorWithCalibratedRed: 93.0/255.0
+//                                                         green: 93.0/255.0
+//                                                          blue: 93.0/255.0
+//                                                         alpha:  1.0];
     NSColor* testMeTextColor = [NSColor colorWithCalibratedRed: 0.8
                                                          green: 0.8
                                                           blue: 0.8
@@ -148,19 +152,19 @@ static NSDictionary* itemTextRootUnselectedAttributes   = nil;
     // Standard attributes
     if (!itemTextSelectedAttributes) {
         itemTextSelectedAttributes = @{ NSFontAttributeName:            standardFont,
-                                        NSBackgroundColorAttributeName: selectedColor,
+//                                        NSBackgroundColorAttributeName: selectedColor,
                                         NSForegroundColorAttributeName: [NSColor whiteColor] };
     }
 
     if (!itemTextActiveAttributes) {
         itemTextActiveAttributes = @{ NSFontAttributeName:            standardFont,
-                                      NSBackgroundColorAttributeName: activeColor,
+//                                      NSBackgroundColorAttributeName: activeColor,
                                       NSForegroundColorAttributeName: [NSColor whiteColor] };
     }
 
     if (!itemTextUnselectedAttributes) {
         itemTextUnselectedAttributes = @{ NSFontAttributeName:            standardFont,
-                                          NSBackgroundColorAttributeName: unselectedColor,
+//                                          NSBackgroundColorAttributeName: unselectedColor,
                                           NSForegroundColorAttributeName: [NSColor whiteColor] };
     }
 
@@ -168,21 +172,21 @@ static NSDictionary* itemTextRootUnselectedAttributes   = nil;
     if (!itemTestMeTextSelectedAttributes) {
         itemTestMeTextSelectedAttributes = @{ NSFontAttributeName:        testMeFont,
                                               NSObliquenessAttributeName:     @(0.2),
-                                              NSBackgroundColorAttributeName: selectedColor,
+//                                              NSBackgroundColorAttributeName: selectedColor,
                                               NSForegroundColorAttributeName: testMeTextColor };
     }
 
     if (!itemTestMeTextActiveAttributes) {
         itemTestMeTextActiveAttributes = @{ NSFontAttributeName:            testMeFont,
                                             NSObliquenessAttributeName:     @(0.2),
-                                            NSBackgroundColorAttributeName: activeColor,
+//                                            NSBackgroundColorAttributeName: activeColor,
                                             NSForegroundColorAttributeName: testMeTextColor };
     }
 
     if (!itemTestMeTextUnselectedAttributes) {
         itemTestMeTextUnselectedAttributes = @{ NSFontAttributeName:            testMeFont,
                                                 NSObliquenessAttributeName:     @(0.2),
-                                                NSBackgroundColorAttributeName: unselectedColor,
+//                                                NSBackgroundColorAttributeName: unselectedColor,
                                                 NSForegroundColorAttributeName: testMeTextColor };
     }
     
@@ -190,19 +194,19 @@ static NSDictionary* itemTextRootUnselectedAttributes   = nil;
     // Root attributes
     if (!itemTextRootSelectedAttributes) {
         itemTextRootSelectedAttributes = @{ NSFontAttributeName:            rootFont,
-                                            NSBackgroundColorAttributeName: selectedColor,
+//                                            NSBackgroundColorAttributeName: selectedColor,
                                             NSForegroundColorAttributeName: [NSColor whiteColor] };
     }
 
     if (!itemTextRootActiveAttributes) {
         itemTextRootActiveAttributes = @{ NSFontAttributeName:              rootFont,
-                                          NSBackgroundColorAttributeName:   activeColor,
+//                                          NSBackgroundColorAttributeName:   activeColor,
                                           NSForegroundColorAttributeName:   [NSColor whiteColor] };
     }
 
     if (!itemTextRootUnselectedAttributes) {
         itemTextRootUnselectedAttributes = @{ NSFontAttributeName:              rootFont,
-                                              NSBackgroundColorAttributeName:   unselectedColor,
+//                                              NSBackgroundColorAttributeName:   unselectedColor,
                                               NSForegroundColorAttributeName:   [NSColor whiteColor] };
     }
 }
@@ -332,6 +336,17 @@ static NSDictionary* itemTextRootUnselectedAttributes   = nil;
                            atPoint: NSMakePoint(0, 0)
                          withWidth: commandSize.width];
 
+    // Draw star if we are the winning item
+    if ([[self.skeinView skein] isTheWinningItem: layoutItem.item]) {
+        float height = starBadge.size.height/2;
+        float width = starBadge.size.width/2;
+        [starBadge drawInRect: NSMakeRect(0.0, 0.0 /*floor(self.frame.size.height) - height - 9*/,
+                                          width, height)
+                     fromRect: NSZeroRect
+                    operation: NSCompositingOperationSourceOver
+                     fraction: 1.0];
+    }
+
     // Draw the menu if necessary
     if( insideLozengeArea || insideMenuArea ) {
         if( [self.skeinView hasMenu: layoutItem.item] ) {
@@ -453,9 +468,9 @@ static NSDictionary* itemTextRootUnselectedAttributes   = nil;
 
     // Draw the text
     NSDictionary* sizedTextAttributes =  @[itemTextRootUnselectedAttributes,  itemTextRootSelectedAttributes, itemTextRootActiveAttributes,
-                                           itemTextUnselectedAttributes,      itemTextSelectedAttributes,     itemTextActiveAttributes,
-                                           itemTestMeTextUnselectedAttributes,itemTestMeTextSelectedAttributes, itemTestMeTextActiveAttributes
-                                          ][textAttributesIndex];
+                                 itemTextUnselectedAttributes,      itemTextSelectedAttributes,     itemTextActiveAttributes,
+                                 itemTestMeTextUnselectedAttributes,itemTestMeTextSelectedAttributes, itemTestMeTextActiveAttributes
+                                ][textAttributesIndex];
 
     [title drawAtPoint: NSMakePoint(floor(commandX), floor(commandY))
         withAttributes: sizedTextAttributes];

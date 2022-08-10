@@ -58,10 +58,10 @@
     IFProject* doc = [self.parent document];
 
     if( [doc projectFileType] == IFFileTypeInform7ExtensionProject ) {
-        [textView setBackgroundColor: [[IFPreferences sharedPreferences] extensionPaperColour]];
+        [textView setBackgroundColor: [[IFPreferences sharedPreferences] getExtensionPaper].colour];
     }
     else {
-        [textView setBackgroundColor: [[IFPreferences sharedPreferences] sourcePaperColour]];
+        [textView setBackgroundColor: [[IFPreferences sharedPreferences] getSourcePaper].colour];
     }
 }
 
@@ -123,7 +123,6 @@
         [textView setAllowsUndo:YES];
         [textView setRichText:NO];
         [textView setEnabledTextCheckingTypes:0];
-        [textView setBackgroundColor: [[IFPreferences sharedPreferences] sourcePaperColour]];
 
         [[textView textContainer] setContainerSize: NSMakeSize(contentSize.width, FLT_MAX)];
         [[textView textContainer] setWidthTracksTextView: YES];
@@ -707,44 +706,7 @@
 #pragma mark - Breakpoints
 
 - (BOOL)validateMenuItem:(NSMenuItem*) menuItem {
-	SEL itemSelector = [menuItem action];
-
-    // Only allow breakpoints if we can debug
-	if ((itemSelector == @selector(setBreakpoint:)) ||
-        (itemSelector == @selector(deleteBreakpoint:)) ) {
-        return [self.parent canDebug];
-    }
     return YES;
-}
-
-- (IBAction) setBreakpoint: (id) sender {
-	// Sets a breakpoint at the current location in the current source file
-	
-	// Work out which file and line we're in
-	NSString* currentFile = [self currentFile];
-	int currentLine = [self currentLine];
-	
-	if (currentLine >= 0) {
-		NSLog(@"Added breakpoint at %@:%i", currentFile, currentLine);
-		
-		[[self.parent document] addBreakpointAtLine: currentLine
-                                             inFile: currentFile];
-	}
-}
-
-- (IBAction) deleteBreakpoint: (id) sender {
-	// Sets a breakpoint at the current location in the current source file
-	
-	// Work out which file and line we're in
-	NSString* currentFile = [self currentFile];
-	int currentLine = [self currentLine];
-	
-	if (currentLine >= 0) {
-		NSLog(@"Deleted breakpoint at %@:%i", currentFile, currentLine);
-		
-		[[self.parent document] removeBreakpointAtLine: currentLine
-                                                inFile: currentFile];
-	}	
 }
 
 #pragma mark - Spell checking

@@ -125,7 +125,7 @@ These files can be produced by using the 'recording on' and 'recording off' comm
 /* Welcome / Launcher dialog */
 "Create Project..." = "Project";
 "Create Extension..." = "Extension";
-"Save Documentation for iBooks" = "Save Documentation for iBooks";
+"Save Documentation as eBooks" = "Save Documentation as eBooks";
 "Copy Onyx" = "Onyx\t(a small project)";
 "Copy Disenchantment Bay" = "Disenchantment Bay\t(a medium project)";
 "Link to IFDB" = "Browse Inform projects with public source at IFDB";
@@ -226,6 +226,7 @@ Extensions that are in system directories cannot be deleted.";
 "Author preferences tooltip" = "You can set a default author name, used when creating new projects using this panel.";
 "Advanced preferences tooltip" = "This preference panel contains options mainly intended for maintainers of Inform or those authoring particularly advanced extensions.";
 "Editing preferences tooltip" = "You can change the appearance of source formatted by Inform using this panel.";
+"Colour preferences tooltip" = "You can change the colours of source formatted by Inform using this panel.";
 "Text size preferences tooltip" = "You can change the size of text using this panel.";
 
 /* Status messages */
@@ -303,12 +304,12 @@ Extensions that are in system directories cannot be deleted.";
 "This action cannot be undone." = "This action cannot be undone.";
 
 /* Toolbar name and version */
-"Build Version" = "6M62";
+"Build Version" = "10.1.0";
 "Build %@" = "Build %@";
 "Inform" = "Inform";
 
 /* Public Library */
-"PublicLibraryURL" = "http://www.emshort.com/pl/index.html";
+"PublicLibraryURL" = "https://ganelson.github.io/inform-public-library/index-macos.html";
 
 "Export failed" = "Export failed";
 "Export of %@ failed - could not find source." = "Export of %@ failed - could not find source.";
@@ -328,3 +329,6 @@ Extensions that are in system directories cannot be deleted.";
 
 "Open..." = "Open…";
 "No notes available" = "No notes available";
+
+"Could not launch compiler." = "Could not launch compiler.";
+"One possibility is that the project's language version '%@' is not available. Try setting the language version in Settings." = "One possibility is that the project's current language version '%@' is not available. Try setting the language version in Settings.";

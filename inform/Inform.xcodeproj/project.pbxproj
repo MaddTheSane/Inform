@@ -34,7 +34,6 @@
 		4BCF78A90641A53E00516872 /* IFInspectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BCF78A70641A53E00516872 /* IFInspectorWindow.m */; };
 		4BD275E50871A81800C1AE15 /* ZoomView.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD275CC0871A80F00C1AE15 /* ZoomView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4BD95A06055EE949008DEFF4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
-		4BD95A0D055EE949008DEFF4 /* standardMain.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4B94BF8505138C7200A8E303 /* standardMain.inf */; };
 		4BD95A10055EE949008DEFF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		4BD95A1F055EE949008DEFF4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		4BF88F9E08FD544E00F5DFDE /* IFAdvancedPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF88F9C08FD544E00F5DFDE /* IFAdvancedPreferences.m */; };
@@ -56,18 +55,15 @@
 		FF0508DF18B4D5AE004081FF /* AuthorPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0508DC18B4D5AE004081FF /* AuthorPreferences.xib */; };
 		FF0508F018B4D608004081FF /* CompilerSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0508E018B4D608004081FF /* CompilerSettings.xib */; };
 		FF0508F118B4D608004081FF /* DebugSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0508E218B4D608004081FF /* DebugSettings.xib */; };
-		FF0508F218B4D608004081FF /* Inform6Extensions.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0508E418B4D608004081FF /* Inform6Extensions.xib */; };
 		FF0508F318B4D608004081FF /* LibrarySettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0508E618B4D608004081FF /* LibrarySettings.xib */; };
 		FF0508F418B4D608004081FF /* MiscSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0508E818B4D608004081FF /* MiscSettings.xib */; };
 		FF0508F618B4D608004081FF /* OutputSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0508EC18B4D608004081FF /* OutputSettings.xib */; };
 		FF0508F718B4D608004081FF /* RandomSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0508EE18B4D608004081FF /* RandomSettings.xib */; };
 		FF0508FC18B4D655004081FF /* NewFile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0508F818B4D655004081FF /* NewFile.xib */; };
 		FF0508FD18B4D655004081FF /* NoteInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0508FA18B4D655004081FF /* NoteInspector.xib */; };
-		FF05090C18B4D692004081FF /* BreakpointInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0508FE18B4D692004081FF /* BreakpointInspector.xib */; };
 		FF05090D18B4D692004081FF /* FileInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF05090018B4D692004081FF /* FileInspector.xib */; };
 		FF05090E18B4D692004081FF /* IndexInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF05090218B4D692004081FF /* IndexInspector.xib */; };
 		FF05091118B4D692004081FF /* SkeinInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF05090818B4D692004081FF /* SkeinInspector.xib */; };
-		FF05091218B4D692004081FF /* WatchInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF05090A18B4D692004081FF /* WatchInspector.xib */; };
 		FF05094218B4D74E004081FF /* Compiling.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF05092D18B4D74E004081FF /* Compiling.xib */; };
 		FF05094318B4D74E004081FF /* HeadingsBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF05092F18B4D74E004081FF /* HeadingsBrowser.xib */; };
 		FF05094418B4D74E004081FF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF05093118B4D74E004081FF /* MainMenu.xib */; };
@@ -83,10 +79,16 @@
 		FF12D9051B04981900547504 /* IFSkeinItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF12D9031B04981900547504 /* IFSkeinItemView.m */; };
 		FF12D9091B04F3CB00547504 /* IFSkeinViewChildren.m in Sources */ = {isa = PBXBuildFile; fileRef = FF12D9071B04F3CB00547504 /* IFSkeinViewChildren.m */; };
 		FF1B29C21B22F672009A1396 /* NSAttributedString+IFStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1B29C01B22F672009A1396 /* NSAttributedString+IFStringExtensions.m */; };
+		FF23DC35283E11040070DDD6 /* IFBasicInformSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = FF23DC34283E11040070DDD6 /* IFBasicInformSettings.m */; };
+		FF23DC40283E20AD0070DDD6 /* BasicInformSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF23DC3E283E20AD0070DDD6 /* BasicInformSettings.xib */; };
 		FF2F527C19152D9700C190F0 /* MaterialsDiagram.png in Resources */ = {isa = PBXBuildFile; fileRef = FF2F527A19152D9700C190F0 /* MaterialsDiagram.png */; };
+		FF3609FE28A3C90C0003B924 /* IFSemVer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3609FD28A3BDCE0003B924 /* IFSemVer.m */; };
 		FF3CEA9A18D5E5CA00A10D00 /* IFEditingPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3CEA9818D5E5CA00A10D00 /* IFEditingPreferences.m */; };
 		FF3CEAA818D5E6F300A10D00 /* EditingPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3CEAA618D5E6F300A10D00 /* EditingPreferences.xib */; };
 		FF3E25D218A9129900F2A813 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3E25D118A9129900F2A813 /* QuartzCore.framework */; };
+		FF452D11285BE22200EF406C /* NewsTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = FF452CF3285BE22200EF406C /* NewsTemplate.html */; };
+		FF452D1628608E2300EF406C /* IFNewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF452D1528608E2300EF406C /* IFNewsManager.m */; };
+		FF452D1C2861BA0A00EF406C /* IFNewsCustomSchemeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FF452D1B2861BA0A00EF406C /* IFNewsCustomSchemeHandler.m */; };
 		FF47126418F181D3006717B3 /* NSString+IFStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF47126218F181D3006717B3 /* NSString+IFStringExtensions.m */; };
 		FF47127318F18304006717B3 /* NSMutableString+IFMutableStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF47127118F18304006717B3 /* NSMutableString+IFMutableStringExtensions.m */; };
 		FF47127718F18449006717B3 /* NSBundle+IFBundleExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF47127518F18449006717B3 /* NSBundle+IFBundleExtensions.m */; };
@@ -102,11 +104,9 @@
 		FF4712A718F18832006717B3 /* IFSkeinPage.m in Sources */ = {isa = PBXBuildFile; fileRef = FF47129318F18832006717B3 /* IFSkeinPage.m */; };
 		FF4712A918F18832006717B3 /* IFSourcePage.m in Sources */ = {isa = PBXBuildFile; fileRef = FF47129518F18832006717B3 /* IFSourcePage.m */; };
 		FF4712CA18F18873006717B3 /* IFNewInform7Project.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712BD18F18873006717B3 /* IFNewInform7Project.m */; };
-		FF4712CC18F18873006717B3 /* IFNewEmptyInform6Project.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712BF18F18873006717B3 /* IFNewEmptyInform6Project.m */; };
 		FF4712CE18F18873006717B3 /* IFNewInform7ExtensionFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712C118F18873006717B3 /* IFNewInform7ExtensionFile.m */; };
 		FF4712D018F18873006717B3 /* IFNewProject.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712C318F18873006717B3 /* IFNewProject.m */; };
 		FF4712D218F18873006717B3 /* IFNewProjectFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712C518F18873006717B3 /* IFNewProjectFile.m */; };
-		FF4712D518F18873006717B3 /* IFNewInform6Project.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712C818F18873006717B3 /* IFNewInform6Project.m */; };
 		FF4712E218F18890006717B3 /* IFInform6Highlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D718F18890006717B3 /* IFInform6Highlighter.m */; };
 		FF4712E418F18890006717B3 /* IFNaturalHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D918F18890006717B3 /* IFNaturalHighlighter.m */; };
 		FF4712E618F18890006717B3 /* IFNoHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DB18F18890006717B3 /* IFNoHighlighter.m */; };
@@ -148,6 +148,7 @@
 		FF47135918F18B7D006717B3 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF47134D18F18B7D006717B3 /* Settings.xib */; };
 		FF47135A18F18B7D006717B3 /* Skein.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF47134F18F18B7D006717B3 /* Skein.xib */; };
 		FF47135B18F18B7D006717B3 /* Source.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF47135118F18B7D006717B3 /* Source.xib */; };
+		FF536C1728205101004E4069 /* IFColourTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536C1628205101004E4069 /* IFColourTheme.m */; };
 		FF53963A18FEE400001715D7 /* IFToolbarProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FF53963818FEE400001715D7 /* IFToolbarProgressIndicator.m */; };
 		FF5D0BA51B05EB6A00BE2BD0 /* IFSkeinLinkView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5D0BA31B05EB6A00BE2BD0 /* IFSkeinLinkView.m */; };
 		FF671EA21B9ADEBB00246820 /* IFSkeinSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF671EA01B9ADEBB00246820 /* IFSkeinSplitView.m */; };
@@ -158,11 +159,9 @@
 		FF71A82318F1492500CB9B31 /* IFMaintenanceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A81518F1492500CB9B31 /* IFMaintenanceTask.m */; };
 		FF71A83618F149AC00CB9B31 /* IFExtensionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A83418F149AC00CB9B31 /* IFExtensionsManager.m */; };
 		FF71A84618F14A4100CB9B31 /* IFDocParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A83818F14A4100CB9B31 /* IFDocParser.m */; };
-		FF71A84818F14A4100CB9B31 /* IFIsBreakpoints.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A83A18F14A4100CB9B31 /* IFIsBreakpoints.m */; };
 		FF71A84A18F14A4100CB9B31 /* IFIsFiles.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A83C18F14A4100CB9B31 /* IFIsFiles.m */; };
 		FF71A84C18F14A4100CB9B31 /* IFIsIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A83E18F14A4100CB9B31 /* IFIsIndex.m */; };
 		FF71A84E18F14A4100CB9B31 /* IFIsNotes.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A84018F14A4100CB9B31 /* IFIsNotes.m */; };
-		FF71A85218F14A4100CB9B31 /* IFIsWatch.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A84418F14A4100CB9B31 /* IFIsWatch.m */; };
 		FF71A85618F14A8C00CB9B31 /* IFJSProject.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A85418F14A8C00CB9B31 /* IFJSProject.m */; };
 		FF71A87018F14B9B00CB9B31 /* IFHistoryEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A85818F14B9B00CB9B31 /* IFHistoryEvent.m */; };
 		FF71A87218F14B9B00CB9B31 /* IFIndexFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A85A18F14B9B00CB9B31 /* IFIndexFile.m */; };
@@ -207,11 +206,14 @@
 		FF8D85E7190661AF00B9D789 /* IFRecentFileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8D85E5190661AF00B9D789 /* IFRecentFileCell.m */; };
 		FF8D85F61906639D00B9D789 /* IFRecentFileCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8D85F41906639D00B9D789 /* IFRecentFileCellInfo.m */; };
 		FF94AB641905DF5D008BCAF5 /* Launcher.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF94AB621905DF5D008BCAF5 /* Launcher.xib */; };
-		FFA7369518DC428D0073A1DD /* TextSizePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA7369318DC428D0073A1DD /* TextSizePreferences.xib */; };
-		FFA736A418DC452D0073A1DD /* IFTextSizePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA736A218DC452D0073A1DD /* IFTextSizePreferences.m */; };
 		FFAD448F21E1047600C4896F /* CompilerVersionSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFAD448E21E1047600C4896F /* CompilerVersionSettings.xib */; };
 		FFAD449221E1364700C4896F /* IFCompilerVersionSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAD449021E1364700C4896F /* IFCompilerVersionSettings.m */; };
 		FFB92D3418FE5D8A00D6D28D /* IFProjectMaterialsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB92D3218FE5D8A00D6D28D /* IFProjectMaterialsPresenter.m */; };
+		FFC9EF2328292B1D00BF2C84 /* IFColourTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536C1628205101004E4069 /* IFColourTheme.m */; };
+		FFCC0A8C2831336A008CBBF0 /* NewThemeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFCC0A8B2831336A008CBBF0 /* NewThemeWindow.xib */; };
+		FFCC0AAA283133EC008CBBF0 /* IFNewThemeWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCC0AA9283133EC008CBBF0 /* IFNewThemeWindow.m */; };
+		FFD2BD642819EB8E00AD36B6 /* ColourPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD2BD462819EB8E00AD36B6 /* ColourPreferences.xib */; };
+		FFD2BD672819EB9C00AD36B6 /* IFColourPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BD652819EB9C00AD36B6 /* IFColourPreferences.m */; };
 		FFDBF73018F9BA18004F53DD /* GlkView.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 4B81D33E08112F6C00CF609F /* GlkView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFDDC17A18F9BF4A00420DEF /* GlkView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B81D33E08112F6C00CF609F /* GlkView.framework */; };
 		FFE203181AEE4ADC00CC5497 /* IFNewInform7ExtensionProject.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE203161AEE4ADC00CC5497 /* IFNewInform7ExtensionProject.m */; };
@@ -570,7 +572,6 @@
 		4B81D33D08112F6C00CF609F /* GlkClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GlkClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B81D33E08112F6C00CF609F /* GlkView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GlkView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B81D33F08112F6C00CF609F /* glulxe-client */ = {isa = PBXFileReference; lastKnownFileType = text; path = "glulxe-client"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B94BF8305138C6B00A8E303 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = en.lproj/standardMain.inf; sourceTree = "<group>"; };
 		4B96DF4F04F11BF500A8E303 /* IFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFAppDelegate.h; sourceTree = "<group>"; };
 		4B96DF5004F11BF500A8E303 /* IFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFAppDelegate.m; sourceTree = "<group>"; };
 		4BA3790F0CD3E39700C7B1D4 /* InformQL.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InformQL.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -600,11 +601,9 @@
 		557AB308274D96CB000E8F0B /* PreferenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceController.swift; sourceTree = "<group>"; usesTabs = 1; };
 		557AB30A274E1A6F000E8F0B /* AuthorPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorPreferences.swift; sourceTree = "<group>"; usesTabs = 1; };
 		55BA273C2746681A006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Headers.xib; sourceTree = "<group>"; };
-		55BA273D2746681A006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BreakpointInspector.xib; sourceTree = "<group>"; };
 		55BA273E2746681A006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FileInspector.xib; sourceTree = "<group>"; };
 		55BA273F2746681A006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IndexInspector.xib; sourceTree = "<group>"; };
 		55BA27402746681A006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SkeinInspector.xib; sourceTree = "<group>"; };
-		55BA27412746681A006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WatchInspector.xib; sourceTree = "<group>"; };
 		55BA27422746681A006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EditingPreferences.xib; sourceTree = "<group>"; };
 		55BA27432746681A006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Documentation.xib; sourceTree = "<group>"; };
 		55BA27442746681A006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Errors.xib; sourceTree = "<group>"; };
@@ -629,13 +628,11 @@
 		55BA27572746681B006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NoteInspector.xib; sourceTree = "<group>"; };
 		55BA27582746681B006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CompilerSettings.xib; sourceTree = "<group>"; };
 		55BA27592746681B006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DebugSettings.xib; sourceTree = "<group>"; };
-		55BA275A2746681C006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Inform6Extensions.xib; sourceTree = "<group>"; };
 		55BA275B2746681C006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LibrarySettings.xib; sourceTree = "<group>"; };
 		55BA275C2746681C006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MiscSettings.xib; sourceTree = "<group>"; };
 		55BA275D2746681C006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OutputSettingsI7.xib; sourceTree = "<group>"; };
 		55BA275E2746681C006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OutputSettings.xib; sourceTree = "<group>"; };
 		55BA275F2746681C006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RandomSettings.xib; sourceTree = "<group>"; };
-		55BA27602746681C006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TextSizePreferences.xib; sourceTree = "<group>"; };
 		55BA27612746681C006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AdvancedPreferences.xib; sourceTree = "<group>"; };
 		55BA27622746681C006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AuthorPreferences.xib; sourceTree = "<group>"; };
 		55BA276627466873006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Launcher.strings; sourceTree = "<group>"; };
@@ -650,17 +647,13 @@
 		55BA278827466984006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OutputSettingsI7.strings; sourceTree = "<group>"; };
 		55BA278C27466995006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OutputSettings.strings; sourceTree = "<group>"; };
 		55BA27902746699F006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RandomSettings.strings; sourceTree = "<group>"; };
-		55BA2794274669C0006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TextSizePreferences.strings; sourceTree = "<group>"; };
 		55BA2798274669CE006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AdvancedPreferences.strings; sourceTree = "<group>"; };
 		55BA279C274669D9006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AuthorPreferences.strings; sourceTree = "<group>"; };
 		55BA27A0274669EE006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EditingPreferences.strings; sourceTree = "<group>"; };
-		55BA27A427466A09006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WatchInspector.strings; sourceTree = "<group>"; };
 		55BA27A627466A5B006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Headers.strings; sourceTree = "<group>"; };
-		55BA27AA27466A8E006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BreakpointInspector.strings; sourceTree = "<group>"; };
 		55BA27AC27466AC2006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Find.strings; sourceTree = "<group>"; };
 		55BA27AE27466AD0006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FindInFiles.strings; sourceTree = "<group>"; };
 		55BA27B227466AE9006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StandardProjectOptions.strings; sourceTree = "<group>"; };
-		55BA27B627466AFC006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Inform6Extensions.strings; sourceTree = "<group>"; };
 		55BFABEF274481760049646A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		55BFABF62744983B0049646A /* CocoaGlk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaGlk.xcodeproj; path = ../zoom/depends/CocoaGlk/CocoaGlk.xcodeproj; sourceTree = "<group>"; };
 		55C916EA27518B6B003725D4 /* ProblemHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemHandlers.swift; sourceTree = "<group>"; usesTabs = 1; };
@@ -681,12 +674,20 @@
 		FF1B29C01B22F672009A1396 /* NSAttributedString+IFStringExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+IFStringExtensions.m"; sourceTree = "<group>"; };
 		FF236BD719F92CA700F9FAAD /* compiler_injection.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = compiler_injection.sh; sourceTree = "<group>"; };
 		FF236BD819F92CA700F9FAAD /* final_build_phase.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = final_build_phase.sh; sourceTree = "<group>"; };
-		FF236BD919F92CA700F9FAAD /* pre_build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pre_build.sh; sourceTree = "<group>"; };
-		FF236BDA19F92CA700F9FAAD /* replace_versions.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = replace_versions.pl; sourceTree = "<group>"; };
+		FF23DC17283E11040070DDD6 /* IFBasicInformSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFBasicInformSettings.h; sourceTree = "<group>"; };
+		FF23DC34283E11040070DDD6 /* IFBasicInformSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFBasicInformSettings.m; sourceTree = "<group>"; };
+		FF23DC3F283E20AD0070DDD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BasicInformSettings.xib; sourceTree = "<group>"; };
 		FF2F527B19152D9700C190F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/MaterialsDiagram.png; sourceTree = "<group>"; };
+		FF3609E028A3BD960003B924 /* IFSemVer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IFSemVer.h; sourceTree = "<group>"; };
+		FF3609FD28A3BDCE0003B924 /* IFSemVer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IFSemVer.m; sourceTree = "<group>"; };
 		FF3CEA9718D5E5CA00A10D00 /* IFEditingPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFEditingPreferences.h; sourceTree = "<group>"; };
 		FF3CEA9818D5E5CA00A10D00 /* IFEditingPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFEditingPreferences.m; sourceTree = "<group>"; };
 		FF3E25D118A9129900F2A813 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FF452CF4285BE22200EF406C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/NewsTemplate.html; sourceTree = "<group>"; };
+		FF452D1528608E2300EF406C /* IFNewsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IFNewsManager.m; path = Welcome/IFNewsManager.m; sourceTree = SOURCE_ROOT; };
+		FF452D1728608E6E00EF406C /* IFNewsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IFNewsManager.h; sourceTree = "<group>"; };
+		FF452D1B2861BA0A00EF406C /* IFNewsCustomSchemeHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IFNewsCustomSchemeHandler.m; sourceTree = "<group>"; };
+		FF452D1D2861BA6C00EF406C /* IFNewsCustomSchemeHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IFNewsCustomSchemeHandler.h; sourceTree = "<group>"; };
 		FF47126118F181D3006717B3 /* NSString+IFStringExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IFStringExtensions.h"; sourceTree = "<group>"; };
 		FF47126218F181D3006717B3 /* NSString+IFStringExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IFStringExtensions.m"; sourceTree = "<group>"; };
 		FF47127018F18304006717B3 /* NSMutableString+IFMutableStringExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+IFMutableStringExtensions.h"; sourceTree = "<group>"; };
@@ -717,8 +718,6 @@
 		FF47129518F18832006717B3 /* IFSourcePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = IFSourcePage.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FF4712BC18F18873006717B3 /* IFNewInform7Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFNewInform7Project.h; sourceTree = "<group>"; };
 		FF4712BD18F18873006717B3 /* IFNewInform7Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFNewInform7Project.m; sourceTree = "<group>"; };
-		FF4712BE18F18873006717B3 /* IFNewEmptyInform6Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFNewEmptyInform6Project.h; sourceTree = "<group>"; };
-		FF4712BF18F18873006717B3 /* IFNewEmptyInform6Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFNewEmptyInform6Project.m; sourceTree = "<group>"; };
 		FF4712C018F18873006717B3 /* IFNewInform7ExtensionFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFNewInform7ExtensionFile.h; sourceTree = "<group>"; };
 		FF4712C118F18873006717B3 /* IFNewInform7ExtensionFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFNewInform7ExtensionFile.m; sourceTree = "<group>"; };
 		FF4712C218F18873006717B3 /* IFNewProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFNewProject.h; sourceTree = "<group>"; };
@@ -726,8 +725,6 @@
 		FF4712C418F18873006717B3 /* IFNewProjectFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFNewProjectFile.h; sourceTree = "<group>"; };
 		FF4712C518F18873006717B3 /* IFNewProjectFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFNewProjectFile.m; sourceTree = "<group>"; };
 		FF4712C618F18873006717B3 /* IFNewProjectProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFNewProjectProtocol.h; sourceTree = "<group>"; };
-		FF4712C718F18873006717B3 /* IFNewInform6Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFNewInform6Project.h; sourceTree = "<group>"; };
-		FF4712C818F18873006717B3 /* IFNewInform6Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFNewInform6Project.m; sourceTree = "<group>"; };
 		FF4712D618F18890006717B3 /* IFInform6Highlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFInform6Highlighter.h; sourceTree = "<group>"; };
 		FF4712D718F18890006717B3 /* IFInform6Highlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFInform6Highlighter.m; sourceTree = "<group>"; };
 		FF4712D818F18890006717B3 /* IFNaturalHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFNaturalHighlighter.h; sourceTree = "<group>"; };
@@ -775,6 +772,8 @@
 		FF47131F18F188E3006717B3 /* IFFindWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFFindWebView.m; sourceTree = "<group>"; };
 		FF47132018F188E3006717B3 /* IFScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFScanner.h; sourceTree = "<group>"; };
 		FF47132118F188E3006717B3 /* IFScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFScanner.m; sourceTree = "<group>"; };
+		FF536C1528205100004E4069 /* IFColourTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFColourTheme.h; sourceTree = "<group>"; };
+		FF536C1628205101004E4069 /* IFColourTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFColourTheme.m; sourceTree = "<group>"; };
 		FF53963718FEE400001715D7 /* IFToolbarProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFToolbarProgressIndicator.h; sourceTree = "<group>"; };
 		FF53963818FEE400001715D7 /* IFToolbarProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFToolbarProgressIndicator.m; sourceTree = "<group>"; };
 		FF5D0BA21B05EB6A00BE2BD0 /* IFSkeinLinkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFSkeinLinkView.h; sourceTree = "<group>"; };
@@ -794,16 +793,12 @@
 		FF71A83418F149AC00CB9B31 /* IFExtensionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFExtensionsManager.m; sourceTree = "<group>"; };
 		FF71A83718F14A4100CB9B31 /* IFDocParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFDocParser.h; sourceTree = "<group>"; };
 		FF71A83818F14A4100CB9B31 /* IFDocParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFDocParser.m; sourceTree = "<group>"; };
-		FF71A83918F14A4100CB9B31 /* IFIsBreakpoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIsBreakpoints.h; sourceTree = "<group>"; };
-		FF71A83A18F14A4100CB9B31 /* IFIsBreakpoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFIsBreakpoints.m; sourceTree = "<group>"; };
 		FF71A83B18F14A4100CB9B31 /* IFIsFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIsFiles.h; sourceTree = "<group>"; };
 		FF71A83C18F14A4100CB9B31 /* IFIsFiles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFIsFiles.m; sourceTree = "<group>"; };
 		FF71A83D18F14A4100CB9B31 /* IFIsIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIsIndex.h; sourceTree = "<group>"; };
 		FF71A83E18F14A4100CB9B31 /* IFIsIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFIsIndex.m; sourceTree = "<group>"; };
 		FF71A83F18F14A4100CB9B31 /* IFIsNotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIsNotes.h; sourceTree = "<group>"; };
 		FF71A84018F14A4100CB9B31 /* IFIsNotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFIsNotes.m; sourceTree = "<group>"; };
-		FF71A84318F14A4100CB9B31 /* IFIsWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIsWatch.h; sourceTree = "<group>"; };
-		FF71A84418F14A4100CB9B31 /* IFIsWatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFIsWatch.m; sourceTree = "<group>"; };
 		FF71A85318F14A8C00CB9B31 /* IFJSProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = IFJSProject.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		FF71A85418F14A8C00CB9B31 /* IFJSProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = IFJSProject.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FF71A85718F14B9B00CB9B31 /* IFHistoryEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = IFHistoryEvent.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -881,13 +876,19 @@
 		FF8D85E5190661AF00B9D789 /* IFRecentFileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFRecentFileCell.m; sourceTree = "<group>"; };
 		FF8D85F31906639D00B9D789 /* IFRecentFileCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFRecentFileCellInfo.h; sourceTree = "<group>"; };
 		FF8D85F41906639D00B9D789 /* IFRecentFileCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFRecentFileCellInfo.m; sourceTree = "<group>"; };
-		FFA736A118DC452D0073A1DD /* IFTextSizePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTextSizePreferences.h; sourceTree = "<group>"; };
-		FFA736A218DC452D0073A1DD /* IFTextSizePreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTextSizePreferences.m; sourceTree = "<group>"; };
 		FFAD448E21E1047600C4896F /* CompilerVersionSettings.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompilerVersionSettings.xib; sourceTree = "<group>"; };
 		FFAD449021E1364700C4896F /* IFCompilerVersionSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFCompilerVersionSettings.m; sourceTree = "<group>"; };
 		FFAD449121E1364700C4896F /* IFCompilerVersionSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCompilerVersionSettings.h; sourceTree = "<group>"; };
 		FFB92D3118FE5D8A00D6D28D /* IFProjectMaterialsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFProjectMaterialsPresenter.h; sourceTree = "<group>"; };
 		FFB92D3218FE5D8A00D6D28D /* IFProjectMaterialsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFProjectMaterialsPresenter.m; sourceTree = "<group>"; };
+		FFCC0A8B2831336A008CBBF0 /* NewThemeWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewThemeWindow.xib; sourceTree = "<group>"; };
+		FFCC0AA9283133EC008CBBF0 /* IFNewThemeWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IFNewThemeWindow.m; sourceTree = "<group>"; };
+		FFCC0AAB28313409008CBBF0 /* IFNewThemeWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IFNewThemeWindow.h; sourceTree = "<group>"; };
+		FFD2BCC92811438700AD36B6 /* post_archive.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = post_archive.sh; sourceTree = "<group>"; };
+		FFD2BD472819EB8E00AD36B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColourPreferences.xib; sourceTree = "<group>"; };
+		FFD2BD652819EB9C00AD36B6 /* IFColourPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFColourPreferences.m; sourceTree = "<group>"; };
+		FFD2BD662819EB9C00AD36B6 /* IFColourPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFColourPreferences.h; sourceTree = "<group>"; };
+		FFD2BD69281AC2E900AD36B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ColourPreferences.strings; sourceTree = "<group>"; };
 		FFDBF72118F9A4B8004F53DD /* Inform-inherit.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Inform-inherit.entitlements"; sourceTree = "<group>"; };
 		FFDD71CC1B3EB62E00D6B1E7 /* RegEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegEx.h; sourceTree = "<group>"; };
 		FFE203151AEE4ADC00CC5497 /* IFNewInform7ExtensionProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFNewInform7ExtensionProject.h; sourceTree = "<group>"; };
@@ -1060,6 +1061,7 @@
 				FFF1083F191511E500C6A272 /* AdviceNewToInform.html */,
 				FFF10841191511E500C6A272 /* AdviceUpgrading.html */,
 				FF671EB11B9B785200246820 /* TestingTemplate.html */,
+				FF452CF3285BE22200EF406C /* NewsTemplate.html */,
 				FF05092F18B4D74E004081FF /* HeadingsBrowser.xib */,
 				FF94AB621905DF5D008BCAF5 /* Launcher.xib */,
 				FF05093118B4D74E004081FF /* MainMenu.xib */,
@@ -1068,7 +1070,6 @@
 				FF05093718B4D74E004081FF /* Project.xib */,
 				FF05093918B4D74E004081FF /* ProjectPane.xib */,
 				FF05093D18B4D74E004081FF /* StandardProjectOptions.xib */,
-				4B94BF8505138C7200A8E303 /* standardMain.inf */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				4B7534C506286ADC00824F26 /* CompilerOutput.strings */,
 				4B7535220628709300824F26 /* Localizable.strings */,
@@ -1151,7 +1152,6 @@
 		4B49019D0719880F00F0DD28 /* Specifics */ = {
 			isa = PBXGroup;
 			children = (
-				FF0508E418B4D608004081FF /* Inform6Extensions.xib */,
 				FFAD449121E1364700C4896F /* IFCompilerVersionSettings.h */,
 				FFAD449021E1364700C4896F /* IFCompilerVersionSettings.m */,
 				FFAD448E21E1047600C4896F /* CompilerVersionSettings.xib */,
@@ -1173,6 +1173,9 @@
 				FF71A90918F151A200CB9B31 /* IFOutputSettings.h */,
 				FF71A90A18F151A200CB9B31 /* IFOutputSettings.m */,
 				FF0508EC18B4D608004081FF /* OutputSettings.xib */,
+				FF23DC17283E11040070DDD6 /* IFBasicInformSettings.h */,
+				FF23DC34283E11040070DDD6 /* IFBasicInformSettings.m */,
+				FF23DC3E283E20AD0070DDD6 /* BasicInformSettings.xib */,
 				FF71A90B18F151A200CB9B31 /* IFRandomSettings.h */,
 				FF71A90C18F151A200CB9B31 /* IFRandomSettings.m */,
 				FF0508EE18B4D608004081FF /* RandomSettings.xib */,
@@ -1244,10 +1247,6 @@
 				FF4712BD18F18873006717B3 /* IFNewInform7Project.m */,
 				FF4712C018F18873006717B3 /* IFNewInform7ExtensionFile.h */,
 				FF4712C118F18873006717B3 /* IFNewInform7ExtensionFile.m */,
-				FF4712C718F18873006717B3 /* IFNewInform6Project.h */,
-				FF4712C818F18873006717B3 /* IFNewInform6Project.m */,
-				FF4712BE18F18873006717B3 /* IFNewEmptyInform6Project.h */,
-				FF4712BF18F18873006717B3 /* IFNewEmptyInform6Project.m */,
 				FF4712C218F18873006717B3 /* IFNewProject.h */,
 				FF4712C318F18873006717B3 /* IFNewProject.m */,
 				FF4712C418F18873006717B3 /* IFNewProjectFile.h */,
@@ -1310,6 +1309,8 @@
 			children = (
 				FF71A83318F149AC00CB9B31 /* IFExtensionsManager.h */,
 				FF71A83418F149AC00CB9B31 /* IFExtensionsManager.m */,
+				FF3609E028A3BD960003B924 /* IFSemVer.h */,
+				FF3609FD28A3BDCE0003B924 /* IFSemVer.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1333,16 +1334,21 @@
 				557AB308274D96CB000E8F0B /* PreferenceController.swift */,
 				4B5F871807B01AAE00A30FAA /* IFPreferencePane.h */,
 				4B5F871907B01AAE00A30FAA /* IFPreferencePane.m */,
-				557AB30A274E1A6F000E8F0B /* AuthorPreferences.swift */,
-				FF0508DC18B4D5AE004081FF /* AuthorPreferences.xib */,
+				FF536C1528205100004E4069 /* IFColourTheme.h */,
+				FF536C1628205101004E4069 /* IFColourTheme.m */,
 				FF7BF1F718D7115300A1E9FD /* IFEditingPreferencesSet.h */,
 				FF7BF1F818D7115300A1E9FD /* IFEditingPreferencesSet.m */,
+				557AB30A274E1A6F000E8F0B /* AuthorPreferences.swift */,
+				FF0508DC18B4D5AE004081FF /* AuthorPreferences.xib */,
+				FFD2BD662819EB9C00AD36B6 /* IFColourPreferences.h */,
+				FFD2BD652819EB9C00AD36B6 /* IFColourPreferences.m */,
+				FFD2BD462819EB8E00AD36B6 /* ColourPreferences.xib */,
+				FFCC0AAB28313409008CBBF0 /* IFNewThemeWindow.h */,
+				FFCC0AA9283133EC008CBBF0 /* IFNewThemeWindow.m */,
+				FFCC0A8B2831336A008CBBF0 /* NewThemeWindow.xib */,
 				FF3CEA9718D5E5CA00A10D00 /* IFEditingPreferences.h */,
 				FF3CEA9818D5E5CA00A10D00 /* IFEditingPreferences.m */,
 				FF3CEAA618D5E6F300A10D00 /* EditingPreferences.xib */,
-				FFA736A118DC452D0073A1DD /* IFTextSizePreferences.h */,
-				FFA736A218DC452D0073A1DD /* IFTextSizePreferences.m */,
-				FFA7369318DC428D0073A1DD /* TextSizePreferences.xib */,
 				4BF88F9B08FD544E00F5DFDE /* IFAdvancedPreferences.h */,
 				4BF88F9C08FD544E00F5DFDE /* IFAdvancedPreferences.m */,
 				FF0508DA18B4D5AE004081FF /* AdvancedPreferences.xib */,
@@ -1440,9 +1446,6 @@
 			children = (
 				FF71A83718F14A4100CB9B31 /* IFDocParser.h */,
 				FF71A83818F14A4100CB9B31 /* IFDocParser.m */,
-				FF71A83918F14A4100CB9B31 /* IFIsBreakpoints.h */,
-				FF71A83A18F14A4100CB9B31 /* IFIsBreakpoints.m */,
-				FF0508FE18B4D692004081FF /* BreakpointInspector.xib */,
 				FF71A83B18F14A4100CB9B31 /* IFIsFiles.h */,
 				FF71A83C18F14A4100CB9B31 /* IFIsFiles.m */,
 				FF05090018B4D692004081FF /* FileInspector.xib */,
@@ -1452,9 +1455,6 @@
 				FF71A83F18F14A4100CB9B31 /* IFIsNotes.h */,
 				FF71A84018F14A4100CB9B31 /* IFIsNotes.m */,
 				FF0508FA18B4D655004081FF /* NoteInspector.xib */,
-				FF71A84318F14A4100CB9B31 /* IFIsWatch.h */,
-				FF71A84418F14A4100CB9B31 /* IFIsWatch.m */,
-				FF05090A18B4D692004081FF /* WatchInspector.xib */,
 			);
 			path = Inspectors;
 			sourceTree = "<group>";
@@ -1526,16 +1526,16 @@
 		FF05094F18B6B227004081FF /* UtilityClasses */ = {
 			isa = PBXGroup;
 			children = (
-				FF71A92518F152D500CB9B31 /* IFClickThroughScrollView.h */,
-				FF71A92618F152D500CB9B31 /* IFClickThroughScrollView.m */,
-				FF47127418F18449006717B3 /* NSBundle+IFBundleExtensions.h */,
-				FF47127518F18449006717B3 /* NSBundle+IFBundleExtensions.m */,
-				FF47126118F181D3006717B3 /* NSString+IFStringExtensions.h */,
-				FF47126218F181D3006717B3 /* NSString+IFStringExtensions.m */,
-				FF47127018F18304006717B3 /* NSMutableString+IFMutableStringExtensions.h */,
-				FF47127118F18304006717B3 /* NSMutableString+IFMutableStringExtensions.m */,
 				FF1B29BF1B22F672009A1396 /* NSAttributedString+IFStringExtensions.h */,
 				FF1B29C01B22F672009A1396 /* NSAttributedString+IFStringExtensions.m */,
+				FF47127418F18449006717B3 /* NSBundle+IFBundleExtensions.h */,
+				FF47127518F18449006717B3 /* NSBundle+IFBundleExtensions.m */,
+				FF47127018F18304006717B3 /* NSMutableString+IFMutableStringExtensions.h */,
+				FF47127118F18304006717B3 /* NSMutableString+IFMutableStringExtensions.m */,
+				FF47126118F181D3006717B3 /* NSString+IFStringExtensions.h */,
+				FF47126218F181D3006717B3 /* NSString+IFStringExtensions.m */,
+				FF71A92518F152D500CB9B31 /* IFClickThroughScrollView.h */,
+				FF71A92618F152D500CB9B31 /* IFClickThroughScrollView.m */,
 				FF71A92918F152D500CB9B31 /* IFNotifyingWindow.h */,
 				FF71A92A18F152D500CB9B31 /* IFNotifyingWindow.m */,
 				FF71A92B18F152D500CB9B31 /* IFUtility.h */,
@@ -1554,12 +1554,16 @@
 		FF05095018B6B63A004081FF /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				FF452D1528608E2300EF406C /* IFNewsManager.m */,
+				FF452D1728608E6E00EF406C /* IFNewsManager.h */,
 				FF8D85F31906639D00B9D789 /* IFRecentFileCellInfo.h */,
 				FF8D85F41906639D00B9D789 /* IFRecentFileCellInfo.m */,
 				FF8D85E4190661AF00B9D789 /* IFRecentFileCell.h */,
 				FF8D85E5190661AF00B9D789 /* IFRecentFileCell.m */,
 				FF71A93D18F153E100CB9B31 /* IFWelcomeWindow.h */,
 				FF71A93E18F153E100CB9B31 /* IFWelcomeWindow.m */,
+				FF452D1B2861BA0A00EF406C /* IFNewsCustomSchemeHandler.m */,
+				FF452D1D2861BA6C00EF406C /* IFNewsCustomSchemeHandler.h */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -1569,8 +1573,7 @@
 			children = (
 				FF236BD719F92CA700F9FAAD /* compiler_injection.sh */,
 				FF236BD819F92CA700F9FAAD /* final_build_phase.sh */,
-				FF236BD919F92CA700F9FAAD /* pre_build.sh */,
-				FF236BDA19F92CA700F9FAAD /* replace_versions.pl */,
+				FFD2BCC92811438700AD36B6 /* post_archive.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -1723,11 +1726,13 @@
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					4BA3790E0CD3E39700C7B1D4 = {
+						DevelopmentTeam = 97V36B3QYK;
 						ProvisioningStyle = Manual;
 					};
 					4BD959F3055EE949008DEFF4 = {
 						DevelopmentTeam = 97V36B3QYK;
 						LastSwiftMigration = 1310;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 1;
@@ -2000,7 +2005,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFA7369518DC428D0073A1DD /* TextSizePreferences.xib in Resources */,
 				FF47135818F18B7D006717B3 /* Index.xib in Resources */,
 				FF47135618F18B7D006717B3 /* Errors.xib in Resources */,
 				FF0508DE18B4D5AE004081FF /* AdvancedPreferences.xib in Resources */,
@@ -2009,21 +2013,19 @@
 				FF47135B18F18B7D006717B3 /* Source.xib in Resources */,
 				FF47135718F18B7D006717B3 /* Game.xib in Resources */,
 				FF0508F118B4D608004081FF /* DebugSettings.xib in Resources */,
-				FF0508F218B4D608004081FF /* Inform6Extensions.xib in Resources */,
 				FF47135A18F18B7D006717B3 /* Skein.xib in Resources */,
 				FF0508F318B4D608004081FF /* LibrarySettings.xib in Resources */,
 				FF47135918F18B7D006717B3 /* Settings.xib in Resources */,
 				FF0508F418B4D608004081FF /* MiscSettings.xib in Resources */,
 				FF0508F618B4D608004081FF /* OutputSettings.xib in Resources */,
 				FF0508F718B4D608004081FF /* RandomSettings.xib in Resources */,
+				FFCC0A8C2831336A008CBBF0 /* NewThemeWindow.xib in Resources */,
 				FF3CEAA818D5E6F300A10D00 /* EditingPreferences.xib in Resources */,
 				FF0508FC18B4D655004081FF /* NewFile.xib in Resources */,
 				FF0508FD18B4D655004081FF /* NoteInspector.xib in Resources */,
-				FF05090C18B4D692004081FF /* BreakpointInspector.xib in Resources */,
 				FF05090D18B4D692004081FF /* FileInspector.xib in Resources */,
 				FF05090E18B4D692004081FF /* IndexInspector.xib in Resources */,
 				FF05091118B4D692004081FF /* SkeinInspector.xib in Resources */,
-				FF05091218B4D692004081FF /* WatchInspector.xib in Resources */,
 				55BFABF0274481760049646A /* Images.xcassets in Resources */,
 				FF47135518F18B7D006717B3 /* Documentation.xib in Resources */,
 				FF47133E18F18B1B006717B3 /* Headers.xib in Resources */,
@@ -2045,14 +2047,16 @@
 				FF671EB31B9B785200246820 /* TestingTemplate.html in Resources */,
 				FFF10846191511E500C6A272 /* AdviceNewToInform.html in Resources */,
 				FFF10847191511E500C6A272 /* AdviceUpgrading.html in Resources */,
+				FF23DC40283E20AD0070DDD6 /* BasicInformSettings.xib in Resources */,
 				FFF10844191511E500C6A272 /* AdviceKeyboardShortcuts.html in Resources */,
 				FFF10845191511E500C6A272 /* AdviceMaterialsFolder.html in Resources */,
 				FFF10843191511E500C6A272 /* AdviceCredits.html in Resources */,
+				FFD2BD642819EB8E00AD36B6 /* ColourPreferences.xib in Resources */,
+				FF452D11285BE22200EF406C /* NewsTemplate.html in Resources */,
 				4B7534C606286ADC00824F26 /* CompilerOutput.strings in Resources */,
 				4BD95A06055EE949008DEFF4 /* InfoPlist.strings in Resources */,
 				4B7535230628709300824F26 /* Localizable.strings in Resources */,
 				FFF8628918A2AE0B00C0F344 /* App in Resources */,
-				4BD95A0D055EE949008DEFF4 /* standardMain.inf in Resources */,
 				FF10418F191A08700022AA5E /* License.rtf in Resources */,
 				FFEF5D551915534400AA562F /* Changes to Inform.epub in Resources */,
 				FFEF5D561915534600AA562F /* Inform - A Design System for Interactive Fiction.epub in Resources */,
@@ -2093,6 +2097,7 @@
 				FF47133B18F189B7006717B3 /* IFIntelSymbol.m in Sources */,
 				FF47133A18F189A9006717B3 /* IFNaturalIntel.m in Sources */,
 				FF775C401917A77D00BD64E2 /* IFUtility.m in Sources */,
+				FFC9EF2328292B1D00BF2C84 /* IFColourTheme.m in Sources */,
 				FF47133718F1893A006717B3 /* IFNaturalHighlighter.m in Sources */,
 				FF7BF1FB18D7115300A1E9FD /* IFEditingPreferencesSet.m in Sources */,
 				FF47133818F1893E006717B3 /* IFInform6Highlighter.m in Sources */,
@@ -2128,12 +2133,15 @@
 				FF71A87A18F14B9B00CB9B31 /* IFProjectFile.m in Sources */,
 				FF47132918F188E3006717B3 /* IFFindInFilesController.m in Sources */,
 				FF71A92418F1523600CB9B31 /* IFNoDocProtocol.m in Sources */,
+				FF536C1728205101004E4069 /* IFColourTheme.m in Sources */,
+				FF23DC35283E11040070DDD6 /* IFBasicInformSettings.m in Sources */,
 				FF47127318F18304006717B3 /* NSMutableString+IFMutableStringExtensions.m in Sources */,
 				FFE431771AF259F100F54B78 /* IFInTest.m in Sources */,
 				4B741D990646BC5B0078C9B6 /* IFInspectorView.m in Sources */,
 				4B741DC10646BF120078C9B6 /* IFIsTitleView.m in Sources */,
 				FF47130F18F188D0006717B3 /* IFHeaderView.m in Sources */,
 				FFEBA38D1B17A8A4008A7473 /* IFSkeinBlessButton.m in Sources */,
+				FF452D1C2861BA0A00EF406C /* IFNewsCustomSchemeHandler.m in Sources */,
 				4B741E8B0646EE9D0078C9B6 /* IFIsFlippedView.m in Sources */,
 				FF47128118F1881A006717B3 /* IFPageBarCell.m in Sources */,
 				FF47130B18F188D0006717B3 /* IFHeaderNode.m in Sources */,
@@ -2173,12 +2181,11 @@
 				FF71A8FE18F1513800CB9B31 /* IFSettingsController.m in Sources */,
 				FFE466991AFF8B65000474C3 /* IFSkeinView.m in Sources */,
 				FF47132718F188E3006717B3 /* IFFindInFiles.m in Sources */,
+				FFD2BD672819EB9C00AD36B6 /* IFColourPreferences.m in Sources */,
 				FFE4669C1AFF8B65000474C3 /* IFSkein+IFSkeinXML.m in Sources */,
 				FF4712E818F18890006717B3 /* IFSyntaxData.m in Sources */,
-				FF4712D518F18873006717B3 /* IFNewInform6Project.m in Sources */,
 				FF4712D018F18873006717B3 /* IFNewProject.m in Sources */,
 				4B28BB08081844DF00D39021 /* IFPreferences.m in Sources */,
-				FF4712CC18F18873006717B3 /* IFNewEmptyInform6Project.m in Sources */,
 				557AB2B32748AA6C000E8F0B /* TestCommands.swift in Sources */,
 				FF4712A918F18832006717B3 /* IFSourcePage.m in Sources */,
 				FF71A88018F14B9B00CB9B31 /* IFProjectTypes.m in Sources */,
@@ -2191,11 +2198,14 @@
 				FF71A90E18F151A200CB9B31 /* IFCompilerOptions.m in Sources */,
 				4B6A85F4086DA82100BFAE69 /* IFSingleFile.m in Sources */,
 				4B6A860D086DA90200BFAE69 /* IFSingleController.m in Sources */,
+				FF452D1628608E2300EF406C /* IFNewsManager.m in Sources */,
 				FF4712CE18F18873006717B3 /* IFNewInform7ExtensionFile.m in Sources */,
 				FFE466931AFF8B65000474C3 /* IFSkeinItem.m in Sources */,
 				4BF88F9E08FD544E00F5DFDE /* IFAdvancedPreferences.m in Sources */,
+				FFCC0AAA283133EC008CBBF0 /* IFNewThemeWindow.m in Sources */,
 				FF71A84E18F14A4100CB9B31 /* IFIsNotes.m in Sources */,
 				FF71A90018F1513800CB9B31 /* IFSettingsView.m in Sources */,
+				FF3609FE28A3C90C0003B924 /* IFSemVer.m in Sources */,
 				FF1B29C21B22F672009A1396 /* NSAttributedString+IFStringExtensions.m in Sources */,
 				FF71A92218F1523600CB9B31 /* IFInformProtocol.m in Sources */,
 				FF4712F918F188B9006717B3 /* IFIntelSymbol.m in Sources */,
@@ -2203,17 +2213,14 @@
 				FF47129918F18832006717B3 /* IFDocumentationPage.m in Sources */,
 				FF71A87618F14B9B00CB9B31 /* IFProject.m in Sources */,
 				FF71A87218F14B9B00CB9B31 /* IFIndexFile.m in Sources */,
-				FFA736A418DC452D0073A1DD /* IFTextSizePreferences.m in Sources */,
 				FF71A8EC18F14FEE00CB9B31 /* IFToolbarStatusView.m in Sources */,
 				557AB2E3274C786A000E8F0B /* ThinSplitView.swift in Sources */,
-				FF71A84818F14A4100CB9B31 /* IFIsBreakpoints.m in Sources */,
 				FF71A8F818F1513800CB9B31 /* IFCollapsableView.m in Sources */,
 				FF12D9051B04981900547504 /* IFSkeinItemView.m in Sources */,
 				FF71A8EA18F14FEE00CB9B31 /* IFToolbarStatusSpacingView.m in Sources */,
 				FF3CEA9A18D5E5CA00A10D00 /* IFEditingPreferences.m in Sources */,
 				FF71A87018F14B9B00CB9B31 /* IFHistoryEvent.m in Sources */,
 				557AB309274D96CB000E8F0B /* PreferenceController.swift in Sources */,
-				FF71A85218F14A4100CB9B31 /* IFIsWatch.m in Sources */,
 				FF71A91C18F151EE00CB9B31 /* IFSourceSharedActions.m in Sources */,
 				FF4712A318F18832006717B3 /* IFPage.m in Sources */,
 				FF4712A518F18832006717B3 /* IFSettingsPage.m in Sources */,
@@ -2306,14 +2313,6 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		4B94BF8505138C7200A8E303 /* standardMain.inf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B94BF8305138C6B00A8E303 /* en */,
-			);
-			name = standardMain.inf;
-			sourceTree = "<group>";
-		};
 		FF00CB7A190860D300B5D911 /* OutputSettingsI7.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2357,15 +2356,6 @@
 				55BA277C2746692B006BD6D1 /* en */,
 			);
 			name = DebugSettings.xib;
-			sourceTree = "<group>";
-		};
-		FF0508E418B4D608004081FF /* Inform6Extensions.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				55BA275A2746681C006BD6D1 /* Base */,
-				55BA27B627466AFC006BD6D1 /* en */,
-			);
-			name = Inform6Extensions.xib;
 			sourceTree = "<group>";
 		};
 		FF0508E618B4D608004081FF /* LibrarySettings.xib */ = {
@@ -2421,15 +2411,6 @@
 			name = NoteInspector.xib;
 			sourceTree = "<group>";
 		};
-		FF0508FE18B4D692004081FF /* BreakpointInspector.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				55BA273D2746681A006BD6D1 /* Base */,
-				55BA27AA27466A8E006BD6D1 /* en */,
-			);
-			name = BreakpointInspector.xib;
-			sourceTree = "<group>";
-		};
 		FF05090018B4D692004081FF /* FileInspector.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2452,15 +2433,6 @@
 				55BA27402746681A006BD6D1 /* Base */,
 			);
 			name = SkeinInspector.xib;
-			sourceTree = "<group>";
-		};
-		FF05090A18B4D692004081FF /* WatchInspector.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				55BA27412746681A006BD6D1 /* Base */,
-				55BA27A427466A09006BD6D1 /* en */,
-			);
-			name = WatchInspector.xib;
 			sourceTree = "<group>";
 		};
 		FF05092D18B4D74E004081FF /* Compiling.xib */ = {
@@ -2539,6 +2511,14 @@
 			name = StandardProjectOptions.xib;
 			sourceTree = "<group>";
 		};
+		FF23DC3E283E20AD0070DDD6 /* BasicInformSettings.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF23DC3F283E20AD0070DDD6 /* Base */,
+			);
+			name = BasicInformSettings.xib;
+			sourceTree = "<group>";
+		};
 		FF2F527A19152D9700C190F0 /* MaterialsDiagram.png */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2554,6 +2534,14 @@
 				55BA27A0274669EE006BD6D1 /* en */,
 			);
 			name = EditingPreferences.xib;
+			sourceTree = "<group>";
+		};
+		FF452CF3285BE22200EF406C /* NewsTemplate.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF452CF4285BE22200EF406C /* en */,
+			);
+			name = NewsTemplate.html;
 			sourceTree = "<group>";
 		};
 		FF47133C18F18B1B006717B3 /* Headers.xib */ = {
@@ -2656,13 +2644,13 @@
 			name = Launcher.xib;
 			sourceTree = "<group>";
 		};
-		FFA7369318DC428D0073A1DD /* TextSizePreferences.xib */ = {
+		FFD2BD462819EB8E00AD36B6 /* ColourPreferences.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				55BA27602746681C006BD6D1 /* Base */,
-				55BA2794274669C0006BD6D1 /* en */,
+				FFD2BD472819EB8E00AD36B6 /* Base */,
+				FFD2BD69281AC2E900AD36B6 /* en */,
 			);
-			name = TextSizePreferences.xib;
+			name = ColourPreferences.xib;
 			sourceTree = "<group>";
 		};
 		FFEF5D511915533500AA562F /* Changes to Inform.epub */ = {
@@ -2729,9 +2717,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "InformQL-Info.plist";
 				INSTALL_PATH = /Applications;
 				OTHER_LDFLAGS = (
@@ -2745,7 +2730,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.inform7.inform.quicklook;
 				PRODUCT_NAME = InformQL;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				WARNING_CFLAGS = (
 					"-Weverything",
@@ -2829,15 +2813,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Inform.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CURRENT_PROJECT_VERSION = 1.68.1;
-				ENABLE_HARDENED_RUNTIME = NO;
+				CURRENT_PROJECT_VERSION = 1.82.0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Inform_Prefix.h;
 				INFOPLIST_FILE = "$(SRCROOT)/Inform-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_STYLE = DYNAMIC;
-				MARKETING_VERSION = 1.68.1;
+				MARKETING_VERSION = 1.82.0;
 				OTHER_LDFLAGS = (
 					"-fobjc-arc",
 					"-bind_at_load",
@@ -2884,15 +2866,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Inform.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CURRENT_PROJECT_VERSION = 1.68.1;
-				ENABLE_HARDENED_RUNTIME = NO;
+				CURRENT_PROJECT_VERSION = 1.82.0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Inform_Prefix.h;
 				INFOPLIST_FILE = "$(SRCROOT)/Inform-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_STYLE = DYNAMIC;
-				MARKETING_VERSION = 1.68.1;
+				MARKETING_VERSION = 1.82.0;
 				OTHER_LDFLAGS = (
 					"-fobjc-arc",
 					"-bind_at_load",
@@ -2933,7 +2913,6 @@
 		4BE5F50C085882AC00C7EF5E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
@@ -2963,12 +2942,17 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.82.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 97V36B3QYK;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2984,7 +2968,6 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-fobjc-arc";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
@@ -2994,7 +2977,6 @@
 		4BE5F50D085882AC00C7EF5E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
@@ -3024,12 +3006,16 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.82.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_POSTPROCESSING = YES;
+				DEVELOPMENT_TEAM = 97V36B3QYK;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

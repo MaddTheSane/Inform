@@ -8,10 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 #import "IFProgress.h"
+#import "IFSemVer.h"
 
 extern NSNotificationName const IFExtensionsUpdatedNotification;				// Sent when the extensions are updated
 extern NSNotificationName const IFCensusFinishedNotification;
 extern NSNotificationName const IFCensusFinishedButDontUpdateExtensionsWebPageNotification;
+
+typedef NS_ENUM(int, IFExtensionResult) {
+    IFExtensionNotFound,
+    IFExtensionNotValid,
+    IFExtensionAlreadyExists,
+    IFExtensionCantWriteDestination,
+    IFExtensionSuccess,
+};
 
 #pragma mark -
 
@@ -36,6 +45,7 @@ extern NSNotificationName const IFCensusFinishedButDontUpdateExtensionsWebPageNo
 /// Remove leading "The ", "An ", or "A ", and trailing proviso (in brackets) from a display name to get title used for extension filename
 +(NSString*) canonicalTitle:(NSString*) displayName;
 @property (atomic, readonly, copy) NSString *safeVersion;
+@property (atomic, readonly, copy) IFSemVer *semver;
 -(BOOL) isEqual: (id) other;
 
 @end
@@ -117,19 +127,20 @@ typedef NS_ENUM(int, IFExtensionDownloadState) {
 - (NSArray*) sourceFilesInExtensionWithName: (NSString*) name;
 
 /// From a file potentially containing a natural inform extension, works out the author, title, version information
-- (BOOL) infoForNaturalInformExtension: (NSString*) file
-                                author: (NSString*__strong*) authorOut
-                                 title: (NSString*__strong*) titleOut
-                               version: (NSString*__strong*) versionOut;
+- (IFExtensionResult) infoForNaturalInformExtension: (NSString*) file
+                                             author: (NSString*__strong*) authorOut
+                                              title: (NSString*__strong*) titleOut
+                                            version: (NSString*__strong*) versionOut;
 
 /// Copies a file from the given path into the installed extensions, perhaps replacing an existing extension
-- (BOOL) installExtension: (NSString*) extensionPath
-                finalPath: (NSString*__strong*) finalPathOut
-                    title: (NSString*__strong*) titleOut
-                   author: (NSString*__strong*) authorOut
-                  version: (NSString*__strong*) versionOut
-       showWarningPrompts: (BOOL) showWarningPrompts
-                   notify: (BOOL) notify;
+- (IFExtensionResult) installExtension: (NSString*) extensionPath
+                             finalPath: (NSString*__strong*) finalPathOut
+                                 title: (NSString*__strong*) titleOut
+                                author: (NSString*__strong*) authorOut
+                               version: (NSString*__strong*) versionOut
+                    showWarningPrompts: (BOOL) showWarningPrompts
+                                notify: (BOOL) notify;
+
 -(void) startCensus:(NSNumber*) notify;
 - (void) updateExtensions;
 
@@ -142,4 +153,8 @@ typedef NS_ENUM(int, IFExtensionDownloadState) {
                         javascriptId: (NSString*) javascriptId;
 - (void) downloadAndInstallFinished: (IFExtensionDownload*) download;
 
+#pragma mark -
+-(void) unit_test;
+
 @end
+

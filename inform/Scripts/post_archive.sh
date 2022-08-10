@@ -1,19 +1,27 @@
 #!/bin/sh
 
-# Toby Nelson, 2014-2019
+# Toby Nelson, 2014-2022
 #
-# Shell script to turn Inform into a nice disk image.
+# Shell script to turn Inform into a nice fancy disk image.
+# Uses create-dmg tool from https://github.com/create-dmg/create-dmg
 #
 
-env
-echo
+echo "post_archive.sh script running..."
+
+if [ "$CODE_SIGN_IDENTITY" != "Developer ID Application" ]; then
+    echo "Exiting script. This is not a Developer ID build, so nothing to do. Code Sign Identity = $CODE_SIGN_IDENTITY"
+    exit 0
+fi;
 
 # Step 1: Export the application
 EXPORT_PATH="$TMPDIR/Export"
-SRC_ROOT="$WORKSPACE_PATH/../.."
+SRC_ROOT="$WORKSPACE_PATH/../inform"
 DISTRIBUTION_DIR="$SRC_ROOT/Distribution"
 DMG_PATH="$DISTRIBUTION_DIR/inform.dmg"
 ZIP_PATH="$DISTRIBUTION_DIR/Inform.zip"
+
+env
+echo /usr/bin/xcodebuild -exportArchive -archivePath \"$ARCHIVE_PATH\" -exportOptionsPlist \"$DISTRIBUTION_DIR/ExportOptions.plist\" -exportPath \"$EXPORT_PATH\"
 
 /usr/bin/xcodebuild -exportArchive -archivePath "$ARCHIVE_PATH" -exportOptionsPlist "$DISTRIBUTION_DIR/ExportOptions.plist" -exportPath "$EXPORT_PATH"
 
@@ -47,97 +55,16 @@ if [ -e "$DMG_PATH" ]; then
 	rm "$DMG_PATH"
 fi
 
-echo "Creating pack.temp.dmg..."
-hdiutil create -size 95m -fs HFS+ -fsargs "-c c=64,a=16,e=16" -volname "Inform" "$EXPORT_PATH/pack.temp.dmg" >/dev/null || (echo Failed; exit 1)
+# Uses create-dmg tool from https://github.com/create-dmg/create-dmg
+echo Creating fancy DMG...
+/usr/local/bin/create-dmg --volname "Inform" --background "$DISTRIBUTION_DIR/bgimage.png" --window-pos 200 200 --window-size 550 400 --icon-size 128 --icon Inform.app 150 195 "$DMG_PATH" "$INFORM"
 
-echo "Mounting..."
-# hdiutil mount ./pack.temp.dmg -readwrite >/dev/null || (echo Failed; exit 1)
-device=$(hdiutil attach -readwrite -noverify -noautoopen "$EXPORT_PATH/pack.temp.dmg" | egrep '^/dev/' | sed 1q | awk '{print $1}') || (echo Failed; exit 1)
-
-echo "sleep 5..."
-sleep 5
-echo $device
-
-if [ -e "/Volumes/Inform" ]; then
-	echo OK
-else
-	echo "Failed to mount: giving up"
-	exit 1
-fi
-
-# Copy files
-echo "Copying files..."
-
-cp -Ra "$INFORM" "/Volumes/Inform" || (echo Failed; exit 1)
-mkdir "/Volumes/Inform/.background" || (echo Failed; exit 1)
-cp "$DISTRIBUTION_DIR/bgimage.png" "/Volumes/Inform/.background/bgimage.png" || (echo Failed; exit 1)
-
-echo "OK"
-
-# Arrange the icons
-echo "Arranging..."
-
-osascript <<NO_MORE_SPOONS
-tell application "Finder"
-	activate
-	set informdisk to disk "Inform"
-	set inform to file "Inform.app" of informdisk
-	set win to container window of informdisk
-	
-	-- Location of background image
-    set cwd to do shell script "pwd"
-	set backgroundFile to "Macintosh HD:Volumes:Inform:.background:bgimage.png"
-	
-	tell win
-		open
-
-		set toolbar visible to false
-		set statusbar visible to false
-		-- set pathbar visible to false
-		set current view to icon view
-		set bounds to {200, 200, 750, 600}
-		
-		set arrangement of icon view options of win to not arranged
-		set position of inform to {150, 200}
-		set icon size of icon view options of win to 128
-		set shows item info of icon view options of win to false
-		set shows icon preview of icon view options of win to false
-		set background picture of icon view options of win to backgroundFile
-		tell informdisk to update without registering applications
-
-		-- Refresh the window
-		close win
-        delay 1
-		open win
-        delay 10
-	end tell
-
-	-- tell informdisk to eject
-end tell
-NO_MORE_SPOONS
-
-echo OK
-
-echo "Converting to read only, compressed format..."
-chmod -Rf go-w "/Volumes/Inform"
-sync
-sync
-hdiutil detach ${device}
-hdiutil convert "$EXPORT_PATH/pack.temp.dmg" -format UDZO -imagekey zlib-level=9 -o "$DMG_PATH" || (echo Failed; exit 1)
-rm -f "$EXPORT_PATH/pack.temp.dmg" 
-
-/usr/bin/codesign --options=runtime --timestamp --force --sign "Developer ID Application: Toby Nelson (97V36B3QYK)" --identifier com.inform7.inform-compiler-dmg "$DMG_PATH"
-
-#hdiutil convert "$DMG_PATH" -format UDCO -o ./inform-compressed.dmg >/dev/null || (echo Failed; exit 1)
-
-#echo "Adding license info..."
-#hdiutil unflatten ./inform-compressed.dmg >/dev/null || (echo Failed; exit 1)
-#Rez -a SLA.rez -o inform-compressed.dmg || (echo Failed; exit 1)
-#hdiutil flatten ./inform-compressed.dmg >/dev/null || (echo Failed; exit 1)
-
-#mv inform-compressed.dmg "$DMG_PATH"
+echo Code signing DMG...
+# ${CODE_SIGN_IDENTITY} was 'Developer ID Application: Toby Nelson (97V36B3QYK)'
+/usr/bin/codesign --options=runtime --timestamp --force --sign "${CODE_SIGN_IDENTITY}" --identifier com.inform7.inform-compiler-dmg "$DMG_PATH"
 
 echo OK
 
 # As a convenience open the folder in the Finder
 /usr/bin/open "$DISTRIBUTION_DIR"
+echo "post_archive.sh script finished"

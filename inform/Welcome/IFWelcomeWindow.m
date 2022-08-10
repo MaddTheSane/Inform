@@ -22,6 +22,12 @@
 @implementation IFWelcomeWindow {
     /// Progress indicator that shows when a background process is running
     IBOutlet NSProgressIndicator*   backgroundProgress;
+
+    /// News web view
+    WKWebView*                      newsWebView;
+    IBOutlet NSView*                newsWebParent;
+    WKWebViewConfiguration *        newsWebConfiguration;
+
     /// Recent document scroll view
     IBOutlet NSScrollView*          recentDocumentsScrollView;
     /// Recent document Table View
@@ -49,6 +55,10 @@
     NSMutableArray*                 createInfoArray;
     /// Array of sample file info
     NSMutableArray*                 sampleInfoArray;
+    /// Array of news info
+    NSMutableArray*                 newsArray;
+
+    WKNavigation *                  newsNav;
 }
 
 static const int maxItemsInRecentMenu = 8;
@@ -73,16 +83,58 @@ static IFWelcomeWindow* sharedWindow = nil;
 }
 
 + (void) showWelcomeWindow {
-    // Get latest list of recent items
     IFWelcomeWindow * welcome = [IFWelcomeWindow sharedWelcomeWindow];
-    [welcome refreshRecentItems];
+
+    [welcome showWelcomeWindow];
+}
+
+-(void) showWelcomeWindow {
+    [self refreshRecentItems];
 
     // Hide web view
-    [welcome hideWebView];
+    [self hideWebView];
 
     // Show window
-    [welcome showWindow: self];
-    [[welcome window] orderFront: self];
+    [self showWindow: self];
+    [[self window] orderFront: self];
+
+    //NSLog(@"FRAME = %@", recentDocumentsTableView.frame);
+    //NSLog(@"bounds = %@", recentDocumentsTableView.bounds);
+
+    if (@available(macOS 11.0, *)) {
+        recentDocumentsTableView.style = NSTableViewStylePlain;
+        createDocumentsTableView.style = NSTableViewStylePlain;
+        sampleDocumentsTableView.style = NSTableViewStylePlain;
+    }
+    // By default the enclosing scrollview has a bezelled border, but we set
+    // it to no border here after the tableview style has been set to plain.
+    recentDocumentsTableView.enclosingScrollView.borderType = NSNoBorder;
+    createDocumentsTableView.enclosingScrollView.borderType = NSNoBorder;
+    sampleDocumentsTableView.enclosingScrollView.borderType = NSNoBorder;
+
+
+    // create news web view (if not already created)
+    if (self->newsWebConfiguration == nil) {
+        self->newsWebConfiguration = [[WKWebViewConfiguration alloc] init];
+        // Set the navigation delegate
+        IFAppDelegate* appDelegate = (IFAppDelegate*)[NSApp delegate];
+        [self->newsWebConfiguration setURLSchemeHandler: appDelegate.newsManager.newsSchemeHandler
+                              forURLScheme: @"inform"];
+        self->newsWebView = [[WKWebView alloc] initWithFrame: self->newsWebParent.bounds
+                                               configuration: self->newsWebConfiguration];
+    }
+
+    // Set the navigation delegate
+    self->newsWebView.navigationDelegate = self;
+
+    // Give the news web view a transparent background
+    [self->newsWebView setValue:@(NO) forKey:@"drawsBackground"];
+
+    // Add web view to parent
+    [self->newsWebParent addSubview: self->newsWebView];
+
+    // Refresh news if needed
+    [self checkIfNewsRefreshIsNeeded];
 }
 
 - (void) hideWebView {
@@ -93,6 +145,86 @@ static IFWelcomeWindow* sharedWindow = nil;
 - (void) showWebView {
     [webView setHidden: NO];
     [middleView setHidden: YES];
+}
+
+- (void) checkIfNewsRefreshIsNeeded {
+    // Get the news from the news manager
+    // when done, call the completion handler
+    IFAppDelegate* appDelegate = (IFAppDelegate*)[NSApp delegate];
+
+    [[appDelegate newsManager] getNewsWithCompletionHandler: ^(NSString* latestNews, NSURLResponse* response, NSError* error) {
+        // When finished, refreshNews on main thread
+        [self performSelectorOnMainThread:@selector(refreshNews:) withObject:latestNews waitUntilDone:NO];
+    }];
+}
+
+- (NSString *) encodeForHTML:(NSString*) myStr {
+    return [[[[[myStr stringByReplacingOccurrencesOfString: @"&" withString: @"&amp;"]
+     stringByReplacingOccurrencesOfString: @"\"" withString: @"&quot;"]
+     stringByReplacingOccurrencesOfString: @"'" withString: @"&#39;"]
+     stringByReplacingOccurrencesOfString: @">" withString: @"&gt;"]
+     stringByReplacingOccurrencesOfString: @"<" withString: @"&lt;"];
+}
+
+- (void) refreshNews: (NSString*) latestNews {
+    if (newsWebView == nil) {
+        // Early out if no web view to change
+        return;
+    }
+
+    // Load template file
+    NSError* error;
+    NSString *news = [NSString stringWithContentsOfURL: [NSURL URLWithString: @"inform:/NewsTemplate.html"]
+                                              encoding: NSUTF8StringEncoding
+                                                 error: &error];
+    if (news != nil) {
+        NSDateIntervalFormatter* outputFormatter = [[NSDateIntervalFormatter alloc] init];
+        outputFormatter.dateStyle = NSDateIntervalFormatterMediumStyle;
+        outputFormatter.timeStyle = NSDateIntervalFormatterNoStyle;
+
+        // parse data
+        NSISO8601DateFormatter* format = [[NSISO8601DateFormatter alloc] init];
+        [format setFormatOptions: NSISO8601DateFormatWithFullDate];
+
+        NSMutableArray *data = [[latestNews componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]] mutableCopy];
+        NSString* str = @"";
+        for (int i = 0; i < [data count]; i++)
+        {
+            // Parse line
+            NSString *line = [data objectAtIndex: i];
+            NSArray* lineParts = [line componentsSeparatedByString:@"\t"];
+            if ([lineParts count] >= 3) {
+                NSDate* startDate = [format dateFromString: lineParts[0]];
+                NSDate* endDate = [format dateFromString: lineParts[1]];
+                NSString* headline = [self encodeForHTML:lineParts[2]];
+                NSString* link = @"";
+
+                if ([lineParts count] >= 4) {
+                    link = lineParts[3];
+                }
+
+                if (endDate == nil) {
+                    endDate = [startDate copy];
+                }
+
+                // Use the output formatter to generate the string.
+                NSString* dateStr = [outputFormatter stringFromDate:startDate toDate:endDate];
+                if ((dateStr != nil) && (headline != nil)) {
+                    //        <tr><td>17th June 2022</td><td><a href="http://www.inform7.com">News Item 1</a></td></tr>
+                    str = [str stringByAppendingFormat:@"<tr><td>%@</td><td><a href=\"%@\">%@</a></td></tr>\n", dateStr, link, headline];
+                }
+            }
+        }
+
+        // replace <!-- CONTENT HERE -->
+        news = [news stringByReplacingOccurrencesOfString:@"<!-- CONTENT HERE -->" withString:str];
+        //NSLog(@"%@", news);
+
+        newsNav = [newsWebView loadHTMLString: news
+                                      baseURL: [NSURL URLWithString: @"inform:/"]];
+    } else {
+        NSLog(@"%@", error);
+    }
 }
 
 - (void) refreshRecentItems {
@@ -166,7 +298,7 @@ static IFWelcomeWindow* sharedWindow = nil;
         [createInfoArray addObject: info];
         
         icon = [NSImage imageNamed: NSImageNameFolder];
-        info = [[IFRecentFileCellInfo alloc] initWithTitle: [IFUtility localizedString: @"Save Documentation for iBooks"]
+        info = [[IFRecentFileCellInfo alloc] initWithTitle: [IFUtility localizedString: @"Save Documentation as eBooks"]
                                                       image: icon
                                                         url: nil
                                                        type: IFRecentSaveEPubs];
@@ -398,6 +530,26 @@ static IFWelcomeWindow* sharedWindow = nil;
             }
         }
     }
+}
+
+#pragma mark - News policy delegate
+
+-                   (void)webView:(WKWebView *)webView
+  decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction
+                  decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
+        NSURL* url = [navigationAction.request URL];
+
+        // Open extenal links in separate default browser app
+        if (([[url scheme] isEqualTo: @"http"]) || ([[url scheme] isEqualTo: @"https"])) {
+            decisionHandler(WKNavigationActionPolicyCancel);
+            [[NSWorkspace sharedWorkspace] openURL:url];
+            return;
+        }
+    }
+
+    // default action
+    decisionHandler(WKNavigationActionPolicyAllow);
 }
 
 @end

@@ -245,10 +245,7 @@
 
 - (NSString*) projectInputPathName {
     // Inform 7 compiler takes the project directory path
-    if (self.settings.usingNaturalInform) return self.fileURL.path;
-
-    // Inform 6 compiler takes the main source source file
-    return self.mainSourceFileURL.path;
+    return self.fileURL.path;
 }
 
 - (NSString*) projectOutputPathName {
@@ -1304,11 +1301,11 @@
 
         // Extract title and author from sourceExtensionFileURL
         IFExtensionsManager* mgr = [IFExtensionsManager sharedNaturalInformExtensionsManager];
-        BOOL gotInfo = [mgr infoForNaturalInformExtension: sourceExtensionFileURL.path
-                                                   author: &author
-                                                    title: &title
-                                                  version: &version];
-        if( gotInfo )
+        IFExtensionResult gotInfo = [mgr infoForNaturalInformExtension: sourceExtensionFileURL.path
+                                                                author: &author
+                                                                 title: &title
+                                                               version: &version];
+        if( gotInfo == IFExtensionSuccess )
         {
             NSURL* materialsURL  = [self materialsDirectoryURL];
             NSURL* extensionsURL = [materialsURL  URLByAppendingPathComponent: @"Extensions"];
@@ -1421,12 +1418,6 @@
 
 #pragma clang diagnostic pop
 
-- (BOOL) canDebug {
-    // It's only possible to debug Z-Code Inform 6 games
-    return ![[self settings] usingNaturalInform] &&
-            [[self settings] zcodeVersion] < 16;
-}
-
 - (void) openMaterials {
     // Work out where the materials folder is located
     NSString* materialsPath = [self materialsDirectoryURL].path;
@@ -1510,11 +1501,7 @@
 }
 
 - (BOOL) buildBlorbSetting {
-    if (self.settings.usingNaturalInform) {
-        IFI7OutputSettings* outputSettings = (IFI7OutputSettings*)[self.settings settingForClass: [IFI7OutputSettings class]];
-        return [outputSettings createBlorbForRelease];
-    }
-    IFOutputSettings* outputSettings = (IFOutputSettings*)[self.settings settingForClass: [IFOutputSettings class]];
+    IFI7OutputSettings* outputSettings = (IFI7OutputSettings*)[self.settings settingForClass: [IFI7OutputSettings class]];
     return [outputSettings createBlorbForRelease];
 }
 
@@ -1548,9 +1535,13 @@
 
     if (onlyRefresh) {
         [theCompiler addNaturalInformStageUsingTestCase: testCase];
-        [theCompiler prepareForLaunchWithBlorbStage: NO testCase: testCase];
+        if (![theCompiler prepareForLaunchWithBlorbStage: NO testCase: testCase]) {
+            return nil;
+        }
     } else {
-        [theCompiler prepareForLaunchWithBlorbStage: buildBlorb testCase: testCase];
+        if (![theCompiler prepareForLaunchWithBlorbStage: buildBlorb testCase: testCase]) {
+            return nil;
+        }
     }
 
     return theCompiler;

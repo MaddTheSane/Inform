@@ -188,6 +188,10 @@ NSString* const IFCompilerFinishedNotification     = @"IFCompilerFinishedNotific
 		[args addObject: @"-rng"];
 	}
 
+    if ([settings basicInform]) {
+        [args addObject: @"-basic"];
+    }
+
     if(( testCase != nil ) && ([testCase length] > 0))
     {
         [args addObject: @"-case"];
@@ -201,7 +205,7 @@ NSString* const IFCompilerFinishedNotification     = @"IFCompilerFinishedNotific
 						named: [IFUtility localizedString: @"Compiling Natural Inform source"]];
 }
 
-- (void) addStandardInformStage: (BOOL) usingNaturalInform {
+- (void) addStandardInformStage {
     if (!outputFile) [self outputFile];
     
     // Prepare the arguments
@@ -216,7 +220,7 @@ NSString* const IFCompilerFinishedNotification     = @"IFCompilerFinishedNotific
     [self addCustomBuildStage: [settings compilerToUse]
                 withArguments: args
                nextStageInput: outputFile
-				 errorHandler: usingNaturalInform ? [[Inform6Problem alloc] init] : nil
+				 errorHandler: [[Inform6Problem alloc] init]
 						named: [IFUtility localizedString: @"Compiling Inform 6 source"]];
 }
 
@@ -232,8 +236,8 @@ NSString* const IFCompilerFinishedNotification     = @"IFCompilerFinishedNotific
 }
 
 - (void) sendTaskDetails: (NSTask*) task {
-	NSMutableString* taskMessage = [NSMutableString stringWithFormat: @"Launching: %@", [[task executableURL] lastPathComponent]];
-	
+    NSMutableString* taskMessage = [NSMutableString stringWithFormat: @"Launching: %@", [task launchPath]];
+
 	for( NSString* arg in [task arguments] ) {
 		[taskMessage appendFormat: @" \"%@\"", arg];
 	}
@@ -326,7 +330,7 @@ NSString* const IFCompilerFinishedNotification     = @"IFCompilerFinishedNotific
     [stdErrH waitForDataInBackgroundAndNotify];
 }
 
-- (void) prepareForLaunchWithBlorbStage: (BOOL) makeBlorb testCase:(NSString*) testCase {
+- (BOOL) prepareForLaunchWithBlorbStage: (BOOL) makeBlorb testCase:(NSString*) testCase {
     // Kill off any old tasks...
     if (theTask) {
         if ([theTask isRunning]) {
@@ -354,15 +358,17 @@ NSString* const IFCompilerFinishedNotification     = @"IFCompilerFinishedNotific
 								named: @"Debug build stage"];
         }
 
-        if ([settings usingNaturalInform]) {
-            [self addNaturalInformStageUsingTestCase: testCase];
+        if (![settings isNaturalInformCompilerPathValid])
+        {
+            return NO;
+        }
+        [self addNaturalInformStageUsingTestCase: testCase];
+
+        if ([settings compileNaturalInformOutput]) {
+            [self addStandardInformStage];
         }
 
-        if (![settings usingNaturalInform] || [settings compileNaturalInformOutput]) {
-            [self addStandardInformStage: [settings usingNaturalInform]];
-        }
-
-		if (makeBlorb && [settings usingNaturalInform]) {
+        if (makeBlorb) {
 			// Blorb files kind of create an exception: we change our output file, for instance,
             // and the input file is determined by the blurb file output by NI
 			NSString* extension;
@@ -400,6 +406,7 @@ NSString* const IFCompilerFinishedNotification     = @"IFCompilerFinishedNotific
     [progress startProgress];
 
     [self prepareNext];
+    return YES;
 }
 
 - (void) clearConsole {

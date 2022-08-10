@@ -35,6 +35,7 @@ NSString* const IFSettingDEBUG                = @"IFSettingDEBUG";
 NSString* const IFSettingTestingTabHelpShown  = @"IFSettingTestingTabHelpShown";
 NSString* const IFSettingTestingTabShownCount = @"IFSettingTestingTabShownCount";
 NSString* const IFSettingNobbleRng            = @"IFSettingNobbleRng";
+NSString* const IFSettingBasicInform          = @"IFSettingBasicInform";
 NSString* const IFSettingCompilerVersion      = @"IFSettingCompilerVersion";
 
 // Debug
@@ -296,6 +297,10 @@ NSString* const IFSettingNotification = @"IFSettingNotification";
 	return @[ @5, @3, @4, @6, @7, @8, @256 ];
 }
 
+- (BOOL) isNaturalInformCompilerPathValid {
+    NSString* path = [self naturalInformCompilerToUse];
+    return [[NSFileManager defaultManager] fileExistsAtPath: path];
+}
 
 - (NSString*) naturalInformCompilerToUse {
     if (![self usingNaturalInform]) {
@@ -387,18 +392,12 @@ NSString* const IFSettingNotification = @"IFSettingNotification";
 }
 
 - (void) setUsingNaturalInform: (BOOL) setting {
-    [self dictionaryForClass: [IFCompilerOptions class]][IFSettingNaturalInform] = @(setting);
+    //[self dictionaryForClass: [IFCompilerOptions class]][IFSettingNaturalInform] = @(setting);
     [self settingsHaveChanged];
 }
 
 - (BOOL) usingNaturalInform {
-    NSNumber* usingNaturalInform = [self dictionaryForClass: [IFCompilerOptions class]][IFSettingNaturalInform];
-
-    if (usingNaturalInform) {
-        return [usingNaturalInform boolValue];
-    } else {
-        return NO;
-    }
+    return YES;
 }
 
 - (void) setStrict: (BOOL) setting {
@@ -469,6 +468,21 @@ NSString* const IFSettingNotification = @"IFSettingNotification";
 - (BOOL) nobbleRng {
     NSNumber* setting = [self dictionaryForClass: [IFOutputSettings class]][IFSettingNobbleRng];
 	
+    if (setting) {
+        return [setting boolValue];
+    } else {
+        return NO;
+    }
+}
+
+- (void) setBasicInform: (BOOL) setting {
+    [self dictionaryForClass: [IFOutputSettings class]][IFSettingBasicInform] = @(setting);
+    [self settingsHaveChanged];
+}
+
+- (BOOL) basicInform {
+    NSNumber* setting = [self dictionaryForClass: [IFOutputSettings class]][IFSettingBasicInform];
+
     if (setting) {
         return [setting boolValue];
     } else {

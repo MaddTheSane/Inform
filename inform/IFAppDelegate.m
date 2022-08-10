@@ -22,11 +22,9 @@
 #import "IFIsNotes.h"
 #import "IFIsIndex.h"
 #import "IFIsFiles.h"
-#import "IFIsWatch.h"
-#import "IFIsBreakpoints.h"
 
 #import "Preferences/IFEditingPreferences.h"
-#import "Preferences/IFTextSizePreferences.h"
+#import "Preferences/IFColourPreferences.h"
 #import "Preferences/IFAdvancedPreferences.h"
 
 #import "IFNoDocProtocol.h"
@@ -37,6 +35,7 @@
 #import "IFOutputSettings.h"
 #import "IFI7OutputSettings.h"
 #import "IFRandomSettings.h"
+#import "IFBasicInformSettings.h"
 #import "IFCompilerOptions.h"
 #import "IFLibrarySettings.h"
 #import "IFDebugSettings.h"
@@ -50,17 +49,19 @@
 #import "IFSkeinItemView.h"
 
 #import "IFSingleController.h"
+#import "IFNewsManager.h"
 
 #import <GlkView/GlkHub.h>
 #import "Inform-Swift.h"
 
 @implementation IFAppDelegate {
+    /// News
+    //IFNewsManager* newsManager;
+
     /// The 'New Extension Project' menu
     IBOutlet NSMenuItem* newExtensionProjectMenu;
     /// The 'Open Extension' menu
     IBOutlet NSMenuItem* openExtensionMenu;
-    /// The Debug menu
-    IBOutlet NSMenuItem* debugMenu;
 
     /// Maps extension menu tags to source file names
     NSMutableArray* extensionSources;
@@ -93,7 +94,9 @@ static NSRunLoop* mainRunLoop = nil;
 
 - (void) applicationWillFinishLaunching: (NSNotification*) not {
 	mainRunLoop = [NSRunLoop currentRunLoop];
-	
+
+    _newsManager = [[IFNewsManager alloc] init];
+
     // Register some custom URL handlers
     // [NSURLProtocol registerClass: [IFNoDocProtocol class]];
     [NSURLProtocol registerClass: [IFInformProtocol class]];
@@ -112,10 +115,17 @@ static NSRunLoop* mainRunLoop = nil;
 	[IFSettingsController addStandardSettingsClass: [IFLibrarySettings class]];
 	[IFSettingsController addStandardSettingsClass: [IFMiscSettings class]];
     [IFSettingsController addStandardSettingsClass: [IFCompilerVersionSettings class]];
+    [IFSettingsController addStandardSettingsClass: [IFBasicInformSettings class]];
 
 	// Glk hub
 	[[GlkHub sharedGlkHub] setRandomHubCookie];
 	[[GlkHub sharedGlkHub] setHubName: @"GlkInform"];
+
+    // Remove the 'tab' related menu entries on the Window menu
+    if ([NSWindow respondsToSelector:@selector(setAllowsAutomaticWindowTabbing:)])
+    {
+        [NSWindow setAllowsAutomaticWindowTabbing:NO];
+    }
 }
 
 - (void) applicationDidFinishLaunching: (NSNotification*) not {
@@ -123,17 +133,20 @@ static NSRunLoop* mainRunLoop = nil;
 	[[IFInspectorWindow sharedInspectorWindow] addInspector: [IFIsFiles sharedIFIsFiles]];
 	[[IFInspectorWindow sharedInspectorWindow] addInspector: [IFIsNotes sharedIFIsNotes]];
 	[[IFInspectorWindow sharedInspectorWindow] addInspector: [IFIsIndex sharedIFIsIndex]];
-	[[IFInspectorWindow sharedInspectorWindow] addInspector: [IFIsWatch sharedIFIsWatch]];
-	[[IFInspectorWindow sharedInspectorWindow] addInspector: [IFIsBreakpoints sharedIFIsBreakpoints]];
-	
+
 	// The standard preferences
 	[[PreferenceController sharedPreferenceController] addPreferencePane: [[AuthorPreferences alloc] init]];
 	[[PreferenceController sharedPreferenceController] addPreferencePane: [[IFEditingPreferences alloc] init]];
-	[[PreferenceController sharedPreferenceController] addPreferencePane: [[IFTextSizePreferences alloc] init]];
+	[[PreferenceController sharedPreferenceController] addPreferencePane: [[IFColourPreferences alloc] init]];
 	[[PreferenceController sharedPreferenceController] addPreferencePane: [[IFAdvancedPreferences alloc] init]];
 
 	// Finish setting up
 	[self updateExtensionsMenu];
+
+    [NSApp addObserver: self
+            forKeyPath: @"effectiveAppearance"
+               options: NSKeyValueObservingOptionNew
+               context: nil];
 
 	[[NSNotificationCenter defaultCenter] addObserver: self
 											 selector: @selector(updateExtensionsMenu)
@@ -142,6 +155,9 @@ static NSRunLoop* mainRunLoop = nil;
 
 	[NSURLProtocol registerClass: [IFInformProtocol class]];
 
+    // Set dark mode if necessary
+    [self darkModeChanged];
+
     // Schedule "Checking whether document exists." into next UI Loop, because document is not restored yet.
     NSInvocationOperation* op = [[NSInvocationOperation alloc] initWithTarget: self
                                                                      selector: @selector(openWelcomeDialogIfNeeded)
@@ -149,16 +165,39 @@ static NSRunLoop* mainRunLoop = nil;
     [[NSOperationQueue mainQueue] addOperation: op];
 }
 
+- (void)observeValueForKeyPath: (NSString *) keyPath
+                      ofObject: (id) object
+                        change: (NSDictionary *) change
+                       context: (void *) context {
+    [self performSelectorOnMainThread:@selector(darkModeChanged) withObject:nil waitUntilDone:NO];
+}
+
+- (bool) isDark {
+    if (@available(macOS 10.14, *)) {
+        NSAppearanceName basicAppearance = [[NSApp effectiveAppearance] bestMatchFromAppearancesWithNames:@[NSAppearanceNameAqua, NSAppearanceNameDarkAqua]];
+        return [basicAppearance isEqualToString:NSAppearanceNameDarkAqua];
+    }
+    return false;
+}
+
+- (void) darkModeChanged {
+    IFPreferences* prefs = [IFPreferences sharedPreferences];
+    [prefs setDarkMode: [self isDark]];
+}
+
 -(void)openWelcomeDialogIfNeeded
 {
     //
-    // HACK: Remove any open color panel. Lion's auto-restore of windows that were open when
-    // the app last closed down can cause the color panel to display. We close the window.
+    // HACK: Remove any open color and font panel. Lion's auto-restore of windows that were open when
+    // the app last closed down can cause the panels to display. We close the window.
     //
     if([NSColorPanel sharedColorPanelExists]) {
         [[NSColorPanel sharedColorPanel] close];
     }
-    
+    if([NSFontPanel sharedFontPanelExists]) {
+        [[NSFontPanel sharedFontPanel] close];
+    }
+
     NSUInteger documentCount = [[[NSDocumentController sharedDocumentController] documents]count];
     
     // If no documents have opened, open the welcome dialog instead...
@@ -288,13 +327,6 @@ static NSRunLoop* mainRunLoop = nil;
     [newProj createInform7Extension];
 }
 
-- (IBAction) newInform6Project: (id) sender {
-    if( newProj == nil ) {
-        newProj = [[IFNewProject alloc] init];
-    }
-    [newProj createInform6Project];
-}
-
 - (IBAction) showInspectors: (id) sender {
 	[[IFInspectorWindow sharedInspectorWindow] showWindow: self];
 }
@@ -320,7 +352,7 @@ static NSRunLoop* mainRunLoop = nil;
 
 - (void) visitWebsite: (id) sender {
 	// Get the URL
-	NSURL* websiteUrl = [NSURL URLWithString: @"https://www.inform7.com"];
+	NSURL* websiteUrl = [NSURL URLWithString: @"http://www.inform7.com"];
 	
 	// Visit it
 	[[NSWorkspace sharedWorkspace] openURL: websiteUrl];
@@ -591,27 +623,25 @@ static NSRunLoop* mainRunLoop = nil;
 
          // Just add the extension
          // Add the files
-         BOOL succeeded = YES;
+         IFExtensionResult installResult = IFExtensionSuccess;
          for(NSURL* file in [panel URLs]) {
-             succeeded = [[IFExtensionsManager sharedNaturalInformExtensionsManager] installExtension: [file path]
-                                                                                            finalPath: nil
-                                                                                                title: nil
-                                                                                               author: nil
-                                                                                              version: nil
-                                                                                   showWarningPrompts: YES
-                                                                                               notify: NO];
-             if (!succeeded) break;
+             installResult = [[IFExtensionsManager sharedNaturalInformExtensionsManager] installExtension: [file path]
+                                                                                         finalPath: nil
+                                                                                             title: nil
+                                                                                            author: nil
+                                                                                           version: nil
+                                                                                showWarningPrompts: YES
+                                                                                            notify: NO];
+             if (installResult != IFExtensionSuccess) break;
          }
 
          // Re-run the census. In particular, this will update the Public Library of extensions web page if visible
          [[IFExtensionsManager sharedNaturalInformExtensionsManager] startCensus: @YES];
 
          // Report an error if we couldn't install the extension for some reason
-         if (!succeeded) {
-             // Display a 'failed to add extension' alert sheet
-             [IFUtility runAlertWarningWindow: nil
-                                        title: @"Failed to Install Extension"
-                                      message: @"Failed to Install Extension Explanation"];
+         if (installResult != IFExtensionSuccess) {
+             [IFUtility showExtensionError: installResult
+                                withWindow: nil];
          }
      }];
 }
@@ -643,10 +673,6 @@ static NSRunLoop* mainRunLoop = nil;
     // Clean up preference panes
     //
     [[PreferenceController sharedPreferenceController] removeAllPreferencePanes];
-}
-
-- (NSMenuItem*) debugMenu {
-	return debugMenu;
 }
 
 - (BOOL) sourceSpellChecking {

@@ -281,14 +281,11 @@ static IFCompilerController* activeController = nil;
     awake = YES;
     [[compilerResults textStorage] setDelegate: self];
 
-    messagesSize = [messageScroller frame].size.height;
+    messagesSize = 0; // [messageScroller frame].size.height;
 
-    NSRect newFrame = [messageScroller frame];
-    newFrame.size.height = 0;
-    [messageScroller setFrame: newFrame];
+    [splitView setDelegate: self];
+    [self adjustSplitView];
 
-    [splitView adjustSubviews];
-	
     [messageScroller setBorderType: NSNoBorder];
 
     [resultScroller setHasHorizontalScroller: YES];
@@ -297,6 +294,7 @@ static IFCompilerController* activeController = nil;
     [compilerResults setVerticallyResizable: YES];
     [[compilerResults textContainer] setWidthTracksTextView: NO];
     [[compilerResults textContainer] setContainerSize: NSMakeSize(1e8, 1e8)];
+    [compilerResults setBackgroundColor: NSColor.textBackgroundColor];
 }
 
 - (void) showWindow: (id) sender {
@@ -319,11 +317,7 @@ static IFCompilerController* activeController = nil;
     compiler = [[IFCompiler alloc] init];
     [self _registerHandlers];
 
-    NSRect newFrame = [messageScroller frame];
-    newFrame.size.height = 0;
-    [messageScroller setFrame: newFrame];
-
-    [splitView adjustSubviews];
+    [self adjustSplitView];
 }
 
 - (void) setCompiler: (IFCompiler*) comp {
@@ -332,11 +326,7 @@ static IFCompilerController* activeController = nil;
     compiler = comp;
     [self _registerHandlers];
 
-    NSRect newFrame = [messageScroller frame];
-    newFrame.size.height = 0;
-    [messageScroller setFrame: newFrame];
-
-    [splitView adjustSubviews];
+    [self adjustSplitView];
 }
 
 - (IFCompiler*) compiler {
@@ -363,7 +353,10 @@ static IFCompilerController* activeController = nil;
     [[[compilerResults textStorage] mutableString] setString: @""];
     highlightPos = 0;
 
-    [compiler prepareForLaunchWithBlorbStage: NO testCase: nil];
+    if (![compiler prepareForLaunchWithBlorbStage: NO testCase: nil])
+    {
+        return NO;
+    }
 	[compiler launch];
 
     return YES;
@@ -414,6 +407,7 @@ static IFCompilerController* activeController = nil;
 	[[[compilerResults textStorage] mutableString] appendString: 
 		[NSString stringWithFormat: [IFUtility localizedString: @"Compiler finished with code %i"], exitCode]];
 	[[[compilerResults textStorage] mutableString] appendString: @"\n"];
+    [self adjustSplitView];
 
     // Log error
     if (exitCode != 0) {
@@ -711,20 +705,7 @@ static IFCompilerController* activeController = nil;
     // Update the outline view
     [compilerMessages reloadData];
 
-    // Pop up the error view if required
-    if ([messageScroller frame].size.height == 0) {
-        NSRect newFrame = [messageScroller frame];
-        newFrame.size.height = messagesSize;
-        [messageScroller setFrame: newFrame];
-
-        NSRect splitFrame = [splitView frame];
-        NSRect resultFrame = [resultScroller frame];
-
-        resultFrame.size.height = splitFrame.size.height - newFrame.size.height - [splitView dividerThickness];
-        [resultScroller setFrame: resultFrame];
-
-        [splitView adjustSubviews];
-    }
+    [self adjustSplitView];
 
     // Notify the delegate
     if (delegate != nil &&
@@ -1175,7 +1156,8 @@ static IFCompilerController* activeController = nil;
                 return;
             }
             NSString* testCase = results[0];
-            unsigned long skeinNodeId = [results[1] unsignedLongValue];
+            NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
+            unsigned long skeinNodeId = [[formatter numberFromString:results[1]] unsignedLongValue];
 
             // Move to the appropriate place in the file
             if (![projectController showTestCase: testCase skeinNode: skeinNodeId]) {
@@ -1228,6 +1210,19 @@ static IFCompilerController* activeController = nil;
 	overrideURL = [problemsURL copy];
 }
 
+-(void) adjustSplitView {
+    NSRect newFrame = [messageScroller frame];
+    newFrame.size.height = 0;
+    [messageScroller setFrame:newFrame];
+
+    NSRect resultFrame = [resultScroller frame];
+
+    resultFrame.size.height = splitView.frame.size.height - newFrame.size.height - [splitView dividerThickness];
+    [resultScroller setFrame: resultFrame];
+
+//    [splitView adjustSubviews];
+}
+
 @synthesize splitView;
 - (void) setSplitView: (NSSplitView*) newSplitView {
 	// Remember the new split view
@@ -1247,10 +1242,12 @@ static IFCompilerController* activeController = nil;
         
         selectedTabId = IFTabConsole;
 	} else {
+        [self adjustSplitView];
         [self replaceViewWithTabId: IFTabConsole
                           withView: splitView];
 	}
-	if ([delegate respondsToSelector: @selector(viewSetHasUpdated:)]) {
+
+    if ([delegate respondsToSelector: @selector(viewSetHasUpdated:)]) {
 		[delegate viewSetHasUpdated: self];
     }
 }

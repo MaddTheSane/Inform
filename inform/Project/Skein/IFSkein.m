@@ -47,6 +47,7 @@ NSString* const IFSkeinSelectionChangedItemKey      = @"IFSkeinSelectionChangedI
         _project                     = theProject;
         _rootItem                    = [[IFSkeinItem alloc] initWithSkein: self command: @"- start -"];
 		_activeItem                  = nil;
+        _winningItem                 = nil;
         _draggingSourceNeedsUpdating = NO;
         _draggingItem                = nil;
 		currentOutput                = [[NSMutableString alloc] init];
@@ -97,7 +98,7 @@ NSString* const IFSkeinSelectionChangedItemKey      = @"IFSkeinSelectionChangedI
 #pragma mark - Interpreter Support
 - (void) inputCommand: (NSString*) command {
     // Remember the command in a list of commands already played
-    [_previousCommands addObject: command];
+    [_previousCommands insertObject: command atIndex:0];
 
     // Disable undo
     [[_project undoManager] disableUndoRegistration];
@@ -230,26 +231,38 @@ NSString* const IFSkeinSelectionChangedItemKey      = @"IFSkeinSelectionChangedI
                     keepActiveVisible: NO];
 }
 
+- (void) setWinningItem: (IFSkeinItem *) winningItem {
+    _winningItem = winningItem;
+}
+
+- (IFSkeinItem *) getWinningItem {
+    return _winningItem;
+}
+
+-(BOOL) isTheWinningItem: (IFSkeinItem *) winningItem {
+    return _winningItem == winningItem;
+}
+
 #pragma mark - Creating an input receiver
 
 + (id<ZoomViewInputSource>) inputSourceFromSkeinItem: (IFSkeinItem*) item1
                                               toItem: (IFSkeinItem*) item2 {
 	// item1 must be a parent of item2, and neither can be nil
-	// item1 is not executed
+
+    // item1 is not executed
 	if (item1 == nil || item2 == nil) return nil;
 
-	NSMutableArray* commandsToExecute = [NSMutableArray array];
+	NSMutableArray<NSString*>* commandsToExecute = [NSMutableArray array];
+    IFSkeinItem* parent = item2;
 
-	while (item2 != item1) {
-        if( !item2.isTestSubItem ) {
-            NSString* cmd = item2.command;
-            if (cmd == nil) cmd = @"";
-            [commandsToExecute insertObject: cmd atIndex:0];
-        }
+    while (parent != item1) {
+        NSString* cmd = [parent command];
+        if (cmd == nil) cmd = @"";
+        [commandsToExecute addObject: cmd];
 
-		item2 = item2.parent;
-		if (item2 == nil) return nil;
-	}
+        parent = [parent parent];
+        if (parent == nil) return nil;
+    }
 
 	// commandsToExecute contains the list of commands we need to execute
     TestCommands* source = [[TestCommands alloc] initWithCommands: commandsToExecute];

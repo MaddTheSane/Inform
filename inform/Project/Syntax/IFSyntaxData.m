@@ -835,10 +835,11 @@
         return;
     }
 
-    // No syntax highlighting
-    if( ![[IFPreferences sharedPreferences] enableSyntaxHighlighting] ) {
+    // No syntax highlighting/colouring
+    if(( ![[IFPreferences sharedPreferences] enableSyntaxHighlighting] ) &&
+       ( ![[IFPreferences sharedPreferences] enableSyntaxColouring] )) {
         // Just use standard attributes
-        [_textStorage addAttributes: [highlighter attributesForStyle: IFSyntaxNaturalInform]
+        [_textStorage setAttributes: [highlighter attributesForStyle: IFSyntaxNaturalInform]
                               range: range];
         [_textStorage fixFontAttributeInRange: range];
         return;
@@ -851,8 +852,7 @@
 
         // Get the style attributes
         NSDictionary* styleAttributes = [highlighter attributesForStyle: style];
-        [_textStorage addAttributes: styleAttributes
-                              range: styleRange];
+        [_textStorage setAttributes: styleAttributes range:styleRange];
         [_textStorage fixFontAttributeInRange: styleRange];
 
         NSAssert((styleRange.location + styleRange.length) <= [_textStorage length], @"Help!");
@@ -1282,14 +1282,14 @@ static inline BOOL IsWhitespace(unichar c) {
     // Set tabs
 	[res setTabStops: tabStops];
 	
-    // Set head indent
-	if ([[IFPreferences sharedPreferences] indentWrappedLines]) {
-        // Indent half a tabstop width beyond the normal indent
-        CGFloat headIndent = stopWidth * ((CGFloat) numberOfTabStops) + (stopWidth/2.0);
+    // Set head indent (no longer desired)
+	//if ([[IFPreferences sharedPreferences] indentWrappedLines]) {
+    //    // Indent half a tabstop width beyond the normal indent
+    //    CGFloat headIndent = stopWidth * ((CGFloat) numberOfTabStops) + (stopWidth/2.0);
 
-		[res setHeadIndent: headIndent];
-		[res setFirstLineHeadIndent: 0];
-	}
+	//	[res setHeadIndent: headIndent];
+	//	[res setFirstLineHeadIndent: 0];
+	//}
 
 	return @{NSParagraphStyleAttributeName: res};
 }

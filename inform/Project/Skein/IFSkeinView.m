@@ -218,11 +218,16 @@ static NSDictionary* itemTextAttributes;
 }
 
 - (void) layoutSkeinWithAnimation: (BOOL) animate {
-	// Re-layout this skein
+    [self finishEditing: self];
+
+    // Re-layout this skein
     [layoutTree setRootItem:     skein.rootItem];
     [layoutTree setActiveItem:   skein.activeItem];
     [layoutTree setSelectedItem: selectedItem];
 	[layoutTree layoutSkein];
+
+    // Resize the view to the size of the new layout
+    [self resizeView];
 
     // Tell the report to update itself based on the new skein
     [skeinViewChildren updateReportDetails];
@@ -547,6 +552,12 @@ static NSDictionary* itemTextAttributes;
     return YES;
 }
 
+-(BOOL) canSetWinningItem:(IFSkeinItem*) item {
+    if( item.parent == nil ) return NO;
+    if( item.isTestSubItem ) return NO;
+    return YES;
+}
+
 -(BOOL) canSplitThread:(IFSkeinItem*) item {
     if( item.children.count > 0 ) {
         IFSkeinItem* firstChild = item.children[0];
@@ -609,6 +620,15 @@ static NSDictionary* itemTextAttributes;
                                keyEquivalent: @""];
     menuItem.enabled = [self canEditItem:item];
 
+    menuItem = [contextMenu addItemWithTitle: [IFUtility localizedString: @"Set Winning Command"]
+                                      action: @selector(setWinningCommandItem:)
+                               keyEquivalent: @""];
+    if ([skein isTheWinningItem: item]) {
+        menuItem.state = NSControlStateValueOn;
+    } else {
+        menuItem.state = NSControlStateValueOff;
+    }
+    menuItem.enabled = [self canSetWinningItem:item];
     // -----------------------------------------------
     [contextMenu addItem: [NSMenuItem separatorItem]];
 
@@ -789,6 +809,29 @@ static NSDictionary* itemTextAttributes;
 
         // Force a layout of the skein
         [skein postSkeinChangedWithAnimate: YES
+                         keepActiveVisible: NO];
+    }
+    contextItem = nil;
+}
+
+- (IBAction) setWinningCommandItem: (id) sender {
+    if ([self canSetWinningItem: contextItem]) {
+        IFSkeinItem* oldWinningItem = [skein getWinningItem];
+        if (oldWinningItem == contextItem) {
+            [skein setWinningItem: nil];
+            [((NSMenuItem*) sender) setState: NSControlStateValueOff];
+        } else {
+            [skein setWinningItem: contextItem];
+        }
+
+        if (oldWinningItem != nil) {
+            // redraw the old item, to remove the winning item star icon
+            IFSkeinItemView * oldWinningView = [skeinViewChildren itemViewForItem: oldWinningItem];
+            [oldWinningView setNeedsDisplay: YES];
+        }
+
+        // Force a layout of the skein, making the new winning item appear
+        [skein postSkeinChangedWithAnimate: NO
                          keepActiveVisible: NO];
     }
     contextItem = nil;

@@ -9,8 +9,11 @@
 // Application delegate class
 
 #import <Cocoa/Cocoa.h>
+#import "IFNewsManager.h"
 
 @interface IFAppDelegate : NSObject<NSOpenSavePanelDelegate>
+
+@property (atomic, readonly) IFNewsManager* newsManager;
 
 /// Retrieves the runloop used by the main thread (Cocoa sometimes calls our callbacks
 /// from a sooper-sekrit bonus thread, causing pain if we don't use this)
@@ -36,7 +39,6 @@
 
 - (IBAction) newProject: (id) sender;
 - (IBAction) newExtension: (id) sender;
-- (IBAction) newInform6Project: (id) sender;
 
 - (IBAction) visitWebsite: (id) sender;
 - (IBAction) showWelcome: (id) sender;
@@ -46,9 +48,7 @@
 - (void) updateExtensionsMenu;
 - (void) createNewProject: (NSString*) title
                     story: (NSString*) story;
-
-/// The Debug menu
-@property (atomic, readonly, copy) NSMenuItem *debugMenu;
+- (IBAction) installExtension: (id) sender;
 
 // Spell checking
 @property (atomic, readonly) BOOL sourceSpellChecking;

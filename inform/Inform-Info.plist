@@ -260,11 +260,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.68</string>
+	<string>1.82</string>
 	<key>CFBundleSignature</key>
 	<string>INfm</string>
 	<key>CFBundleVersion</key>
-	<string>1.68.1</string>
+	<string>1.82.0</string>
 	<key>InformConfiguration</key>
 	<dict>
 		<key>AvailableInterpreters</key>
@@ -287,7 +287,7 @@
 	<key>NSAppleScriptEnabled</key>
 	<false/>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2014-2019 Toby Nelson, Graham Nelson</string>
+	<string>© 2014-2022 Toby Nelson, Graham Nelson</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
