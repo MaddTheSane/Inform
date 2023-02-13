@@ -46,6 +46,24 @@
 		55BFABF0274481760049646A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55BFABEF274481760049646A /* Images.xcassets */; };
 		55C916EB27518B6B003725D4 /* ProblemHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C916EA27518B6B003725D4 /* ProblemHandlers.swift */; };
 		55D6F088275C50830098620E /* GlkSound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BFAC0C2744983B0049646A /* GlkSound.framework */; };
+		55E7FDAB299ADDD200D554FB /* QuickLookThumbnailing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7FDAA299ADDD200D554FB /* QuickLookThumbnailing.framework */; };
+		55E7FDAD299ADDD200D554FB /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7FDAC299ADDD200D554FB /* Quartz.framework */; };
+		55E7FDB0299ADDD300D554FB /* ThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7FDAF299ADDD300D554FB /* ThumbnailProvider.swift */; };
+		55E7FDB5299ADDD300D554FB /* InformThumb.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 55E7FDA9299ADDD200D554FB /* InformThumb.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		55E7FDBA299ADE1F00D554FB /* IFInform6Highlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D718F18890006717B3 /* IFInform6Highlighter.m */; };
+		55E7FDBB299ADE1F00D554FB /* IFNaturalHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D918F18890006717B3 /* IFNaturalHighlighter.m */; };
+		55E7FDBC299ADE1F00D554FB /* IFPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B34334A07B158720022C278 /* IFPreferences.m */; };
+		55E7FDBD299ADE1F00D554FB /* IFIntelFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712EF18F188B9006717B3 /* IFIntelFile.m */; };
+		55E7FDBE299ADE1F00D554FB /* IFIntelSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712F118F188B9006717B3 /* IFIntelSymbol.m */; };
+		55E7FDBF299ADE1F00D554FB /* IFNaturalIntel.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712F318F188B9006717B3 /* IFNaturalIntel.m */; };
+		55E7FDC0299ADE1F00D554FB /* IFEditingPreferencesSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7BF1F818D7115300A1E9FD /* IFEditingPreferencesSet.m */; };
+		55E7FDC1299ADE1F00D554FB /* IFProjectTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A86818F14B9B00CB9B31 /* IFProjectTypes.m */; };
+		55E7FDC2299ADE1F00D554FB /* IFSyntaxData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DD18F18890006717B3 /* IFSyntaxData.m */; };
+		55E7FDC3299ADE1F00D554FB /* IFSyntaxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DF18F18890006717B3 /* IFSyntaxManager.m */; };
+		55E7FDC4299ADE1F00D554FB /* IFColourTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536C1628205101004E4069 /* IFColourTheme.m */; };
+		55E7FDC5299ADE1F00D554FB /* IFNoHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DB18F18890006717B3 /* IFNoHighlighter.m */; };
+		55E7FDC6299ADE1F00D554FB /* IFFakeProjectPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA379370CD3E73E00C7B1D4 /* IFFakeProjectPane.m */; };
+		55E7FDC7299ADE1F00D554FB /* IFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A92C18F152D500CB9B31 /* IFUtility.m */; };
 		55FF5AC7275A250A000B0D21 /* GlkSound.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55BFAC0C2744983B0049646A /* GlkSound.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55FF5B8B275ADBFD000B0D21 /* Ogg.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55FF5B63275ADB78000B0D21 /* Ogg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55FF5B8D275ADBFD000B0D21 /* SFBAudioEngine.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55FF5B8A275ADBBC000B0D21 /* SFBAudioEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -475,6 +493,55 @@
 			remoteGlobalIDString = 4B3C3B790F3DAB850066A760;
 			remoteInfo = git;
 		};
+		55E7FD99299ADCA700D554FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55132C2E28FFE9AB007C87B6;
+			remoteInfo = ZoomNewSaveQL;
+		};
+		55E7FD9B299ADCA700D554FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55A319BE290138F200ABAAA2;
+			remoteInfo = ZoomThumbnailer;
+		};
+		55E7FD9D299ADCA700D554FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55101A57290D06D9003CED21;
+			remoteInfo = ZoomNewSpotlight;
+		};
+		55E7FD9F299ADCA700D554FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5591DC042916367C00BF6F6F;
+			remoteInfo = heglk;
+		};
+		55E7FDA1299ADCA700D554FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5591DC1E29163EB400BF6F6F;
+			remoteInfo = Hugo;
+		};
+		55E7FDA3299ADCA700D554FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55E478872968CCD10017646D;
+			remoteInfo = flic;
+		};
+		55E7FDB3299ADDD300D554FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55E7FDA8299ADDD200D554FB;
+			remoteInfo = InformThumb;
+		};
 		55FF5B51275ADB78000B0D21 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 55BFABF62744983B0049646A /* CocoaGlk.xcodeproj */;
@@ -536,6 +603,17 @@
 				4B28B8270812732400D39021 /* GlkClient.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55E7FDB9299ADDD300D554FB /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				55E7FDB5299ADDD300D554FB /* InformThumb.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -629,7 +707,7 @@
 		55BA275F2746681C006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RandomSettings.xib; sourceTree = "<group>"; };
 		55BA27612746681C006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AdvancedPreferences.xib; sourceTree = "<group>"; };
 		55BA27622746681C006BD6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AuthorPreferences.xib; sourceTree = "<group>"; };
-		55BA276627466873006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Launcher.strings; sourceTree = "<group>"; };
+		55BA276627466873006BD6D1 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Launcher.strings; sourceTree = "<group>"; };
 		55BA276A274668C9006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NewProject.strings; sourceTree = "<group>"; };
 		55BA276E274668E8006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NaturalExtensionOptions.strings; sourceTree = "<group>"; };
 		55BA2772274668FA006BD6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainMenu.strings; sourceTree = "<group>"; };
@@ -651,6 +729,13 @@
 		55BFABEF274481760049646A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		55BFABF62744983B0049646A /* CocoaGlk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaGlk.xcodeproj; path = ../zoom/depends/CocoaGlk/CocoaGlk.xcodeproj; sourceTree = "<group>"; };
 		55C916EA27518B6B003725D4 /* ProblemHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemHandlers.swift; sourceTree = "<group>"; usesTabs = 1; };
+		55E7FDA9299ADDD200D554FB /* InformThumb.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InformThumb.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		55E7FDAA299ADDD200D554FB /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = SDKROOT; };
+		55E7FDAC299ADDD200D554FB /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		55E7FDAF299ADDD300D554FB /* ThumbnailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailProvider.swift; sourceTree = "<group>"; };
+		55E7FDB1299ADDD300D554FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55E7FDB2299ADDD300D554FB /* InformThumb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InformThumb.entitlements; sourceTree = "<group>"; };
+		55E7FDC8299ADE4A00D554FB /* InformThumb-swift-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InformThumb-swift-header.h"; sourceTree = "<group>"; };
 		55FF5B4B275ADB78000B0D21 /* ogg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ogg.xcodeproj; path = ../zoom/depends/CocoaGlk/GlkSound/SFBAudioEngine/Libraries/ogg/ogg.xcodeproj; sourceTree = "<group>"; };
 		55FF5B83275ADBBC000B0D21 /* SFBAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFBAudioEngine.xcodeproj; path = ../zoom/depends/CocoaGlk/GlkSound/SFBAudioEngine/SFBAudioEngine.xcodeproj; sourceTree = "<group>"; };
 		FF00CB7619085EB200B5D911 /* IFI7OutputSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFI7OutputSettings.h; sourceTree = "<group>"; };
@@ -949,6 +1034,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55E7FDA6299ADDD200D554FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55E7FDAB299ADDD200D554FB /* QuickLookThumbnailing.framework in Frameworks */,
+				55E7FDAD299ADDD200D554FB /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -998,6 +1092,7 @@
 				4B81D33F08112F6C00CF609F /* glulxe-client */,
 				4BD275CC0871A80F00C1AE15 /* ZoomView.framework */,
 				4BA3790F0CD3E39700C7B1D4 /* InformQL.qlgenerator */,
+				55E7FDA9299ADDD200D554FB /* InformThumb.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1027,6 +1122,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				55E7FDAE299ADDD300D554FB /* InformThumb */,
 				4BA378B40CD3E23700C7B1D4 /* QuickLook */,
 				32CA4F630368D1EE00C91783 /* Inform_Prefix.h */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
@@ -1066,6 +1162,8 @@
 				FF0C217B19828003007DCD11 /* Foundation.framework */,
 				FF0C216E19827FDD007DCD11 /* AppKit.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				55E7FDAA299ADDD200D554FB /* QuickLookThumbnailing.framework */,
+				55E7FDAC299ADDD200D554FB /* Quartz.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1378,6 +1476,12 @@
 				55343A1F2744A06400BB989E /* agt2agx */,
 				55AAA32F27DEE38A00AAD2EF /* JACL.zoomPlugin */,
 				55AAA33127DEE38A00AAD2EF /* jacl-interpreter */,
+				55E7FD9A299ADCA700D554FB /* ZoomNewSaveQL.appex */,
+				55E7FD9C299ADCA700D554FB /* ZoomThumbnailer.appex */,
+				55E7FD9E299ADCA700D554FB /* ZoomNewSpotlight.appex */,
+				55E7FDA0299ADCA700D554FB /* heglk */,
+				55E7FDA2299ADCA700D554FB /* Hugo.plugin */,
+				55E7FDA4299ADCA700D554FB /* libflic.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1487,6 +1591,17 @@
 				55AAA31527DEE38A00AAD2EF /* multiWinSwift */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		55E7FDAE299ADDD300D554FB /* InformThumb */ = {
+			isa = PBXGroup;
+			children = (
+				55E7FDAF299ADDD300D554FB /* ThumbnailProvider.swift */,
+				55E7FDB1299ADDD300D554FB /* Info.plist */,
+				55E7FDB2299ADDD300D554FB /* InformThumb.entitlements */,
+				55E7FDC8299ADE4A00D554FB /* InformThumb-swift-header.h */,
+			);
+			path = InformThumb;
 			sourceTree = "<group>";
 		};
 		55FF5B4C275ADB78000B0D21 /* Products */ = {
@@ -1682,6 +1797,7 @@
 				4B81D2E408112D1300CF609F /* Copy interpreters */,
 				4BA3792A0CD3E46F00C7B1D4 /* Copy QuickLook bundle */,
 				FFC9D46319F681CF0027181C /* (Script) Final Build Phase */,
+				55E7FDB9299ADDD300D554FB /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -1691,12 +1807,30 @@
 				55BFABFC2744983B0049646A /* PBXTargetDependency */,
 				4BD2757108703F1100C1AE15 /* PBXTargetDependency */,
 				4BA379270CD3E42A00C7B1D4 /* PBXTargetDependency */,
+				55E7FDB4299ADDD300D554FB /* PBXTargetDependency */,
 			);
 			name = Inform;
 			productInstallPath = "$(HOME)/Applications";
 			productName = Inform;
 			productReference = 4BD95A34055EE949008DEFF4 /* Inform.app */;
 			productType = "com.apple.product-type.application";
+		};
+		55E7FDA8299ADDD200D554FB /* InformThumb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55E7FDB6299ADDD300D554FB /* Build configuration list for PBXNativeTarget "InformThumb" */;
+			buildPhases = (
+				55E7FDA5299ADDD200D554FB /* Sources */,
+				55E7FDA6299ADDD200D554FB /* Frameworks */,
+				55E7FDA7299ADDD200D554FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InformThumb;
+			productName = InformThumb;
+			productReference = 55E7FDA9299ADDD200D554FB /* InformThumb.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -1705,6 +1839,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = IF;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					4BA3790E0CD3E39700C7B1D4 = {
@@ -1723,6 +1858,11 @@
 								enabled = 0;
 							};
 						};
+					};
+					55E7FDA8299ADDD200D554FB = {
+						CreatedOnToolsVersion = 14.2;
+						DevelopmentTeam = 97V36B3QYK;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1758,6 +1898,7 @@
 			targets = (
 				4BD959F3055EE949008DEFF4 /* Inform */,
 				4BA3790E0CD3E39700C7B1D4 /* InformQL */,
+				55E7FDA8299ADDD200D554FB /* InformThumb */,
 			);
 		};
 /* End PBXProject section */
@@ -1966,6 +2107,48 @@
 			remoteRef = 55BFAC132744983B0049646A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		55E7FD9A299ADCA700D554FB /* ZoomNewSaveQL.appex */ = {
+			isa = PBXReferenceProxy;
+			fileType = "wrapper.app-extension";
+			path = ZoomNewSaveQL.appex;
+			remoteRef = 55E7FD99299ADCA700D554FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		55E7FD9C299ADCA700D554FB /* ZoomThumbnailer.appex */ = {
+			isa = PBXReferenceProxy;
+			fileType = "wrapper.app-extension";
+			path = ZoomThumbnailer.appex;
+			remoteRef = 55E7FD9B299ADCA700D554FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		55E7FD9E299ADCA700D554FB /* ZoomNewSpotlight.appex */ = {
+			isa = PBXReferenceProxy;
+			fileType = "wrapper.app-extension";
+			path = ZoomNewSpotlight.appex;
+			remoteRef = 55E7FD9D299ADCA700D554FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		55E7FDA0299ADCA700D554FB /* heglk */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = heglk;
+			remoteRef = 55E7FD9F299ADCA700D554FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		55E7FDA2299ADCA700D554FB /* Hugo.plugin */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Hugo.plugin;
+			remoteRef = 55E7FDA1299ADCA700D554FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		55E7FDA4299ADCA700D554FB /* libflic.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libflic.a;
+			remoteRef = 55E7FDA3299ADCA700D554FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		55FF5B63275ADB78000B0D21 /* Ogg.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -2036,6 +2219,13 @@
 				FF10418F191A08700022AA5E /* License.rtf in Resources */,
 				FFEF5D551915534400AA562F /* Changes to Inform.epub in Resources */,
 				FFEF5D561915534600AA562F /* Inform - A Design System for Interactive Fiction.epub in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55E7FDA7299ADDD200D554FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2229,6 +2419,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55E7FDA5299ADDD200D554FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55E7FDBF299ADE1F00D554FB /* IFNaturalIntel.m in Sources */,
+				55E7FDBD299ADE1F00D554FB /* IFIntelFile.m in Sources */,
+				55E7FDBE299ADE1F00D554FB /* IFIntelSymbol.m in Sources */,
+				55E7FDC5299ADE1F00D554FB /* IFNoHighlighter.m in Sources */,
+				55E7FDBA299ADE1F00D554FB /* IFInform6Highlighter.m in Sources */,
+				55E7FDC4299ADE1F00D554FB /* IFColourTheme.m in Sources */,
+				55E7FDC3299ADE1F00D554FB /* IFSyntaxManager.m in Sources */,
+				55E7FDC6299ADE1F00D554FB /* IFFakeProjectPane.m in Sources */,
+				55E7FDBB299ADE1F00D554FB /* IFNaturalHighlighter.m in Sources */,
+				55E7FDC0299ADE1F00D554FB /* IFEditingPreferencesSet.m in Sources */,
+				55E7FDC7299ADE1F00D554FB /* IFUtility.m in Sources */,
+				55E7FDB0299ADDD300D554FB /* ThumbnailProvider.swift in Sources */,
+				55E7FDBC299ADE1F00D554FB /* IFPreferences.m in Sources */,
+				55E7FDC1299ADE1F00D554FB /* IFProjectTypes.m in Sources */,
+				55E7FDC2299ADE1F00D554FB /* IFSyntaxData.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2256,6 +2468,11 @@
 			isa = PBXTargetDependency;
 			name = GlkView;
 			targetProxy = 55BFABFB2744983B0049646A /* PBXContainerItemProxy */;
+		};
+		55E7FDB4299ADDD300D554FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55E7FDA8299ADDD200D554FB /* InformThumb */;
+			targetProxy = 55E7FDB3299ADDD300D554FB /* PBXContainerItemProxy */;
 		};
 		55FF5B52275ADB78000B0D21 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2735,6 +2952,7 @@
 		4BE5F504085882AC00C7EF5E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = Inform;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = NO;
@@ -2788,6 +3006,7 @@
 		4BE5F505085882AC00C7EF5E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = Inform;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = NO;
@@ -2967,6 +3186,86 @@
 			};
 			name = Release;
 		};
+		55E7FDB7299ADDD300D554FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = InformThumb/InformThumb.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InformThumb/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InformThumb;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.inform7.inform-compiler.InformThumb";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "InformThumb/InformThumb-swift-header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		55E7FDB8299ADDD300D554FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = InformThumb/InformThumb.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InformThumb/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InformThumb;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.inform7.inform-compiler.InformThumb";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "InformThumb/InformThumb-swift-header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2993,6 +3292,15 @@
 			buildConfigurations = (
 				4BE5F50C085882AC00C7EF5E /* Debug */,
 				4BE5F50D085882AC00C7EF5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55E7FDB6299ADDD300D554FB /* Build configuration list for PBXNativeTarget "InformThumb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55E7FDB7299ADDD300D554FB /* Debug */,
+				55E7FDB8299ADDD300D554FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
