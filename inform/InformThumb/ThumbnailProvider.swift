@@ -61,15 +61,15 @@ class ThumbnailProvider: QLThumbnailProvider {
                 throw CocoaError(.fileReadCorruptFile)
             }
             
-            // Create a suitable storage object and highlighter
-            var theIdx = sourceCodeString.startIndex
-            _=sourceCodeString.formIndex(&theIdx, offsetBy: 4096, limitedBy: sourceCodeString.endIndex)
-            let storage = NSTextStorage(string: String(sourceCodeString[sourceCodeString.startIndex ..< theIdx]))
-            IFSyntaxManager.register(storage, name: "Thumbnail", type: isInform6 ? .inform6 : .inform7, intelligence: nil, undoManager: nil)
-            
             // Produce the result
-            let size = CGSize(width: 800, height: 840);
+            let size = CGSize(width: 800, height: 840)
             let reply = QLThumbnailReply(contextSize: size, currentContextDrawing: { () -> Bool in
+                // Create a suitable storage object and highlighter
+                var theIdx = sourceCodeString.startIndex
+                _=sourceCodeString.formIndex(&theIdx, offsetBy: 4096, limitedBy: sourceCodeString.endIndex)
+                let storage = NSTextStorage(string: String(sourceCodeString[sourceCodeString.startIndex ..< theIdx]))
+                IFSyntaxManager.register(storage, name: "Thumbnail", type: isInform6 ? .inform6 : .inform7, intelligence: nil, undoManager: nil)
+                
                 // Start drawing
                 NSGraphicsContext.saveGraphicsState()
                 NSGraphicsContext.current?.imageInterpolation = .high

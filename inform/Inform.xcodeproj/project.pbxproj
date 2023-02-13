@@ -64,6 +64,9 @@
 		55E7FDC5299ADE1F00D554FB /* IFNoHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DB18F18890006717B3 /* IFNoHighlighter.m */; };
 		55E7FDC6299ADE1F00D554FB /* IFFakeProjectPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA379370CD3E73E00C7B1D4 /* IFFakeProjectPane.m */; };
 		55E7FDC7299ADE1F00D554FB /* IFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A92C18F152D500CB9B31 /* IFUtility.m */; };
+		55E7FDCE299AE97C00D554FB /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7FDAC299ADDD200D554FB /* Quartz.framework */; };
+		55E7FDD3299AE97D00D554FB /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7FDD2299AE97D00D554FB /* PreviewProvider.swift */; };
+		55E7FDDB299AE97D00D554FB /* InformPreview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 55E7FDCD299AE97C00D554FB /* InformPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		55FF5AC7275A250A000B0D21 /* GlkSound.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55BFAC0C2744983B0049646A /* GlkSound.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55FF5B8B275ADBFD000B0D21 /* Ogg.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55FF5B63275ADB78000B0D21 /* Ogg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55FF5B8D275ADBFD000B0D21 /* SFBAudioEngine.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55FF5B8A275ADBBC000B0D21 /* SFBAudioEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -542,6 +545,13 @@
 			remoteGlobalIDString = 55E7FDA8299ADDD200D554FB;
 			remoteInfo = InformThumb;
 		};
+		55E7FDD9299AE97D00D554FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55E7FDCC299AE97C00D554FB;
+			remoteInfo = InformPreview;
+		};
 		55FF5B51275ADB78000B0D21 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 55BFABF62744983B0049646A /* CocoaGlk.xcodeproj */;
@@ -611,6 +621,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				55E7FDDB299AE97D00D554FB /* InformPreview.appex in Embed Foundation Extensions */,
 				55E7FDB5299ADDD300D554FB /* InformThumb.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -736,6 +747,10 @@
 		55E7FDB1299ADDD300D554FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55E7FDB2299ADDD300D554FB /* InformThumb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InformThumb.entitlements; sourceTree = "<group>"; };
 		55E7FDC8299ADE4A00D554FB /* InformThumb-swift-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InformThumb-swift-header.h"; sourceTree = "<group>"; };
+		55E7FDCD299AE97C00D554FB /* InformPreview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InformPreview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		55E7FDD2299AE97D00D554FB /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		55E7FDD7299AE97D00D554FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55E7FDD8299AE97D00D554FB /* InformPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InformPreview.entitlements; sourceTree = "<group>"; };
 		55FF5B4B275ADB78000B0D21 /* ogg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ogg.xcodeproj; path = ../zoom/depends/CocoaGlk/GlkSound/SFBAudioEngine/Libraries/ogg/ogg.xcodeproj; sourceTree = "<group>"; };
 		55FF5B83275ADBBC000B0D21 /* SFBAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFBAudioEngine.xcodeproj; path = ../zoom/depends/CocoaGlk/GlkSound/SFBAudioEngine/SFBAudioEngine.xcodeproj; sourceTree = "<group>"; };
 		FF00CB7619085EB200B5D911 /* IFI7OutputSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFI7OutputSettings.h; sourceTree = "<group>"; };
@@ -1043,6 +1058,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55E7FDCA299AE97C00D554FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55E7FDCE299AE97C00D554FB /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -1093,6 +1116,7 @@
 				4BD275CC0871A80F00C1AE15 /* ZoomView.framework */,
 				4BA3790F0CD3E39700C7B1D4 /* InformQL.qlgenerator */,
 				55E7FDA9299ADDD200D554FB /* InformThumb.appex */,
+				55E7FDCD299AE97C00D554FB /* InformPreview.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1122,6 +1146,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				55E7FDCF299AE97D00D554FB /* InformPreview */,
 				55E7FDAE299ADDD300D554FB /* InformThumb */,
 				4BA378B40CD3E23700C7B1D4 /* QuickLook */,
 				32CA4F630368D1EE00C91783 /* Inform_Prefix.h */,
@@ -1604,6 +1629,16 @@
 			path = InformThumb;
 			sourceTree = "<group>";
 		};
+		55E7FDCF299AE97D00D554FB /* InformPreview */ = {
+			isa = PBXGroup;
+			children = (
+				55E7FDD2299AE97D00D554FB /* PreviewProvider.swift */,
+				55E7FDD7299AE97D00D554FB /* Info.plist */,
+				55E7FDD8299AE97D00D554FB /* InformPreview.entitlements */,
+			);
+			path = InformPreview;
+			sourceTree = "<group>";
+		};
 		55FF5B4C275ADB78000B0D21 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1808,6 +1843,7 @@
 				4BD2757108703F1100C1AE15 /* PBXTargetDependency */,
 				4BA379270CD3E42A00C7B1D4 /* PBXTargetDependency */,
 				55E7FDB4299ADDD300D554FB /* PBXTargetDependency */,
+				55E7FDDA299AE97D00D554FB /* PBXTargetDependency */,
 			);
 			name = Inform;
 			productInstallPath = "$(HOME)/Applications";
@@ -1830,6 +1866,23 @@
 			name = InformThumb;
 			productName = InformThumb;
 			productReference = 55E7FDA9299ADDD200D554FB /* InformThumb.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		55E7FDCC299AE97C00D554FB /* InformPreview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55E7FDDC299AE97D00D554FB /* Build configuration list for PBXNativeTarget "InformPreview" */;
+			buildPhases = (
+				55E7FDC9299AE97C00D554FB /* Sources */,
+				55E7FDCA299AE97C00D554FB /* Frameworks */,
+				55E7FDCB299AE97C00D554FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InformPreview;
+			productName = InformPreview;
+			productReference = 55E7FDCD299AE97C00D554FB /* InformPreview.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -1860,6 +1913,11 @@
 						};
 					};
 					55E7FDA8299ADDD200D554FB = {
+						CreatedOnToolsVersion = 14.2;
+						DevelopmentTeam = 97V36B3QYK;
+						ProvisioningStyle = Automatic;
+					};
+					55E7FDCC299AE97C00D554FB = {
 						CreatedOnToolsVersion = 14.2;
 						DevelopmentTeam = 97V36B3QYK;
 						ProvisioningStyle = Automatic;
@@ -1899,6 +1957,7 @@
 				4BD959F3055EE949008DEFF4 /* Inform */,
 				4BA3790E0CD3E39700C7B1D4 /* InformQL */,
 				55E7FDA8299ADDD200D554FB /* InformThumb */,
+				55E7FDCC299AE97C00D554FB /* InformPreview */,
 			);
 		};
 /* End PBXProject section */
@@ -2229,6 +2288,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55E7FDCB299AE97C00D554FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -2441,6 +2507,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55E7FDC9299AE97C00D554FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55E7FDD3299AE97D00D554FB /* PreviewProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2473,6 +2547,11 @@
 			isa = PBXTargetDependency;
 			target = 55E7FDA8299ADDD200D554FB /* InformThumb */;
 			targetProxy = 55E7FDB3299ADDD300D554FB /* PBXContainerItemProxy */;
+		};
+		55E7FDDA299AE97D00D554FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55E7FDCC299AE97C00D554FB /* InformPreview */;
+			targetProxy = 55E7FDD9299AE97D00D554FB /* PBXContainerItemProxy */;
 		};
 		55FF5B52275ADB78000B0D21 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3266,6 +3345,86 @@
 			};
 			name = Release;
 		};
+		55E7FDDD299AE97D00D554FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = InformPreview/InformPreview.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InformPreview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InformPreview;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.inform7.inform-compiler.InformPreview";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "InformThumb/InformThumb-swift-header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		55E7FDDE299AE97D00D554FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = InformPreview/InformPreview.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InformPreview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InformPreview;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.inform7.inform-compiler.InformPreview";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "InformThumb/InformThumb-swift-header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3301,6 +3460,15 @@
 			buildConfigurations = (
 				55E7FDB7299ADDD300D554FB /* Debug */,
 				55E7FDB8299ADDD300D554FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55E7FDDC299AE97D00D554FB /* Build configuration list for PBXNativeTarget "InformPreview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55E7FDDD299AE97D00D554FB /* Debug */,
+				55E7FDDE299AE97D00D554FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
