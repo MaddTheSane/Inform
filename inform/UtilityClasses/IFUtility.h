@@ -25,7 +25,7 @@ CGFloat easeOutCubic(CGFloat t);
 // String
 + (bool) safeString:(NSString*) string1 insensitivelyEqualsSafeString:(NSString*) string2;
 + (bool) url:(NSURL*) url1 equals:(NSURL*) url2;
-+ (NSString*) localizedString:(NSString*) key;
++ (NSString*) localizedString: (NSString*) key NS_FORMAT_ARGUMENT(1);
 + (NSString*) localizedString: (NSString*) key
                       default: (NSString*) value NS_FORMAT_ARGUMENT(2);
 + (NSString*) localizedString: (NSString*) key

@@ -262,9 +262,7 @@
     }
 }
 
-- (void) setTestCommands: (NSArray*) myTestCommands {
-    testCommands = [myTestCommands copy];
-}
+@synthesize testCommands;
 
 - (BOOL) hasTestCommands {
     return ( testCommands.count > 0 );

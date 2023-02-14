@@ -26,7 +26,7 @@
 #pragma mark - Properties
 // The files and settings associated with the project
 @property (atomic, readonly, strong)  IFProjectFile *       projectFile;
-@property (atomic, readonly, copy)    NSDictionary *        sourceFiles;
+@property (atomic, readonly, copy)    NSDictionary<NSString*,NSTextStorage*> * sourceFiles;
 @property (atomic, readonly, strong)  IFCompilerSettings *  settings;
 @property (atomic, readonly, strong)  IFCompiler *          compiler;
 @property (atomic, readonly)          BOOL                  editingExtension;
@@ -41,7 +41,7 @@
 @property (atomic, readonly, copy)    NSTextStorage *       notes;
 @property (atomic, readonly, strong)  IFIndexFile *         indexFile;
 @property (atomic, readonly, strong)  IFSkein *             currentSkein;
-@property (atomic, readonly, strong)  NSMutableArray *      skeins;
+@property (atomic, readonly, strong)  NSMutableArray<IFSkein*> * skeins;
 
 #pragma mark - File Handling
 - (NSTextStorage*) storageForFile: (NSString*) sourceFile;
@@ -101,7 +101,7 @@
 /// Extension project compilation problems need redirecting back to extension.i7x source, not story.ni
 -(NSArray*) redirectLinksToExtensionSourceCode: (NSArray*) link;
 
--(NSArray*) testCommandsForExtensionTestCase: (NSString*) testCase;
+-(NSArray<NSString*>*) testCommandsForExtensionTestCase: (NSString*) testCase;
 - (BOOL) generateReportForTestCase: (NSString*) testCase
                          errorCode: (NSString*) errorCode
                           skeinURL: (NSURL*) skeinURL

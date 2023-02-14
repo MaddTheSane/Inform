@@ -17,7 +17,7 @@
 #import "IFUtility.h"
 #import "IFSourceFileView.h"
 
-@interface IFSingleController(PrivateMethods)
+@interface IFSingleController()
 
 - (void) showInstallPrompt: (id) sender;
 - (void) hideInstallPrompt: (id) sender;

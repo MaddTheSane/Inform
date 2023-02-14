@@ -41,7 +41,7 @@
 /// Sets whether or not a 'test me' command should be generated (provided that there is no 'point to run to')
 - (void) setTestMe: (BOOL) willTestMe;
 /// Sets the list of commands to run (assuming there's no point to run to, and no testMe)
-- (void) setTestCommands: (NSArray*) testCommands;
+- (void) setTestCommands: (NSArray<NSString*>*) testCommands;
 /// Do we want to switch to the game page?
 - (void) setSwitchToPage: (BOOL) switchToPage;
 /// Do we have test commands?
@@ -53,5 +53,8 @@
 - (void) stopRunningGame;
 /// Forcibly pauses the running game and enters the debugger
 - (void) pauseRunningGame;
+
+/// The list of commands to run (assuming there's no point to run to, and no testMe)
+@property (atomic, copy) NSArray<NSString*>* testCommands;
 
 @end

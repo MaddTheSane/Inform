@@ -34,7 +34,7 @@
 
     IFCompiler*             compiler;
 
-    NSMutableDictionary*    sourceFiles;
+    NSMutableDictionary<NSString*,NSTextStorage*>* sourceFiles;
     NSString*               mainSource;
 
     NSTextStorage*          notes;
@@ -1016,17 +1016,9 @@
 }
 
 // == Document info ==
-- (IFCompilerSettings*) settings {
-    return settings;
-}
-
-- (IFCompiler*) compiler {
-    return compiler;
-}
-
-- (BOOL) singleFile {
-    return singleFile;
-}
+@synthesize settings;
+@synthesize compiler;
+@synthesize singleFile;
 
 - (NSTextStorage*) storageForFile: (NSString*) sourceFile {
 	NSTextStorage*  storage;
@@ -1093,17 +1085,13 @@
     return sourceFiles[sourceFile];
 }
 
-- (IFProjectFile*) projectFile {
-    return projectFile;
-}
+@synthesize projectFile;
 
 - (NSDictionary*) sourceFiles {
     return sourceFiles;
 }
 
-- (NSTextStorage*) notes {
-	return notes;
-}
+@synthesize notes;
 
 #pragma mark - The index file
 

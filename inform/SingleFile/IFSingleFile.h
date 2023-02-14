@@ -11,7 +11,7 @@
 ///
 /// Extensions and other lone files are stored by this document class.
 ///
-@interface IFSingleFile : NSDocument
+@interface IFSingleFile : NSDocument <NSMenuItemValidation>
 
 #pragma mark Retrieving document data
 /// The contents of the file
