@@ -307,15 +307,7 @@ NSString* const IFSettingNotification = @"IFSettingNotification";
         return nil;
     }
 
-    NSString* version = [IFUtility fullCompilerVersion: [self compilerVersion]];
-    NSString* macOSFolder = [[[NSBundle mainBundle] executablePath] stringByDeletingLastPathComponent];
-    NSString* currentVersion = [IFUtility coreBuildVersion];
-
-    if ([version isEqualToString:currentVersion])
-    {
-        return [[NSBundle mainBundle] pathForAuxiliaryExecutable: @"ni"];
-    }
-    return [[macOSFolder stringByAppendingPathComponent: version] stringByAppendingPathComponent:@"ni"];
+    return [IFUtility pathForCompiler: [self compilerVersion]];
 }
 
 - (NSArray*) naturalInformCommandLineArguments {
@@ -393,7 +385,7 @@ NSString* const IFSettingNotification = @"IFSettingNotification";
 
 - (void) setUsingNaturalInform: (BOOL) setting {
     //[self dictionaryForClass: [IFCompilerOptions class]][IFSettingNaturalInform] = @(setting);
-    [self settingsHaveChanged];
+    //[self settingsHaveChanged];
 }
 
 - (BOOL) usingNaturalInform {
@@ -555,8 +547,10 @@ NSString* const IFSettingNotification = @"IFSettingNotification";
 }
 
 - (void) setTestingTabHelpShown: (BOOL) shown {
-    [self dictionaryForClass: [IFMiscSettings class]][IFSettingTestingTabHelpShown] = @(shown);
-    [self settingsHaveChanged];
+    if (shown != [self testingTabHelpShown]) {
+        [self dictionaryForClass: [IFMiscSettings class]][IFSettingTestingTabHelpShown] = @(shown);
+        [self settingsHaveChanged];
+    }
 }
 
 - (BOOL) testingTabHelpShown {

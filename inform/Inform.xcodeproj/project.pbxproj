@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -70,6 +70,7 @@
 		55FF5AC7275A250A000B0D21 /* GlkSound.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55BFAC0C2744983B0049646A /* GlkSound.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55FF5B8B275ADBFD000B0D21 /* Ogg.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55FF5B63275ADB78000B0D21 /* Ogg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55FF5B8D275ADBFD000B0D21 /* SFBAudioEngine.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55FF5B8A275ADBBC000B0D21 /* SFBAudioEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C32E842529DAD4F600DEA0DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32E842429DAD4F600DEA0DC /* Colors.xcassets */; };
 		FF00CB7919085EB200B5D911 /* IFI7OutputSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = FF00CB7719085EB200B5D911 /* IFI7OutputSettings.m */; };
 		FF00CB7C190860D300B5D911 /* OutputSettingsI7.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF00CB7A190860D300B5D911 /* OutputSettingsI7.xib */; };
 		FF0508DE18B4D5AE004081FF /* AdvancedPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0508DA18B4D5AE004081FF /* AdvancedPreferences.xib */; };
@@ -172,6 +173,8 @@
 		FF536C1728205101004E4069 /* IFColourTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536C1628205101004E4069 /* IFColourTheme.m */; };
 		FF53963A18FEE400001715D7 /* IFToolbarProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FF53963818FEE400001715D7 /* IFToolbarProgressIndicator.m */; };
 		FF5D0BA51B05EB6A00BE2BD0 /* IFSkeinLinkView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5D0BA31B05EB6A00BE2BD0 /* IFSkeinLinkView.m */; };
+		FF61DE3C29F0362C0047E7D8 /* IFSyntaxStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = FF61DE3B29F0362C0047E7D8 /* IFSyntaxStyles.m */; };
+		FF61DE7229F06FB10047E7D8 /* IFSyntaxStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = FF61DE3B29F0362C0047E7D8 /* IFSyntaxStyles.m */; };
 		FF671EA21B9ADEBB00246820 /* IFSkeinSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF671EA01B9ADEBB00246820 /* IFSkeinSplitView.m */; };
 		FF71A81B18F1492500CB9B31 /* IFCompiler.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A80D18F1492500CB9B31 /* IFCompiler.m */; };
 		FF71A81D18F1492500CB9B31 /* IFCompilerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A80F18F1492500CB9B31 /* IFCompilerController.m */; };
@@ -573,6 +576,62 @@
 			remoteGlobalIDString = 3210AB9017B9C05A00743639;
 			remoteInfo = SFBAudioEngine;
 		};
+		FF61DE6129F0362C0047E7D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55132C2E28FFE9AB007C87B6;
+			remoteInfo = ZoomNewSaveQL;
+		};
+		FF61DE6329F0362C0047E7D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55A319BE290138F200ABAAA2;
+			remoteInfo = ZoomThumbnailer;
+		};
+		FF61DE6529F0362C0047E7D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55101A57290D06D9003CED21;
+			remoteInfo = ZoomNewSpotlight;
+		};
+		FF61DE6729F0362C0047E7D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5591DC042916367C00BF6F6F;
+			remoteInfo = heglk;
+		};
+		FF61DE6929F0362C0047E7D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5591DC1E29163EB400BF6F6F;
+			remoteInfo = Hugo;
+		};
+		FF61DE6B29F0362C0047E7D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55E478872968CCD10017646D;
+			remoteInfo = flic;
+		};
+		FF61DE6D29F0362C0047E7D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55687B1429A0B3E30005E1AE;
+			remoteInfo = Tads2;
+		};
+		FF61DE6F29F0362C0047E7D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B28B8A70812A32600D39021 /* ZoomCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55687B2429A0BAA40005E1AE;
+			remoteInfo = Tads3;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -753,6 +812,7 @@
 		55E7FDD8299AE97D00D554FB /* InformPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InformPreview.entitlements; sourceTree = "<group>"; };
 		55FF5B4B275ADB78000B0D21 /* ogg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ogg.xcodeproj; path = ../zoom/depends/CocoaGlk/GlkSound/SFBAudioEngine/Libraries/ogg/ogg.xcodeproj; sourceTree = "<group>"; };
 		55FF5B83275ADBBC000B0D21 /* SFBAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFBAudioEngine.xcodeproj; path = ../zoom/depends/CocoaGlk/GlkSound/SFBAudioEngine/SFBAudioEngine.xcodeproj; sourceTree = "<group>"; };
+		C32E842429DAD4F600DEA0DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FF00CB7619085EB200B5D911 /* IFI7OutputSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFI7OutputSettings.h; sourceTree = "<group>"; };
 		FF00CB7719085EB200B5D911 /* IFI7OutputSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFI7OutputSettings.m; sourceTree = "<group>"; };
 		FF05095218B98B9F004081FF /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexKitLite.h; path = "RegexKitLite-4.0/RegexKitLite.h"; sourceTree = SOURCE_ROOT; };
@@ -789,9 +849,9 @@
 		FF47127418F18449006717B3 /* NSBundle+IFBundleExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+IFBundleExtensions.h"; sourceTree = "<group>"; };
 		FF47127518F18449006717B3 /* NSBundle+IFBundleExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+IFBundleExtensions.m"; sourceTree = "<group>"; };
 		FF47127A18F1881A006717B3 /* IFPageBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = IFPageBarCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		FF47127B18F1881A006717B3 /* IFPageBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = IFPageBarCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		FF47127B18F1881A006717B3 /* IFPageBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = IFPageBarCell.m; sourceTree = "<group>"; usesTabs = 1; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FF47127C18F1881A006717B3 /* IFPageBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = IFPageBarView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		FF47127D18F1881A006717B3 /* IFPageBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = IFPageBarView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		FF47127D18F1881A006717B3 /* IFPageBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = IFPageBarView.m; sourceTree = "<group>"; usesTabs = 1; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FF47128418F18832006717B3 /* IFDocumentationPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFDocumentationPage.h; sourceTree = "<group>"; };
 		FF47128518F18832006717B3 /* IFDocumentationPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFDocumentationPage.m; sourceTree = "<group>"; };
 		FF47128618F18832006717B3 /* IFErrorsPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFErrorsPage.h; sourceTree = "<group>"; };
@@ -872,6 +932,8 @@
 		FF53963818FEE400001715D7 /* IFToolbarProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFToolbarProgressIndicator.m; sourceTree = "<group>"; };
 		FF5D0BA21B05EB6A00BE2BD0 /* IFSkeinLinkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFSkeinLinkView.h; sourceTree = "<group>"; };
 		FF5D0BA31B05EB6A00BE2BD0 /* IFSkeinLinkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFSkeinLinkView.m; sourceTree = "<group>"; };
+		FF61DE3B29F0362C0047E7D8 /* IFSyntaxStyles.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IFSyntaxStyles.m; path = Project/Syntax/IFSyntaxStyles.m; sourceTree = SOURCE_ROOT; };
+		FF61DE7129F036880047E7D8 /* IFSyntaxStyles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IFSyntaxStyles.h; sourceTree = "<group>"; };
 		FF671E9F1B9ADEBB00246820 /* IFSkeinSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFSkeinSplitView.h; sourceTree = "<group>"; };
 		FF671EA01B9ADEBB00246820 /* IFSkeinSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFSkeinSplitView.m; sourceTree = "<group>"; };
 		FF71A80C18F1492500CB9B31 /* IFCompiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCompiler.h; sourceTree = "<group>"; };
@@ -1159,6 +1221,7 @@
 			isa = PBXGroup;
 			children = (
 				55BFABEF274481760049646A /* Images.xcassets */,
+				C32E842429DAD4F600DEA0DC /* Colors.xcassets */,
 				FF10418E191A08700022AA5E /* License.rtf */,
 				FFF8628818A2AE0B00C0F344 /* App */,
 				FFEF5D511915533500AA562F /* Changes to Inform.epub */,
@@ -1501,12 +1564,14 @@
 				55343A1F2744A06400BB989E /* agt2agx */,
 				55AAA32F27DEE38A00AAD2EF /* JACL.zoomPlugin */,
 				55AAA33127DEE38A00AAD2EF /* jacl-interpreter */,
-				55E7FD9A299ADCA700D554FB /* ZoomNewSaveQL.appex */,
-				55E7FD9C299ADCA700D554FB /* ZoomThumbnailer.appex */,
-				55E7FD9E299ADCA700D554FB /* ZoomNewSpotlight.appex */,
-				55E7FDA0299ADCA700D554FB /* heglk */,
-				55E7FDA2299ADCA700D554FB /* Hugo.plugin */,
-				55E7FDA4299ADCA700D554FB /* libflic.a */,
+				FF61DE6229F0362C0047E7D8 /* ZoomNewSaveQL.appex */,
+				FF61DE6429F0362C0047E7D8 /* ZoomThumbnailer.appex */,
+				FF61DE6629F0362C0047E7D8 /* ZoomNewSpotlight.appex */,
+				FF61DE6829F0362C0047E7D8 /* heglk */,
+				FF61DE6A29F0362C0047E7D8 /* Hugo.plugin */,
+				FF61DE6C29F0362C0047E7D8 /* libflic.a */,
+				FF61DE6E29F0362C0047E7D8 /* Tads2.zoomPlugin */,
+				FF61DE7029F0362C0047E7D8 /* Tads3.zoomPlugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1592,6 +1657,8 @@
 				FF4712DB18F18890006717B3 /* IFNoHighlighter.m */,
 				FF4712DC18F18890006717B3 /* IFSyntaxData.h */,
 				FF4712DD18F18890006717B3 /* IFSyntaxData.m */,
+				FF61DE7129F036880047E7D8 /* IFSyntaxStyles.h */,
+				FF61DE3B29F0362C0047E7D8 /* IFSyntaxStyles.m */,
 				FF4712DE18F18890006717B3 /* IFSyntaxManager.h */,
 				FF4712DF18F18890006717B3 /* IFSyntaxManager.m */,
 				FF4712E018F18890006717B3 /* IFSyntaxTypes.h */,
@@ -2222,6 +2289,62 @@
 			remoteRef = 55FF5B89275ADBBC000B0D21 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		FF61DE6229F0362C0047E7D8 /* ZoomNewSaveQL.appex */ = {
+			isa = PBXReferenceProxy;
+			fileType = "wrapper.app-extension";
+			path = ZoomNewSaveQL.appex;
+			remoteRef = FF61DE6129F0362C0047E7D8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FF61DE6429F0362C0047E7D8 /* ZoomThumbnailer.appex */ = {
+			isa = PBXReferenceProxy;
+			fileType = "wrapper.app-extension";
+			path = ZoomThumbnailer.appex;
+			remoteRef = FF61DE6329F0362C0047E7D8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FF61DE6629F0362C0047E7D8 /* ZoomNewSpotlight.appex */ = {
+			isa = PBXReferenceProxy;
+			fileType = "wrapper.app-extension";
+			path = ZoomNewSpotlight.appex;
+			remoteRef = FF61DE6529F0362C0047E7D8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FF61DE6829F0362C0047E7D8 /* heglk */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = heglk;
+			remoteRef = FF61DE6729F0362C0047E7D8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FF61DE6A29F0362C0047E7D8 /* Hugo.plugin */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Hugo.plugin;
+			remoteRef = FF61DE6929F0362C0047E7D8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FF61DE6C29F0362C0047E7D8 /* libflic.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libflic.a;
+			remoteRef = FF61DE6B29F0362C0047E7D8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FF61DE6E29F0362C0047E7D8 /* Tads2.zoomPlugin */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tads2.zoomPlugin;
+			remoteRef = FF61DE6D29F0362C0047E7D8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FF61DE7029F0362C0047E7D8 /* Tads3.zoomPlugin */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tads3.zoomPlugin;
+			remoteRef = FF61DE6F29F0362C0047E7D8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -2229,49 +2352,50 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF47135818F18B7D006717B3 /* Index.xib in Resources */,
-				FF47135618F18B7D006717B3 /* Errors.xib in Resources */,
 				FF0508DE18B4D5AE004081FF /* AdvancedPreferences.xib in Resources */,
 				FF0508DF18B4D5AE004081FF /* AuthorPreferences.xib in Resources */,
-				FF0508F018B4D608004081FF /* CompilerSettings.xib in Resources */,
-				FF47135B18F18B7D006717B3 /* Source.xib in Resources */,
-				FF47135718F18B7D006717B3 /* Game.xib in Resources */,
-				FF0508F118B4D608004081FF /* DebugSettings.xib in Resources */,
-				FF47135A18F18B7D006717B3 /* Skein.xib in Resources */,
-				FF0508F318B4D608004081FF /* LibrarySettings.xib in Resources */,
-				FF47135918F18B7D006717B3 /* Settings.xib in Resources */,
-				FF0508F418B4D608004081FF /* MiscSettings.xib in Resources */,
-				FF0508F618B4D608004081FF /* OutputSettings.xib in Resources */,
-				FF0508F718B4D608004081FF /* RandomSettings.xib in Resources */,
-				FFCC0A8C2831336A008CBBF0 /* NewThemeWindow.xib in Resources */,
-				FF3CEAA818D5E6F300A10D00 /* EditingPreferences.xib in Resources */,
-				FF0508FC18B4D655004081FF /* NewFile.xib in Resources */,
-				FF0508FD18B4D655004081FF /* NoteInspector.xib in Resources */,
-				FF05090D18B4D692004081FF /* FileInspector.xib in Resources */,
-				FF05090E18B4D692004081FF /* IndexInspector.xib in Resources */,
-				FF05091118B4D692004081FF /* SkeinInspector.xib in Resources */,
-				55BFABF0274481760049646A /* Images.xcassets in Resources */,
-				FF47135518F18B7D006717B3 /* Documentation.xib in Resources */,
-				FF47133E18F18B1B006717B3 /* Headers.xib in Resources */,
-				FF05094218B4D74E004081FF /* Compiling.xib in Resources */,
-				FF05094318B4D74E004081FF /* HeadingsBrowser.xib in Resources */,
-				FF47134418F18B32006717B3 /* FindInFiles.xib in Resources */,
-				FF05094418B4D74E004081FF /* MainMenu.xib in Resources */,
-				FF05094518B4D74E004081FF /* NaturalExtensionOptions.xib in Resources */,
-				FF94AB641905DF5D008BCAF5 /* Launcher.xib in Resources */,
-				FF05094618B4D74E004081FF /* NewProject.xib in Resources */,
-				FF05094718B4D74E004081FF /* Project.xib in Resources */,
-				FF00CB7C190860D300B5D911 /* OutputSettingsI7.xib in Resources */,
-				FF05094818B4D74E004081FF /* ProjectPane.xib in Resources */,
-				FF05094918B4D74E004081FF /* SingleFile.xib in Resources */,
-				FFAD448F21E1047600C4896F /* CompilerVersionSettings.xib in Resources */,
-				FF05094A18B4D74E004081FF /* StandardProjectOptions.xib in Resources */,
-				FF47134318F18B32006717B3 /* Find.xib in Resources */,
-				FF2F527C19152D9700C190F0 /* MaterialsDiagram.png in Resources */,
 				FF23DC40283E20AD0070DDD6 /* BasicInformSettings.xib in Resources */,
 				FFD2BD642819EB8E00AD36B6 /* ColourPreferences.xib in Resources */,
-				FF452D11285BE22200EF406C /* NewsTemplate.html in Resources */,
 				4B7534C606286ADC00824F26 /* CompilerOutput.strings in Resources */,
+				FF0508F018B4D608004081FF /* CompilerSettings.xib in Resources */,
+				FFAD448F21E1047600C4896F /* CompilerVersionSettings.xib in Resources */,
+				FF05094218B4D74E004081FF /* Compiling.xib in Resources */,
+				FF0508F118B4D608004081FF /* DebugSettings.xib in Resources */,
+				FF47135518F18B7D006717B3 /* Documentation.xib in Resources */,
+				C32E842529DAD4F600DEA0DC /* Colors.xcassets in Resources */,
+				FF3CEAA818D5E6F300A10D00 /* EditingPreferences.xib in Resources */,
+				FF47135618F18B7D006717B3 /* Errors.xib in Resources */,
+				FF05090D18B4D692004081FF /* FileInspector.xib in Resources */,
+				FF47134318F18B32006717B3 /* Find.xib in Resources */,
+				FF47134418F18B32006717B3 /* FindInFiles.xib in Resources */,
+				FF47135718F18B7D006717B3 /* Game.xib in Resources */,
+				FF47133E18F18B1B006717B3 /* Headers.xib in Resources */,
+				FF05094318B4D74E004081FF /* HeadingsBrowser.xib in Resources */,
+				FF47135818F18B7D006717B3 /* Index.xib in Resources */,
+				FF05090E18B4D692004081FF /* IndexInspector.xib in Resources */,
+				FF94AB641905DF5D008BCAF5 /* Launcher.xib in Resources */,
+				FF0508F318B4D608004081FF /* LibrarySettings.xib in Resources */,
+				FF05094418B4D74E004081FF /* MainMenu.xib in Resources */,
+				FF0508F418B4D608004081FF /* MiscSettings.xib in Resources */,
+				FF05094518B4D74E004081FF /* NaturalExtensionOptions.xib in Resources */,
+				FF0508FC18B4D655004081FF /* NewFile.xib in Resources */,
+				FF05094618B4D74E004081FF /* NewProject.xib in Resources */,
+				FFCC0A8C2831336A008CBBF0 /* NewThemeWindow.xib in Resources */,
+				FF0508FD18B4D655004081FF /* NoteInspector.xib in Resources */,
+				FF0508F618B4D608004081FF /* OutputSettings.xib in Resources */,
+				FF00CB7C190860D300B5D911 /* OutputSettingsI7.xib in Resources */,
+				FF05094718B4D74E004081FF /* Project.xib in Resources */,
+				FF05094818B4D74E004081FF /* ProjectPane.xib in Resources */,
+				FF0508F718B4D608004081FF /* RandomSettings.xib in Resources */,
+				FF47135918F18B7D006717B3 /* Settings.xib in Resources */,
+				FF05094918B4D74E004081FF /* SingleFile.xib in Resources */,
+				FF47135A18F18B7D006717B3 /* Skein.xib in Resources */,
+				FF05091118B4D692004081FF /* SkeinInspector.xib in Resources */,
+				FF47135B18F18B7D006717B3 /* Source.xib in Resources */,
+				FF05094A18B4D74E004081FF /* StandardProjectOptions.xib in Resources */,
+				FF452D11285BE22200EF406C /* NewsTemplate.html in Resources */,
+				FF2F527C19152D9700C190F0 /* MaterialsDiagram.png in Resources */,
+				55BFABF0274481760049646A /* Images.xcassets in Resources */,
 				4BD95A06055EE949008DEFF4 /* InfoPlist.strings in Resources */,
 				4B7535230628709300824F26 /* Localizable.strings in Resources */,
 				FFF8628918A2AE0B00C0F344 /* App in Resources */,
@@ -2300,6 +2424,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		FFC9D46319F681CF0027181C /* (Script) Final Build Phase */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -2334,6 +2459,7 @@
 				FF7BF1FB18D7115300A1E9FD /* IFEditingPreferencesSet.m in Sources */,
 				FF47133818F1893E006717B3 /* IFInform6Highlighter.m in Sources */,
 				FF71A88718F14BB600CB9B31 /* IFProjectTypes.m in Sources */,
+				FF61DE7229F06FB10047E7D8 /* IFSyntaxStyles.m in Sources */,
 				4BA379340CD3E70600C7B1D4 /* IFPreferences.m in Sources */,
 				FF47133618F18938006717B3 /* IFNoHighlighter.m in Sources */,
 			);
@@ -2412,6 +2538,7 @@
 				FF4712EA18F18890006717B3 /* IFSyntaxManager.m in Sources */,
 				FF71A8FE18F1513800CB9B31 /* IFSettingsController.m in Sources */,
 				FFE466991AFF8B65000474C3 /* IFSkeinView.m in Sources */,
+				FF61DE3C29F0362C0047E7D8 /* IFSyntaxStyles.m in Sources */,
 				FF47132718F188E3006717B3 /* IFFindInFiles.m in Sources */,
 				FFD2BD672819EB9C00AD36B6 /* IFColourPreferences.m in Sources */,
 				FFE4669C1AFF8B65000474C3 /* IFSkein+IFSkeinXML.m in Sources */,
@@ -3038,13 +3165,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Inform.entitlements;
-				CURRENT_PROJECT_VERSION = 1.82.0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Inform_Prefix.h;
 				INFOPLIST_FILE = "$(SRCROOT)/Inform-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				LIBRARY_STYLE = DYNAMIC;
-				MARKETING_VERSION = 1.82.0;
 				OTHER_LDFLAGS = (
 					"-fobjc-arc",
 					"-bind_at_load",
@@ -3092,13 +3220,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Inform.entitlements;
-				CURRENT_PROJECT_VERSION = 1.82.0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Inform_Prefix.h;
 				INFOPLIST_FILE = "$(SRCROOT)/Inform-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				LIBRARY_STYLE = DYNAMIC;
-				MARKETING_VERSION = 1.82.0;
 				OTHER_LDFLAGS = (
 					"-fobjc-arc",
 					"-bind_at_load",
@@ -3173,9 +3302,11 @@
 				CURRENT_PROJECT_VERSION = 1.83.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 97V36B3QYK;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SELECTED_FILES = "\"\"";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -3195,7 +3326,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				ONLY_ACTIVE_ARCH = YES;
+				MARKETING_VERSION = 1.83.0;
 				OTHER_LDFLAGS = "-fobjc-arc";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.inform7.inform-compiler";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
 			};
@@ -3239,8 +3372,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = 97V36B3QYK;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SELECTED_FILES = "\"\"";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
@@ -3258,7 +3393,9 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.83.0;
 				OTHER_LDFLAGS = "-fobjc-arc";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.inform7.inform-compiler";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
 				VALIDATE_PRODUCT = YES;

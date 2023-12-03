@@ -169,7 +169,6 @@ static const CGFloat webViewHeight = 250.0f;
     int count = [[doc settings] testingTabShownCount];
     count++;
     [[doc settings] setTestingTabShownCount: count];
-    [[doc settings] settingsHaveChanged];
 
     // Make sure the skein is shown properly
     if(skeinView &&
@@ -276,7 +275,7 @@ static const CGFloat webViewHeight = 250.0f;
     IFProject* doc = [self.parent document];
 
     [[doc settings] setTestingTabHelpShown: helpIsShown];
-    [[doc settings] settingsHaveChanged];
+    //[[doc settings] settingsHaveChanged];
 }
 
 - (void) didResizeSplitView: (NSNotification*) not {

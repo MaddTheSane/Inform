@@ -477,6 +477,24 @@ CGFloat easeOutCubic(CGFloat t) {
     return [IFUtility informSupportPath: @"Documentation", nil];
 }
 
++(BOOL) isLatestMajorMinorCompilerVersion: (NSString*) compilerVersion {
+    NSString* version = [IFUtility fullCompilerVersion: compilerVersion];
+    NSString* currentVersion = [IFUtility coreBuildVersion];
+
+    // If version wanted is equal to the current version, use the current version
+    if ([version isEqualToStringCaseInsensitive:currentVersion])
+    {
+        return TRUE;
+    }
+    // If version wanted is equal to the 'major.minor' of the current version, good enough, use the current version
+    NSString* currentMajorMinor = [IFUtility majorMinor: currentVersion];
+    if ([version isEqualToString:currentMajorMinor])
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
 + (NSString*) fullCompilerVersion: (NSString*)version
 {
     if ([version isEqualToStringCaseInsensitive: @""] ||
@@ -489,15 +507,24 @@ CGFloat easeOutCubic(CGFloat t) {
 
 + (NSString*) pathForCompiler: (NSString *)compilerVersion
 {
-    NSString* version = [IFUtility fullCompilerVersion: compilerVersion];
-    NSString* executablePath = [[[NSBundle mainBundle] executablePath] stringByDeletingLastPathComponent];
-    NSString* currentVersion = [IFUtility coreBuildVersion];
-    if ([version isEqualToStringCaseInsensitive:currentVersion])
-    {
+    if ([IFUtility isLatestMajorMinorCompilerVersion: compilerVersion]) {
         return [[NSBundle mainBundle] pathForAuxiliaryExecutable: @"ni"];
     }
+    NSString* executablePath = [[[NSBundle mainBundle] executablePath] stringByDeletingLastPathComponent];
+    NSString* version = [IFUtility fullCompilerVersion: compilerVersion];
     return [[executablePath stringByAppendingPathComponent: version] stringByAppendingPathComponent: @"ni"];
 }
+
++ (NSString*) pathForInformInternalAppSupport: (NSString *)compilerVersion
+{
+    NSString* resourcePath = [[NSBundle mainBundle] resourcePath];
+    if ([IFUtility isLatestMajorMinorCompilerVersion: compilerVersion]) {
+        return [resourcePath stringByAppendingPathComponent: @"Internal"];
+    }
+    NSString* version = [IFUtility fullCompilerVersion: compilerVersion];
+    return [[resourcePath stringByAppendingPathComponent: @"retrospective"] stringByAppendingPathComponent: version];
+}
+
 
 + (NSComparisonResult) compilerVersionCompare: (NSString*)version1 other: (NSString*) version2
 {
@@ -548,19 +575,6 @@ CGFloat easeOutCubic(CGFloat t) {
     }
     // New
     return @"project";
-}
-
-+ (NSString*) pathForInformInternalAppSupport: (NSString *)compilerVersion
-{
-    NSString* version = [IFUtility fullCompilerVersion: compilerVersion];
-    NSString* resourcePath = [[NSBundle mainBundle] resourcePath];
-    NSString* currentVersion = [IFUtility coreBuildVersion];
-
-    if ([version isEqualToStringCaseInsensitive:currentVersion])
-    {
-        return [resourcePath stringByAppendingPathComponent: @"Internal"];
-    }
-    return [[resourcePath stringByAppendingPathComponent: @"retrospective"] stringByAppendingPathComponent: version];
 }
 
 + (NSString*) pathForInformInternalExtensions: (NSString *)version {
@@ -626,6 +640,14 @@ CGFloat easeOutCubic(CGFloat t) {
 
 + (NSString*) coreBuildVersion {
     return [IFUtility localizedString: @"Build Version"];
+}
+
++(NSString*) majorMinor: (NSString*) version {
+    NSArray *array = [version componentsSeparatedByString:@"."];
+    if (array.count >= 3) {
+        return [NSString stringWithFormat:@"%@.%@", array[0], array[1]];
+    }
+    return version;
 }
 
 @end
