@@ -290,12 +290,19 @@
 	} else if (image) {
 		// Draw the image
 		NSSize imageSize = [image size];
+		//If the image is too big, draw it scaled down!
+		if (cellFrame.size.height - 2 < imageSize.height) {
+			// How MUCH bigger is it?
+			CGFloat ratio = (cellFrame.size.height - 2) / imageSize.height;
+			imageSize.height = cellFrame.size.height - 2;
+			imageSize.width *= ratio;
+		}
 		NSRect imageRect;
 		
 		imageRect.origin = NSMakePoint(cellFrame.origin.x + (cellFrame.size.width-imageSize.width)/2,
 									   cellFrame.origin.y + (cellFrame.size.height+2-imageSize.height)/2);
 		imageRect.size = imageSize;
-        NSImage *layer = [[NSImage alloc] initWithSize:NSMakeSize(NSMaxX(imageRect), NSMaxY(imageRect))];
+        NSImage *layer = [[NSImage alloc] initWithSize:NSMakeSize(ceil(NSMaxX(imageRect)), NSMaxY(imageRect))];
         [layer lockFocus];
         
 		[image drawInRect: imageRect
