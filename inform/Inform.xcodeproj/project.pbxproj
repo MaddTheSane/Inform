@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B28B8270812732400D39021 /* GlkClient.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 4B81D33D08112F6C00CF609F /* GlkClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B28B8630812752100D39021 /* glulxe-client in Copy interpreters */ = {isa = PBXBuildFile; fileRef = 4B81D33F08112F6C00CF609F /* glulxe-client */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		4B28BB08081844DF00D39021 /* IFPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B34334A07B158720022C278 /* IFPreferences.m */; };
 		4B3C3C610F3DB1C30066A760 /* git-client in Copy interpreters */ = {isa = PBXBuildFile; fileRef = 4B3C3C540F3DB1A10066A760 /* git-client */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		4B5F871B07B01AAE00A30FAA /* IFPreferencePane.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F871907B01AAE00A30FAA /* IFPreferencePane.m */; };
 		4B6A85F4086DA82100BFAE69 /* IFSingleFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6A85F2086DA82100BFAE69 /* IFSingleFile.m */; };
@@ -23,6 +24,8 @@
 		4BA379240CD3E3E600C7B1D4 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA379210CD3E3E600C7B1D4 /* QuickLook.framework */; };
 		4BA379250CD3E3F700C7B1D4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		4BA379290CD3E44900C7B1D4 /* InformQL.qlgenerator in Copy QuickLook bundle */ = {isa = PBXBuildFile; fileRef = 4BA3790F0CD3E39700C7B1D4 /* InformQL.qlgenerator */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BA379340CD3E70600C7B1D4 /* IFPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B34334A07B158720022C278 /* IFPreferences.m */; };
+		4BA379380CD3E73E00C7B1D4 /* IFFakeProjectPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA379370CD3E73E00C7B1D4 /* IFFakeProjectPane.m */; };
 		4BC3269E0614C70200B2533B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC3269D0614C70200B2533B /* WebKit.framework */; };
 		4BD275E50871A81800C1AE15 /* ZoomView.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD275CC0871A80F00C1AE15 /* ZoomView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4BD95A06055EE949008DEFF4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -30,26 +33,6 @@
 		4BD95A1F055EE949008DEFF4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		4BF88F9E08FD544E00F5DFDE /* IFAdvancedPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF88F9C08FD544E00F5DFDE /* IFAdvancedPreferences.m */; };
 		4BFA76A30830EAC5007C7076 /* IFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B96DF5004F11BF500A8E303 /* IFAppDelegate.m */; };
-		553024B32B1D83600057335A /* InformShared.h in Headers */ = {isa = PBXBuildFile; fileRef = 553024B22B1D83600057335A /* InformShared.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		553024B62B1D83600057335A /* InformShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553024B02B1D83600057335A /* InformShared.framework */; };
-		553024B72B1D83600057335A /* InformShared.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 553024B02B1D83600057335A /* InformShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		553024BB2B1D83930057335A /* IFColourTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536C1628205101004E4069 /* IFColourTheme.m */; };
-		553024BC2B1D83930057335A /* IFNaturalHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D918F18890006717B3 /* IFNaturalHighlighter.m */; };
-		553024BD2B1D83930057335A /* IFIntelSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712F118F188B9006717B3 /* IFIntelSymbol.m */; };
-		553024BE2B1D83930057335A /* IFSyntaxStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = FF61DE3B29F0362C0047E7D8 /* IFSyntaxStyles.m */; };
-		553024BF2B1D83930057335A /* IFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C4B5E2A3C5C7C0078DBF0 /* IFUtility.m */; };
-		553024C02B1D83930057335A /* IFNoHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DB18F18890006717B3 /* IFNoHighlighter.m */; };
-		553024C12B1D83930057335A /* IFNaturalIntel.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712F318F188B9006717B3 /* IFNaturalIntel.m */; };
-		553024C22B1D83930057335A /* IFSyntaxData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DD18F18890006717B3 /* IFSyntaxData.m */; };
-		553024C32B1D83930057335A /* IFProjectTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A86818F14B9B00CB9B31 /* IFProjectTypes.m */; };
-		553024C42B1D83930057335A /* IFPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B34334A07B158720022C278 /* IFPreferences.m */; };
-		553024C52B1D83930057335A /* IFEditingPreferencesSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7BF1F818D7115300A1E9FD /* IFEditingPreferencesSet.m */; };
-		553024C62B1D83930057335A /* IFSyntaxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DF18F18890006717B3 /* IFSyntaxManager.m */; };
-		553024C72B1D83930057335A /* IFIntelFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712EF18F188B9006717B3 /* IFIntelFile.m */; };
-		553024C82B1D83930057335A /* IFInform6Highlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D718F18890006717B3 /* IFInform6Highlighter.m */; };
-		553024D62B1D86630057335A /* InformShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553024B02B1D83600057335A /* InformShared.framework */; };
-		553024D72B1D86670057335A /* InformShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553024B02B1D83600057335A /* InformShared.framework */; };
-		553024D82B1D866D0057335A /* InformShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553024B02B1D83600057335A /* InformShared.framework */; };
 		557AB2B32748AA6C000E8F0B /* TestCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557AB2B22748AA6C000E8F0B /* TestCommands.swift */; };
 		557AB2CD2748BC8E000E8F0B /* CompilerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557AB2CC2748BC8E000E8F0B /* CompilerList.swift */; };
 		557AB2E3274C786A000E8F0B /* ThinSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557AB2E2274C786A000E8F0B /* ThinSplitView.swift */; };
@@ -62,6 +45,19 @@
 		55E7FDAD299ADDD200D554FB /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7FDAC299ADDD200D554FB /* Quartz.framework */; };
 		55E7FDB0299ADDD300D554FB /* ThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7FDAF299ADDD300D554FB /* ThumbnailProvider.swift */; };
 		55E7FDB5299ADDD300D554FB /* InformThumb.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 55E7FDA9299ADDD200D554FB /* InformThumb.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		55E7FDBA299ADE1F00D554FB /* IFInform6Highlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D718F18890006717B3 /* IFInform6Highlighter.m */; };
+		55E7FDBB299ADE1F00D554FB /* IFNaturalHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D918F18890006717B3 /* IFNaturalHighlighter.m */; };
+		55E7FDBC299ADE1F00D554FB /* IFPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B34334A07B158720022C278 /* IFPreferences.m */; };
+		55E7FDBD299ADE1F00D554FB /* IFIntelFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712EF18F188B9006717B3 /* IFIntelFile.m */; };
+		55E7FDBE299ADE1F00D554FB /* IFIntelSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712F118F188B9006717B3 /* IFIntelSymbol.m */; };
+		55E7FDBF299ADE1F00D554FB /* IFNaturalIntel.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712F318F188B9006717B3 /* IFNaturalIntel.m */; };
+		55E7FDC0299ADE1F00D554FB /* IFEditingPreferencesSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7BF1F818D7115300A1E9FD /* IFEditingPreferencesSet.m */; };
+		55E7FDC1299ADE1F00D554FB /* IFProjectTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A86818F14B9B00CB9B31 /* IFProjectTypes.m */; };
+		55E7FDC2299ADE1F00D554FB /* IFSyntaxData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DD18F18890006717B3 /* IFSyntaxData.m */; };
+		55E7FDC3299ADE1F00D554FB /* IFSyntaxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DF18F18890006717B3 /* IFSyntaxManager.m */; };
+		55E7FDC4299ADE1F00D554FB /* IFColourTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536C1628205101004E4069 /* IFColourTheme.m */; };
+		55E7FDC5299ADE1F00D554FB /* IFNoHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DB18F18890006717B3 /* IFNoHighlighter.m */; };
+		55E7FDC6299ADE1F00D554FB /* IFFakeProjectPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA379370CD3E73E00C7B1D4 /* IFFakeProjectPane.m */; };
 		55E7FDCE299AE97C00D554FB /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7FDAC299ADDD200D554FB /* Quartz.framework */; };
 		55E7FDD3299AE97D00D554FB /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7FDD2299AE97D00D554FB /* PreviewProvider.swift */; };
 		55E7FDDB299AE97D00D554FB /* InformPreview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 55E7FDCD299AE97C00D554FB /* InformPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -120,7 +116,15 @@
 		FF4712CE18F18873006717B3 /* IFNewInform7ExtensionFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712C118F18873006717B3 /* IFNewInform7ExtensionFile.m */; };
 		FF4712D018F18873006717B3 /* IFNewProject.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712C318F18873006717B3 /* IFNewProject.m */; };
 		FF4712D218F18873006717B3 /* IFNewProjectFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712C518F18873006717B3 /* IFNewProjectFile.m */; };
+		FF4712E218F18890006717B3 /* IFInform6Highlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D718F18890006717B3 /* IFInform6Highlighter.m */; };
+		FF4712E418F18890006717B3 /* IFNaturalHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D918F18890006717B3 /* IFNaturalHighlighter.m */; };
+		FF4712E618F18890006717B3 /* IFNoHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DB18F18890006717B3 /* IFNoHighlighter.m */; };
+		FF4712E818F18890006717B3 /* IFSyntaxData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DD18F18890006717B3 /* IFSyntaxData.m */; };
+		FF4712EA18F18890006717B3 /* IFSyntaxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DF18F18890006717B3 /* IFSyntaxManager.m */; };
 		FF4712F518F188B9006717B3 /* IFInform7MutableString.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712ED18F188B9006717B3 /* IFInform7MutableString.m */; };
+		FF4712F718F188B9006717B3 /* IFIntelFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712EF18F188B9006717B3 /* IFIntelFile.m */; };
+		FF4712F918F188B9006717B3 /* IFIntelSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712F118F188B9006717B3 /* IFIntelSymbol.m */; };
+		FF4712FB18F188B9006717B3 /* IFNaturalIntel.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712F318F188B9006717B3 /* IFNaturalIntel.m */; };
 		FF47130718F188D0006717B3 /* IFHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712FD18F188D0006717B3 /* IFHeader.m */; };
 		FF47130918F188D0006717B3 /* IFHeaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712FF18F188D0006717B3 /* IFHeaderController.m */; };
 		FF47130B18F188D0006717B3 /* IFHeaderNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FF47130118F188D0006717B3 /* IFHeaderNode.m */; };
@@ -133,6 +137,14 @@
 		FF47132F18F188E3006717B3 /* IFFindTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF47131D18F188E3006717B3 /* IFFindTextView.m */; };
 		FF47133118F188E3006717B3 /* IFFindWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF47131F18F188E3006717B3 /* IFFindWebView.m */; };
 		FF47133318F188E3006717B3 /* IFScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF47132118F188E3006717B3 /* IFScanner.m */; };
+		FF47133418F18929006717B3 /* IFSyntaxData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DD18F18890006717B3 /* IFSyntaxData.m */; };
+		FF47133518F18934006717B3 /* IFSyntaxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DF18F18890006717B3 /* IFSyntaxManager.m */; };
+		FF47133618F18938006717B3 /* IFNoHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DB18F18890006717B3 /* IFNoHighlighter.m */; };
+		FF47133718F1893A006717B3 /* IFNaturalHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D918F18890006717B3 /* IFNaturalHighlighter.m */; };
+		FF47133818F1893E006717B3 /* IFInform6Highlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D718F18890006717B3 /* IFInform6Highlighter.m */; };
+		FF47133918F189A3006717B3 /* IFIntelFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712EF18F188B9006717B3 /* IFIntelFile.m */; };
+		FF47133A18F189A9006717B3 /* IFNaturalIntel.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712F318F188B9006717B3 /* IFNaturalIntel.m */; };
+		FF47133B18F189B7006717B3 /* IFIntelSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712F118F188B9006717B3 /* IFIntelSymbol.m */; };
 		FF47133E18F18B1B006717B3 /* Headers.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF47133C18F18B1B006717B3 /* Headers.xib */; };
 		FF47134318F18B32006717B3 /* Find.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF47133F18F18B32006717B3 /* Find.xib */; };
 		FF47134418F18B32006717B3 /* FindInFiles.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF47134118F18B32006717B3 /* FindInFiles.xib */; };
@@ -144,6 +156,7 @@
 		FF47135A18F18B7D006717B3 /* Skein.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF47134F18F18B7D006717B3 /* Skein.xib */; };
 		FF47135B18F18B7D006717B3 /* Source.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF47135118F18B7D006717B3 /* Source.xib */; };
 		FF536C1728205101004E4069 /* IFColourTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536C1628205101004E4069 /* IFColourTheme.m */; };
+		FF61DE3C29F0362C0047E7D8 /* IFSyntaxStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = FF61DE3B29F0362C0047E7D8 /* IFSyntaxStyles.m */; };
 		FF61DE7229F06FB10047E7D8 /* IFSyntaxStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = FF61DE3B29F0362C0047E7D8 /* IFSyntaxStyles.m */; };
 		FF61DF3529F2A6610047E7D8 /* IFNewExtensionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF61DF3429F2A6610047E7D8 /* IFNewExtensionsManager.m */; };
 		FF61DF3929F415720047E7D8 /* IFInBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = FF61DF3829F415720047E7D8 /* IFInBuild.m */; };
@@ -162,6 +175,7 @@
 		FF71A87818F14B9B00CB9B31 /* IFProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A86018F14B9B00CB9B31 /* IFProjectController.m */; };
 		FF71A87A18F14B9B00CB9B31 /* IFProjectFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A86218F14B9B00CB9B31 /* IFProjectFile.m */; };
 		FF71A87C18F14B9B00CB9B31 /* IFProjectPane.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A86418F14B9B00CB9B31 /* IFProjectPane.m */; };
+		FF71A88018F14B9B00CB9B31 /* IFProjectTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A86818F14B9B00CB9B31 /* IFProjectTypes.m */; };
 		FF71A88218F14B9B00CB9B31 /* IFRuntimeErrorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A86A18F14B9B00CB9B31 /* IFRuntimeErrorParser.m */; };
 		FF71A88418F14B9B00CB9B31 /* IFSourceFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A86C18F14B9B00CB9B31 /* IFSourceFileView.m */; };
 		FF71A88718F14BB600CB9B31 /* IFProjectTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A86818F14B9B00CB9B31 /* IFProjectTypes.m */; };
@@ -181,6 +195,8 @@
 		FF71A94018F153E100CB9B31 /* IFWelcomeWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A93E18F153E100CB9B31 /* IFWelcomeWindow.m */; };
 		FF71A94418F154C700CB9B31 /* IFGlkResources.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A94218F154C700CB9B31 /* IFGlkResources.m */; };
 		FF78E2E318ABC09800384642 /* ZoomView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD275CC0871A80F00C1AE15 /* ZoomView.framework */; };
+		FF7BF1FA18D7115300A1E9FD /* IFEditingPreferencesSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7BF1F818D7115300A1E9FD /* IFEditingPreferencesSet.m */; };
+		FF7BF1FB18D7115300A1E9FD /* IFEditingPreferencesSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7BF1F818D7115300A1E9FD /* IFEditingPreferencesSet.m */; };
 		FF86D59E1A30AF6B00A7F03E /* RegEx.m in Sources */ = {isa = PBXBuildFile; fileRef = FF86D59D1A30AF6B00A7F03E /* RegEx.m */; settings = {COMPILER_FLAGS = "-w -Wno-missing-variable-declarations -fno-objc-arc -DOSSPINLOCK_USE_INLINED=1"; }; };
 		FF9240B62AC459FD00DDAE54 /* IFRecentFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9240B52AC459FD00DDAE54 /* IFRecentFileCell.swift */; };
 		FF9241102AC5818000DDAE54 /* IFCompilerStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92410F2AC5818000DDAE54 /* IFCompilerStyles.m */; };
@@ -199,10 +215,13 @@
 		FF92415F2AC60E9F00DDAE54 /* IFBasicInformSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF92415E2AC60E9F00DDAE54 /* IFBasicInformSettings.swift */; };
 		FF9241612AC611C800DDAE54 /* IFRandomSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9241602AC611C800DDAE54 /* IFRandomSettings.swift */; };
 		FF94AB641905DF5D008BCAF5 /* Launcher.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF94AB621905DF5D008BCAF5 /* Launcher.xib */; };
+		FF9C4B5F2A3C5C7C0078DBF0 /* IFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C4B5E2A3C5C7C0078DBF0 /* IFUtility.m */; };
+		FF9C4B602A3C5CFB0078DBF0 /* IFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C4B5E2A3C5C7C0078DBF0 /* IFUtility.m */; };
 		FF9C4B612A3C7CA50078DBF0 /* CompilerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557AB2CC2748BC8E000E8F0B /* CompilerList.swift */; };
 		FFAD448F21E1047600C4896F /* CompilerVersionSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFAD448E21E1047600C4896F /* CompilerVersionSettings.xib */; };
 		FFAD449221E1364700C4896F /* IFCompilerVersionSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAD449021E1364700C4896F /* IFCompilerVersionSettings.m */; };
 		FFB92D3418FE5D8A00D6D28D /* IFProjectMaterialsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB92D3218FE5D8A00D6D28D /* IFProjectMaterialsPresenter.m */; };
+		FFC9EF2328292B1D00BF2C84 /* IFColourTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536C1628205101004E4069 /* IFColourTheme.m */; };
 		FFCC0A8C2831336A008CBBF0 /* NewThemeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFCC0A8B2831336A008CBBF0 /* NewThemeWindow.xib */; };
 		FFD2BD642819EB8E00AD36B6 /* ColourPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD2BD462819EB8E00AD36B6 /* ColourPreferences.xib */; };
 		FFD2BD672819EB9C00AD36B6 /* IFColourPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BD652819EB9C00AD36B6 /* IFColourPreferences.m */; };
@@ -311,13 +330,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 4BD79A8F0BA2C9AA002C82B2;
 			remoteInfo = babel;
-		};
-		553024B42B1D83600057335A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 553024AF2B1D83600057335A;
-			remoteInfo = InformShared;
 		};
 		553439FE2744A06400BB989E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -601,7 +613,6 @@
 				FFDBF73018F9BA18004F53DD /* GlkView.framework in Copy Frameworks */,
 				4BD275E50871A81800C1AE15 /* ZoomView.framework in Copy Frameworks */,
 				4B28B8270812732400D39021 /* GlkClient.framework in Copy Frameworks */,
-				553024B72B1D83600057335A /* InformShared.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,13 +661,13 @@
 		4BA3791F0CD3E3E600C7B1D4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		4BA379200CD3E3E600C7B1D4 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		4BA379210CD3E3E600C7B1D4 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		4BA379360CD3E73E00C7B1D4 /* IFFakeProjectPane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFFakeProjectPane.h; sourceTree = "<group>"; };
+		4BA379370CD3E73E00C7B1D4 /* IFFakeProjectPane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFFakeProjectPane.m; sourceTree = "<group>"; };
 		4BC3269D0614C70200B2533B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4BD275CC0871A80F00C1AE15 /* ZoomView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZoomView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD95A34055EE949008DEFF4 /* Inform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF88F9B08FD544E00F5DFDE /* IFAdvancedPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFAdvancedPreferences.h; sourceTree = "<group>"; };
 		4BF88F9C08FD544E00F5DFDE /* IFAdvancedPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFAdvancedPreferences.m; sourceTree = "<group>"; };
-		553024B02B1D83600057335A /* InformShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InformShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		553024B22B1D83600057335A /* InformShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformShared.h; sourceTree = "<group>"; };
 		55343A3F2744B4D200BB989E /* RegexKitLite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RegexKitLite.m; path = "RegexKitLite-4.0/RegexKitLite.m"; sourceTree = SOURCE_ROOT; };
 		557AB2B12748AA6C000E8F0B /* Inform-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Inform-Bridging-Header.h"; sourceTree = "<group>"; };
 		557AB2B22748AA6C000E8F0B /* TestCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCommands.swift; sourceTree = "<group>"; };
@@ -982,7 +993,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				553024D62B1D86630057335A /* InformShared.framework in Frameworks */,
 				4BA379250CD3E3F700C7B1D4 /* Cocoa.framework in Frameworks */,
 				4BA379220CD3E3E600C7B1D4 /* ApplicationServices.framework in Frameworks */,
 				4BA379230CD3E3E600C7B1D4 /* CoreServices.framework in Frameworks */,
@@ -994,7 +1004,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				553024B62B1D83600057335A /* InformShared.framework in Frameworks */,
 				55D6F088275C50830098620E /* GlkSound.framework in Frameworks */,
 				FF0C216F19827FDD007DCD11 /* AppKit.framework in Frameworks */,
 				4BD95A1F055EE949008DEFF4 /* Cocoa.framework in Frameworks */,
@@ -1007,18 +1016,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		553024AD2B1D83600057335A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		55E7FDA6299ADDD200D554FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				553024D72B1D86670057335A /* InformShared.framework in Frameworks */,
 				55E7FDAB299ADDD200D554FB /* QuickLookThumbnailing.framework in Frameworks */,
 				55E7FDAD299ADDD200D554FB /* Quartz.framework in Frameworks */,
 			);
@@ -1028,7 +1029,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				553024D82B1D866D0057335A /* InformShared.framework in Frameworks */,
 				55E7FDCE299AE97C00D554FB /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1084,7 +1084,6 @@
 				4BA3790F0CD3E39700C7B1D4 /* InformQL.qlgenerator */,
 				55E7FDA9299ADDD200D554FB /* InformThumb.appex */,
 				55E7FDCD299AE97C00D554FB /* InformPreview.appex */,
-				553024B02B1D83600057335A /* InformShared.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1099,7 +1098,6 @@
 				FF236BD619F92CA700F9FAAD /* Scripts */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
-				553024B12B1D83600057335A /* InformShared */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				FF12D70218A9457A0016FA8E /* Inform-Info.plist */,
@@ -1358,6 +1356,8 @@
 				4BA379190CD3E3B700C7B1D4 /* GenerateThumbnailForURL.m */,
 				4BA3791A0CD3E3B700C7B1D4 /* GeneratePreviewForURL.m */,
 				4BA3791B0CD3E3B700C7B1D4 /* InformQuickLook.c */,
+				4BA379360CD3E73E00C7B1D4 /* IFFakeProjectPane.h */,
+				4BA379370CD3E73E00C7B1D4 /* IFFakeProjectPane.m */,
 			);
 			path = QuickLook;
 			sourceTree = "<group>";
@@ -1535,14 +1535,6 @@
 				4B40060907B52DFD0006BB3D /* Intelligence */,
 			);
 			path = Syntax;
-			sourceTree = "<group>";
-		};
-		553024B12B1D83600057335A /* InformShared */ = {
-			isa = PBXGroup;
-			children = (
-				553024B22B1D83600057335A /* InformShared.h */,
-			);
-			path = InformShared;
 			sourceTree = "<group>";
 		};
 		55BFABF72744983B0049646A /* Products */ = {
@@ -1754,17 +1746,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		553024AB2B1D83600057335A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				553024B32B1D83600057335A /* InformShared.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		4BA3790E0CD3E39700C7B1D4 /* InformQL */ = {
 			isa = PBXNativeTarget;
@@ -1806,31 +1787,12 @@
 				4BA379270CD3E42A00C7B1D4 /* PBXTargetDependency */,
 				55E7FDB4299ADDD300D554FB /* PBXTargetDependency */,
 				55E7FDDA299AE97D00D554FB /* PBXTargetDependency */,
-				553024B52B1D83600057335A /* PBXTargetDependency */,
 			);
 			name = Inform;
 			productInstallPath = "$(HOME)/Applications";
 			productName = Inform;
 			productReference = 4BD95A34055EE949008DEFF4 /* Inform.app */;
 			productType = "com.apple.product-type.application";
-		};
-		553024AF2B1D83600057335A /* InformShared */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 553024B82B1D83610057335A /* Build configuration list for PBXNativeTarget "InformShared" */;
-			buildPhases = (
-				553024AB2B1D83600057335A /* Headers */,
-				553024AC2B1D83600057335A /* Sources */,
-				553024AD2B1D83600057335A /* Frameworks */,
-				553024AE2B1D83600057335A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = InformShared;
-			productName = InformShared;
-			productReference = 553024B02B1D83600057335A /* InformShared.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 		55E7FDA8299ADDD200D554FB /* InformThumb */ = {
 			isa = PBXNativeTarget;
@@ -1893,9 +1855,6 @@
 							};
 						};
 					};
-					553024AF2B1D83600057335A = {
-						CreatedOnToolsVersion = 15.0.1;
-					};
 					55E7FDA8299ADDD200D554FB = {
 						CreatedOnToolsVersion = 14.2;
 						DevelopmentTeam = 97V36B3QYK;
@@ -1942,7 +1901,6 @@
 				4BA3790E0CD3E39700C7B1D4 /* InformQL */,
 				55E7FDA8299ADDD200D554FB /* InformThumb */,
 				55E7FDCC299AE97C00D554FB /* InformPreview */,
-				553024AF2B1D83600057335A /* InformShared */,
 			);
 		};
 /* End PBXProject section */
@@ -2277,13 +2235,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		553024AE2B1D83600057335A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		55E7FDA7299ADDD200D554FB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2325,10 +2276,23 @@
 			files = (
 				FF9C4B612A3C7CA50078DBF0 /* CompilerList.swift in Sources */,
 				4BA3791C0CD3E3B700C7B1D4 /* GenerateThumbnailForURL.m in Sources */,
+				FF47133418F18929006717B3 /* IFSyntaxData.m in Sources */,
 				4BA3791D0CD3E3B700C7B1D4 /* GeneratePreviewForURL.m in Sources */,
 				4BA3791E0CD3E3B700C7B1D4 /* InformQuickLook.c in Sources */,
+				FF47133918F189A3006717B3 /* IFIntelFile.m in Sources */,
+				4BA379380CD3E73E00C7B1D4 /* IFFakeProjectPane.m in Sources */,
+				FF47133518F18934006717B3 /* IFSyntaxManager.m in Sources */,
+				FF47133B18F189B7006717B3 /* IFIntelSymbol.m in Sources */,
+				FF47133A18F189A9006717B3 /* IFNaturalIntel.m in Sources */,
+				FFC9EF2328292B1D00BF2C84 /* IFColourTheme.m in Sources */,
+				FF47133718F1893A006717B3 /* IFNaturalHighlighter.m in Sources */,
+				FF7BF1FB18D7115300A1E9FD /* IFEditingPreferencesSet.m in Sources */,
+				FF47133818F1893E006717B3 /* IFInform6Highlighter.m in Sources */,
+				FF9C4B602A3C5CFB0078DBF0 /* IFUtility.m in Sources */,
 				FF71A88718F14BB600CB9B31 /* IFProjectTypes.m in Sources */,
 				FF61DE7229F06FB10047E7D8 /* IFSyntaxStyles.m in Sources */,
+				4BA379340CD3E70600C7B1D4 /* IFPreferences.m in Sources */,
+				FF47133618F18938006717B3 /* IFNoHighlighter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2336,6 +2300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF4712E218F18890006717B3 /* IFInform6Highlighter.m in Sources */,
 				FF71A88418F14B9B00CB9B31 /* IFSourceFileView.m in Sources */,
 				FFEBA37E1B0EA08E008A7473 /* IFSkeinReportView.m in Sources */,
 				4BD95A10055EE949008DEFF4 /* main.m in Sources */,
@@ -2350,6 +2315,7 @@
 				FF4712A718F18832006717B3 /* IFSkeinPage.m in Sources */,
 				FF47130718F188D0006717B3 /* IFHeader.m in Sources */,
 				FF71A88218F14B9B00CB9B31 /* IFRuntimeErrorParser.m in Sources */,
+				FF4712FB18F188B9006717B3 /* IFNaturalIntel.m in Sources */,
 				FF9241142AC594EF00DDAE54 /* IFComboBox.swift in Sources */,
 				FF71A84618F14A4100CB9B31 /* IFDocParser.m in Sources */,
 				FF71A94418F154C700CB9B31 /* IFGlkResources.m in Sources */,
@@ -2379,9 +2345,11 @@
 				FF71A93A18F152D500CB9B31 /* IFViewAnimator.m in Sources */,
 				FF71A81F18F1492500CB9B31 /* IFError.l in Sources */,
 				557AB30B274E1A6F000E8F0B /* AuthorPreferences.swift in Sources */,
+				FF7BF1FA18D7115300A1E9FD /* IFEditingPreferencesSet.m in Sources */,
 				FF71A81D18F1492500CB9B31 /* IFCompilerController.m in Sources */,
 				FF4712CA18F18873006717B3 /* IFNewInform7Project.m in Sources */,
 				FF61DF3529F2A6610047E7D8 /* IFNewExtensionsManager.m in Sources */,
+				FF4712E418F18890006717B3 /* IFNaturalHighlighter.m in Sources */,
 				FF4712F518F188B9006717B3 /* IFInform7MutableString.m in Sources */,
 				FF71A82318F1492500CB9B31 /* IFMaintenanceTask.m in Sources */,
 				FF47129F18F18832006717B3 /* IFGamePage.m in Sources */,
@@ -2391,16 +2359,21 @@
 				FF47129B18F18832006717B3 /* IFErrorsPage.m in Sources */,
 				4B5F871B07B01AAE00A30FAA /* IFPreferencePane.m in Sources */,
 				FF71A8FC18F1513800CB9B31 /* IFSetting.m in Sources */,
+				FF4712EA18F18890006717B3 /* IFSyntaxManager.m in Sources */,
 				FF71A8FE18F1513800CB9B31 /* IFSettingsController.m in Sources */,
 				FFE466991AFF8B65000474C3 /* IFSkeinView.m in Sources */,
+				FF61DE3C29F0362C0047E7D8 /* IFSyntaxStyles.m in Sources */,
 				FF47132718F188E3006717B3 /* IFFindInFiles.m in Sources */,
 				FFD2BD672819EB9C00AD36B6 /* IFColourPreferences.m in Sources */,
 				FFE4669C1AFF8B65000474C3 /* IFSkein+IFSkeinXML.m in Sources */,
+				FF4712E818F18890006717B3 /* IFSyntaxData.m in Sources */,
 				FF4712D018F18873006717B3 /* IFNewProject.m in Sources */,
 				FF9241162AC5976300DDAE54 /* IFToolbar.swift in Sources */,
+				4B28BB08081844DF00D39021 /* IFPreferences.m in Sources */,
 				557AB2B32748AA6C000E8F0B /* TestCommands.swift in Sources */,
 				FF4712A918F18832006717B3 /* IFSourcePage.m in Sources */,
 				FF9241612AC611C800DDAE54 /* IFRandomSettings.swift in Sources */,
+				FF71A88018F14B9B00CB9B31 /* IFProjectTypes.m in Sources */,
 				FF9240B62AC459FD00DDAE54 /* IFRecentFileCell.swift in Sources */,
 				4BFA76A30830EAC5007C7076 /* IFAppDelegate.m in Sources */,
 				FF12D9091B04F3CB00547504 /* IFSkeinViewChildren.m in Sources */,
@@ -2421,6 +2394,7 @@
 				FF1B29C21B22F672009A1396 /* NSAttributedString+IFStringExtensions.m in Sources */,
 				FF9241122AC5927900DDAE54 /* IFSkeinSplitView.swift in Sources */,
 				FF71A92218F1523600CB9B31 /* IFInformProtocol.m in Sources */,
+				FF4712F918F188B9006717B3 /* IFIntelSymbol.m in Sources */,
 				FF9241572AC5C1EC00DDAE54 /* IFNewThemeWindow.swift in Sources */,
 				FF71A87418F14B9B00CB9B31 /* IFProgress.m in Sources */,
 				FF47129918F18832006717B3 /* IFDocumentationPage.m in Sources */,
@@ -2438,12 +2412,15 @@
 				FF71A91C18F151EE00CB9B31 /* IFSourceSharedActions.m in Sources */,
 				FF4712A318F18832006717B3 /* IFPage.m in Sources */,
 				FF4712A518F18832006717B3 /* IFSettingsPage.m in Sources */,
+				FF4712E618F18890006717B3 /* IFNoHighlighter.m in Sources */,
+				FF4712F718F188B9006717B3 /* IFIntelFile.m in Sources */,
 				FFEBA3871B130ED1008A7473 /* IFSkeinArrowView.m in Sources */,
 				FF71A94018F153E100CB9B31 /* IFWelcomeWindow.m in Sources */,
 				FFE4668F1AFF8B65000474C3 /* IFSkein.m in Sources */,
 				FF71A91418F151A200CB9B31 /* IFMiscSettings.m in Sources */,
 				FF47132518F188E3006717B3 /* IFFindController.m in Sources */,
 				FF47132B18F188E3006717B3 /* IFFindResult.m in Sources */,
+				FF9C4B5F2A3C5C7C0078DBF0 /* IFUtility.m in Sources */,
 				FF4712D218F18873006717B3 /* IFNewProjectFile.m in Sources */,
 				FFEBA3911B184759008A7473 /* IFDiffer.m in Sources */,
 				FF71A83618F149AC00CB9B31 /* IFExtensionsManager.m in Sources */,
@@ -2457,32 +2434,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		553024AC2B1D83600057335A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				553024C12B1D83930057335A /* IFNaturalIntel.m in Sources */,
-				553024C22B1D83930057335A /* IFSyntaxData.m in Sources */,
-				553024C82B1D83930057335A /* IFInform6Highlighter.m in Sources */,
-				553024BF2B1D83930057335A /* IFUtility.m in Sources */,
-				553024C52B1D83930057335A /* IFEditingPreferencesSet.m in Sources */,
-				553024C72B1D83930057335A /* IFIntelFile.m in Sources */,
-				553024C02B1D83930057335A /* IFNoHighlighter.m in Sources */,
-				553024C62B1D83930057335A /* IFSyntaxManager.m in Sources */,
-				553024BC2B1D83930057335A /* IFNaturalHighlighter.m in Sources */,
-				553024C42B1D83930057335A /* IFPreferences.m in Sources */,
-				553024BE2B1D83930057335A /* IFSyntaxStyles.m in Sources */,
-				553024BD2B1D83930057335A /* IFIntelSymbol.m in Sources */,
-				553024BB2B1D83930057335A /* IFColourTheme.m in Sources */,
-				553024C32B1D83930057335A /* IFProjectTypes.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		55E7FDA5299ADDD200D554FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55E7FDBF299ADE1F00D554FB /* IFNaturalIntel.m in Sources */,
+				55E7FDBD299ADE1F00D554FB /* IFIntelFile.m in Sources */,
+				55E7FDBE299ADE1F00D554FB /* IFIntelSymbol.m in Sources */,
+				55E7FDC5299ADE1F00D554FB /* IFNoHighlighter.m in Sources */,
+				55E7FDBA299ADE1F00D554FB /* IFInform6Highlighter.m in Sources */,
+				55E7FDC4299ADE1F00D554FB /* IFColourTheme.m in Sources */,
+				55E7FDC3299ADE1F00D554FB /* IFSyntaxManager.m in Sources */,
+				55E7FDC6299ADE1F00D554FB /* IFFakeProjectPane.m in Sources */,
+				55E7FDBB299ADE1F00D554FB /* IFNaturalHighlighter.m in Sources */,
+				55E7FDC0299ADE1F00D554FB /* IFEditingPreferencesSet.m in Sources */,
 				55E7FDB0299ADDD300D554FB /* ThumbnailProvider.swift in Sources */,
+				55E7FDBC299ADE1F00D554FB /* IFPreferences.m in Sources */,
+				55E7FDC1299ADE1F00D554FB /* IFProjectTypes.m in Sources */,
+				55E7FDC2299ADE1F00D554FB /* IFSyntaxData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2511,11 +2480,6 @@
 			isa = PBXTargetDependency;
 			name = ZoomView;
 			targetProxy = 4BD2757008703F1100C1AE15 /* PBXContainerItemProxy */;
-		};
-		553024B52B1D83600057335A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 553024AF2B1D83600057335A /* InformShared */;
-			targetProxy = 553024B42B1D83600057335A /* PBXContainerItemProxy */;
 		};
 		55BFABFA2744983B0049646A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3228,107 +3192,6 @@
 			};
 			name = Release;
 		};
-		553024B92B1D83610057335A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.InformShared;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		553024BA2B1D83610057335A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.InformShared;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		55E7FDB7299ADDD300D554FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3531,15 +3394,6 @@
 			buildConfigurations = (
 				4BE5F50C085882AC00C7EF5E /* Debug */,
 				4BE5F50D085882AC00C7EF5E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		553024B82B1D83610057335A /* Build configuration list for PBXNativeTarget "InformShared" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				553024B92B1D83610057335A /* Debug */,
-				553024BA2B1D83610057335A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
