@@ -17,6 +17,10 @@
     NSOperationQueue* queue;
 }
 
+@synthesize primaryPresentedItemURL=primaryURL;
+@synthesize presentedItemURL=secondaryURL;
+@synthesize presentedItemOperationQueue=queue;
+
 - (instancetype) initWithURL:(NSURL*) mainURL {
     self = [super init];
     if( self ) {
@@ -46,18 +50,6 @@
     if( [IFUtility isSandboxed] ) {
         [NSFileCoordinator removeFilePresenter: self];
     }
-}
-
-- (NSURL *) presentedItemURL {
-    return secondaryURL;
-}
-
-- (NSOperationQueue *) presentedItemOperationQueue {
-    return queue;
-}
-
-- (NSURL *) primaryPresentedItemURL {
-    return primaryURL;
 }
 
 - (void) createFolder {

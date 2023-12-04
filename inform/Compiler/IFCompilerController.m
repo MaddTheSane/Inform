@@ -116,7 +116,11 @@ static IFCompilerController* activeController = nil;
     NSFont* baseFont;
     NSFont* bigFont;
 
-	smallFont = baseFont = bigFont = [NSFont fontWithName: @"Monaco" size: 11.0];
+    if (@available(macOS 10.15, *)) {
+        smallFont = baseFont = bigFont = [NSFont monospacedSystemFontOfSize: 11.0 weight: NSFontWeightRegular];
+    } else {
+        smallFont = baseFont = bigFont = [NSFont fontWithName: @"Monaco" size: 11.0];
+    }
     NSFont* boldFont = [[NSFontManager sharedFontManager] convertFont: bigFont
                                                           toHaveTrait: NSBoldFontMask];
     NSFont* italicFont = [[NSFontManager sharedFontManager] convertFont: boldFont

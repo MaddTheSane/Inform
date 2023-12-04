@@ -9,11 +9,11 @@
 #import <Cocoa/Cocoa.h>
 
 // Notifications
-extern NSString* const IFPreferencesAuthorDidChangeNotification;
-extern NSString* const IFPreferencesEditingDidChangeNotification;
-extern NSString* const IFPreferencesAdvancedDidChangeNotification;
-extern NSString* const IFPreferencesAppFontSizeDidChangeNotification;	// Change to app font size
-extern NSString* const IFPreferencesSkeinDidChangeNotification;
+extern NSNotificationName const IFPreferencesAuthorDidChangeNotification;
+extern NSNotificationName const IFPreferencesEditingDidChangeNotification;
+extern NSNotificationName const IFPreferencesAdvancedDidChangeNotification;
+extern NSNotificationName const IFPreferencesAppFontSizeDidChangeNotification;	// Change to app font size
+extern NSNotificationName const IFPreferencesSkeinDidChangeNotification;
 
 extern NSString* const IFPreferencesDefault;
 typedef NS_ENUM(int, IFAppFontSize) {
