@@ -10,7 +10,6 @@ import Quartz
 
 class PreviewProvider: QLPreviewProvider, QLPreviewingController {
     
-    
     func providePreview(for request: QLFilePreviewRequest) async throws -> QLPreviewReply {
     
         var isInform6 = false;

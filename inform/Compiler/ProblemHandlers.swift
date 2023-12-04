@@ -20,7 +20,7 @@ class CBlorbProblem: NSObject, IFCompilerProblemHandler {
 	@objc(initWithBuildDir:)
 	convenience init(buildDir: String?) {
 		let anURL: URL?
-		if let buildDir = buildDir {
+		if let buildDir {
 			anURL = URL(fileURLWithPath: buildDir)
 		} else {
 			anURL = nil
@@ -30,7 +30,7 @@ class CBlorbProblem: NSObject, IFCompilerProblemHandler {
 	
 	func urlForProblem(errorCode: Int32) -> URL? {
 		// If a build directory is supplied, then look there for the error file
-		if let buildDir = buildDir {
+		if let buildDir {
 			let errorPath = buildDir.appendingPathComponent("StatusCblorb.html", isDirectory: false)
 			
 			if (try? errorPath.checkResourceIsReachable()) ?? false {
@@ -44,7 +44,7 @@ class CBlorbProblem: NSObject, IFCompilerProblemHandler {
 	
 	var urlForSuccess: URL? {
 		// If a build directory is supplied, then look there for the error file
-		if let buildDir = buildDir {
+		if let buildDir {
 			let errorPath = buildDir.appendingPathComponent("StatusCblorb.html", isDirectory: false)
 			
 			if (try? errorPath.checkResourceIsReachable()) ?? false {

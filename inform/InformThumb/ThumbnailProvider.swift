@@ -15,7 +15,7 @@ class ThumbnailProvider: QLThumbnailProvider {
         
         do {
             
-            var isInform6 = false;
+            var isInform6 = false
             var sourceCodeString: String? = nil
 
             let resKeys = try request.fileURL.resourceValues(forKeys: [.contentTypeKey])
@@ -105,6 +105,5 @@ class ThumbnailProvider: QLThumbnailProvider {
         } catch {
             handler(nil, error)
         }
-        
     }
 }

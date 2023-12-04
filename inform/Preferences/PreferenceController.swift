@@ -46,8 +46,8 @@ final class PreferenceController : NSWindowController, NSWindowDelegate, NSToolb
 	@objc private func preferencesWillClose(_ notification: NSNotification) {
 		guard let windowAboutToClose = notification.object as? NSWindow,
 			  window === windowAboutToClose else {
-				  return
-			  }
+			return
+		}
 		// Save the position of the top left corner of window
 		var topLeft = NSPoint()
 		let rect = windowAboutToClose.frame
@@ -135,15 +135,15 @@ final class PreferenceController : NSWindowController, NSWindowDelegate, NSToolb
 		for possibleToolId in preferenceViews {
 			if possibleToolId.identifier == paneIdentifier {
 				toolId = possibleToolId
-				break;
+				break
 			}
 		}
 		
-		guard let toolId = toolId,
+		guard let toolId,
 			  let preferencePane = toolId.preferenceView,
 			  window?.contentView !== preferencePane else {
-				  return
-			  }
+			return
+		}
 
 		window?.title = toolId.preferenceName
 		

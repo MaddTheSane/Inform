@@ -285,10 +285,11 @@ CGFloat easeOutCubic(CGFloat t) {
     if (window == nil) {
         NSModalResponse response = [alert runModal];
         [self modalYesNoResponse: response
-                          window: window
+                          window: nil
                    modalDelegate: modalDelegate
                   didEndSelector: alertDidEndSelector
                      contextInfo: contextInfo];
+        return;
     }
 
     [alert beginSheetModalForWindow: window completionHandler: ^(NSModalResponse response) {

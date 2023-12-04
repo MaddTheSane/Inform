@@ -10,6 +10,7 @@
 #import "IFSyntaxData.h"
 #import "IFSyntaxStyles.h"
 #import "IFProjectPane.h"
+#import "IFPreferences.h"
 
 @implementation IFInform6Highlighter {
     IFSyntaxData* activeData;
@@ -679,7 +680,13 @@ static int compare(const void* a, const void* b) {
 #pragma mark - Styles
 
 - (NSDictionary*) attributesForStyle: (IFSyntaxStyle) style {
-	return [IFProjectPane attributeForStyle: style];
+    //Hack for the framework!
+    Class cls;
+    if ((cls = NSClassFromString(@"IFProjectPane"))) {
+        return [cls attributeForStyle: style];
+    } else {
+        return [[IFPreferences sharedPreferences] styles][(unsigned)style];
+    }
 }
 
 - (CGFloat) tabStopWidth {
