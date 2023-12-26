@@ -1,7 +1,7 @@
-Version 6 of the Standard Rules by Graham Nelson begins here.
+Version 7 of the Standard Rules by Graham Nelson begins here.
 
-"The Standard Rules, included in every project, define phrases, actions and
-activities for interactive fiction."
+"The Standard Rules, included in every interactive fiction project, creates
+a model world populated by actors who perform actions."
 
 Part One - Preamble
 
@@ -13,20 +13,38 @@ The verb to understand + as in the imperative means the built-in understand-as m
 The verb to release along with in the imperative means the built-in release-along-with meaning.
 The verb to index map with in the imperative means the built-in index-map-with meaning.
 
-Use command line echoing translates as (- Constant ECHO_COMMANDS; -).
-Use full-length room descriptions translates as (- #IFNDEF I7_LOOKMODE; Constant I7_LOOKMODE = 2; #ENDIF; -).
-Use abbreviated room descriptions translates as (- #IFNDEF I7_LOOKMODE; Constant I7_LOOKMODE = 3; #ENDIF; -).
-Use scoring translates as (- #IFNDEF USE_SCORING; Constant USE_SCORING = 1; #ENDIF; -).
-Use no scoring translates as (- #IFNDEF USE_SCORING; Constant USE_SCORING = 0; #ENDIF; -).
-Use manual pronouns translates as (- Constant MANUAL_PRONOUNS; -).
-Use undo prevention translates as (- Constant PREVENT_UNDO; -).
-Use VERBOSE room descriptions translates as (- Constant DEFAULT_VERBOSE_DESCRIPTIONS; -).
-Use BRIEF room descriptions translates as (- Constant DEFAULT_BRIEF_DESCRIPTIONS; -).
-Use SUPERBRIEF room descriptions translates as (- Constant DEFAULT_SUPERBRIEF_DESCRIPTIONS; -).
+Use full-length room descriptions translates as the configuration value
+	ROOM_DESC_DETAIL = 2 in WorldModelKit.
+Use abbreviated room descriptions translates as the configuration value
+	ROOM_DESC_DETAIL = 3 in WorldModelKit.
+Use VERBOSE room descriptions translates as the configuration value
+	ROOM_DESC_DETAIL = 2 in WorldModelKit.
+Use BRIEF room descriptions translates as the configuration value
+	ROOM_DESC_DETAIL = 1 in WorldModelKit.
+Use SUPERBRIEF room descriptions translates as the configuration value
+	ROOM_DESC_DETAIL = 3 in WorldModelKit.
 
-Use maximum things understood at once of at least 100 translates as
-	(- Constant MATCH_LIST_WORDS = {N}; -).
-Use maximum things understood at once of at least 100.
+Use no scoring translates as the configuration value
+	SCORING = 0 in WorldModelKit.
+Use scoring translates as the configuration value
+	SCORING = 1 in WorldModelKit.
+
+Use default route-finding translates as the configuration value
+	ROUTE_FINDING = 0 in WorldModelKit.
+Use fast route-finding translates as the configuration value
+	ROUTE_FINDING = 1 in WorldModelKit.
+Use slow route-finding translates as the configuration value
+	ROUTE_FINDING = 2 in WorldModelKit.
+
+Use maximum things understood at once of at least 100 translates as the
+	configuration value MULTI_OBJ_LIST_SIZE in WorldModelKit.
+
+Use manual pronouns translates as the configuration flag
+	MANUAL_PRONOUNS in CommandParserKit.
+Use undo prevention translates as the configuration flag
+	UNDO_PREVENTION in CommandParserKit.
+Use unabbreviated object names translates as the configuration flag
+	UNABBREVIATED_NAMES in CommandParserKit.
 
 Part Two - The Physical World Model
 
@@ -72,6 +90,22 @@ Definition: Something is touchable rather than untouchable if the player can tou
 The verb to conceal (he conceals, they conceal, he concealed, it is concealed,
 he is concealing) means the concealment relation.
 Definition: Something is concealed rather than unconcealed if the holder of it conceals it.
+
+Definition: a container is obviously-occupied rather than possibly-unoccupied if
+I6 routine "ObviouslyOccupied" says so (it contains at least one obvious thing).
+
+Definition: a supporter is obviously-occupied rather than possibly-unoccupied if
+I6 routine "ObviouslyOccupied" says so (it supports at least one obvious thing).
+
+Definition: a container (called c) is falsely-unoccupied:
+  if the first thing held by it is nothing, no;
+  if it is closed and it is opaque and it does not enclose the player, no;
+  decide on whether or not it is possibly-unoccupied;
+
+Definition: a supporter is falsely-unoccupied:
+  if the first thing held by it is nothing, no;
+  if the first thing held by it is the player and the next thing held after the player is nothing, no;
+  decide on whether or not it is possibly-unoccupied;
 
 Definition: Something is on-stage rather than off-stage if I6 routine "OnStage"
 	makes it so (it is indirectly in one of the rooms).
@@ -150,7 +184,7 @@ A thing can be privately-named or publicly-named. A thing is usually publicly-na
 A thing can be undescribed or described. A thing is usually described.
 A thing can be marked for listing or unmarked for listing. A thing is usually
 unmarked for listing.
-A thing can be mentioned or unmentioned. A thing is usually mentioned.
+A thing can be mentioned or unmentioned. A thing is usually unmentioned.
 
 A thing has a text called a description.
 A thing has a text called an initial appearance.
@@ -512,7 +546,7 @@ Chapter 2 - Rulebooks
 
 Section 1 - The Standard Rulebooks
 
-Turn sequence rules is a rulebook.
+Turn sequence rules is a nothing based rulebook.
 The turn sequence rulebook is accessible to Inter as "TURN_SEQUENCE_RB".
 
 Scene changing rules is a rulebook.
@@ -588,43 +622,39 @@ Section 2 - The Standard Rules
 
 The little-used do nothing rule is defined by Inter as "LITTLE_USED_DO_NOTHING_R".
 
-The start in the correct scenes rule is listed first in the startup rulebook. [7th.]
-The position player in model world rule is listed first in the startup rulebook. [6th.]
-This is the declare everything initially unmentioned rule:
-	repeat with item running through things:
-		now the item is not mentioned.
-The declare everything initially unmentioned rule is listed first in the startup rulebook. [5th]
-The update chronological records rule is listed first in the startup rulebook. [4th.]
-The seed random number generator rule is listed first in the startup rulebook. [3rd.]
-The virtual machine startup rule is listed first in the startup rulebook. [2nd.]
-The initialise memory rule is listed first in the startup rulebook. [1st.]
+The initial whitespace rule is listed in the after starting the virtual machine rules.
+The initial whitespace rule translates into Inter as "INITIAL_WHITESPACE_R".
 
-The virtual machine startup rule is defined by Inter as "VIRTUAL_MACHINE_STARTUP_R".
-The initialise memory rule is defined by Inter as "INITIALISE_MEMORY_R".
-The seed random number generator rule is defined by Inter as "SEED_RANDOM_NUMBER_GENERATOR_R".
-The update chronological records rule is defined by Inter as "UPDATE_CHRONOLOGICAL_RECORDS_R".
-The position player in model world rule is defined by Inter as "POSITION_PLAYER_IN_MODEL_R".
+The update chronological records rule is listed in the after starting the virtual machine rules.
+The update chronological records rule translates into Inter as "UPDATE_CHRONOLOGICAL_RECORDS_R".
 
-This is the start in the correct scenes rule: follow the scene changing rules.
+The position player in model world rule is listed in the after starting the virtual machine rules.
+The position player in model world rule translates into Inter as "POSITION_PLAYER_IN_MODEL_R".
 
-The when play begins stage rule is listed in the startup rulebook.
-The fix baseline scoring rule is listed in the startup rulebook.
-The display banner rule is listed in the startup rulebook.
-The initial room description rule is listed in the startup rulebook.
+The start in the correct scenes rule is listed in the after starting the virtual machine rules.
+This is the start in the correct scenes rule:
+	follow the scene changing rules.
 
-This is the when play begins stage rule: follow the when play begins rulebook.
+Startup rule (this is the when play begins stage rule):
+	follow the when play begins rulebook.
 
-This is the fix baseline scoring rule: now the last notified score is the score.
+Startup rule (this is the fix baseline scoring rule):
+	now the last notified score is the score.
 
-This is the display banner rule: say "[banner text]".
+Startup rule (this is the display banner rule):
+	say "[banner text]".
 
-This is the initial room description rule: try looking.
+Startup rule (this is the initial room description rule):
+	try looking.
 
 A first turn sequence rule (this is the every turn stage rule):
 	follow the every turn rules. [5th.]
 A first turn sequence rule (this is the early scene changing stage rule):
 	follow the scene changing rules. [4th.]
 The generate action rule is listed first in the turn sequence rulebook. [3rd.]
+This is the declare everything initially unmentioned rule:
+	repeat with item running through things:
+		now the item is not mentioned.
 The declare everything initially unmentioned rule is listed first in the turn sequence rulebook. [2nd.]
 The parse command rule is listed first in the turn sequence rulebook. [1st.]
 
@@ -644,8 +674,7 @@ This is the notify score changes rule:
 		now the last notified score is the score;
 
 The adjust light rule is defined by Inter as "ADJUST_LIGHT_R" with
-	"[It] [are] [if story tense is present tense]now [end if]pitch dark in
-	[if story tense is present tense]here[else]there[end if]!" (A).
+	"[It] [are] [if story tense is present tense]now [end if]pitch dark in [here]!" (A).
 The advance time rule is defined by Inter as "ADVANCE_TIME_R".
 The generate action rule is defined by Inter as "GENERATE_ACTION_R" with
 	"(considering the first sixteen objects only)[command clarification break]" (A),
@@ -1113,7 +1142,7 @@ Part Four - Activities
 
 Section 1 - Responses
 
-Issuing the response text of something -- documented at act_resp -- is an
+Issuing the response text of something -- hidden in RULES command -- -- documented at act_resp -- is an
 activity on responses.
 The issuing the response text activity is accessible to Inter as "PRINTING_RESPONSE_ACT".
 
@@ -1140,17 +1169,69 @@ Rule for printing a number of something (called the item) (this is the standard
 The standard printing a number of something rule is listed last in the for printing
 a number rulebook.
 
-Printing room description details of something (documented at act_details) is an activity.
+Printing room description details of something (hidden in RULES command) (documented at act_details) is an activity.
 The printing room description details activity is accessible to Inter as "PRINTING_ROOM_DESC_DETAILS_ACT".
-Printing inventory details of something (documented at act_idetails) is an activity.
+
+For printing room description details of a container (called the box) when the box is falsely-unoccupied (this is the falsely-unoccupied container room description details rule):
+  say text of list writer internal rule response (A); [ " (" ]
+  if the box is lit and the location is unlit begin;
+    if the box is closed, say text of list writer internal rule response (J); [ "closed, empty[if serial comma option is active],[end if] and providing light" ]
+    else say text of list writer internal rule response (I); [ "empty and providing light" ]
+  else;
+    if the box is closed, say text of list writer internal rule response (E); [ "closed" ]
+    else say text of list writer internal rule response (F); [ "empty" ]
+  end if;
+  say text of list writer internal rule response (B); [ ")" ]
+
+Printing inventory details of something (hidden in RULES command) (documented at act_idetails) is an activity.
 The printing inventory details activity is accessible to Inter as "PRINTING_INVENTORY_DETAILS_ACT".
 
-Listing contents of something (documented at act_lc) is an activity.
+
+To say the deceitfully empty inventory details of (box - a container):
+  let inventory text printed be false;
+  if the box is lit begin;
+    if the box is worn, say text of list writer internal rule response (K); [ "providing light and being worn" ]
+    else say text of list writer internal rule response (D); [ "providing light" ]
+    now inventory text printed is true;
+  else if the box is worn;
+    say text of list writer internal rule response (L); [ "being worn" ]
+    now inventory text printed is true;
+  end if;
+  if the box is openable begin;
+    if inventory text printed is true begin;
+      if the serial comma option is active, say ",";
+      say text of list writer internal rule response (C); [ "and" ]
+    end if;
+    if the box is open begin;
+      say text of list writer internal rule response (N); [ "open but empty" ]
+    else; [ it's closed ]
+      if the box is locked, say text of list writer internal rule response (P); [ "closed and locked" ]
+      else say text of list writer internal rule response (O); [ "closed" ]
+      now inventory text printed is true;
+    end if;
+  else; [ it's not openable ]
+    if the box is transparent begin;
+      if inventory text printed is true, say text of list writer internal rule response (C); [ "and" ]
+      say text of list writer internal rule response (F); [ "empty" ]
+      now inventory text printed is true; [ not relevant unless code is added ]
+    end if;
+  end if;
+
+For printing inventory details of a container (called the box) when the box is falsely-unoccupied (this is the falsely-unoccupied container inventory details rule):
+    let the tag be "[the deceitfully empty inventory details of box]";
+    if tag is not empty begin;
+      say text of list writer internal rule response (A); [ "(" ]
+      say tag;
+      say text of list writer internal rule response (B); [ ")" ]
+    end if;
+
+Listing contents of something (hidden in RULES command) (documented at act_lc) is an activity.
 The listing contents activity is accessible to Inter as "LISTING_CONTENTS_ACT".
 The standard contents listing rule is listed last in the for listing contents rulebook.
 The standard contents listing rule is defined by Inter as "STANDARD_CONTENTS_LISTING_R".
-Grouping together something (documented at act_gt) is an activity.
+Grouping together something (hidden in RULES command) (documented at act_gt) is an activity.
 The grouping together activity is accessible to Inter as "GROUPING_TOGETHER_ACT".
+
 
 Writing a paragraph about something (documented at act_wpa) is an activity.
 The writing a paragraph about activity is accessible to Inter as "WRITING_A_PARAGRAPH_ABOUT_ACT".
@@ -1207,17 +1288,17 @@ The supplying a missing second noun activity is accessible to Inter as "SUPPLYIN
 Implicitly taking something (documented at act_implicitly) is an activity.
 The implicitly taking activity is accessible to Inter as "IMPLICITLY_TAKING_ACT".
 
-Rule for deciding whether all includes scenery while taking or taking off or
+Rule for deciding whether all includes scenery while an actor taking or taking off or
 	removing (this is the exclude scenery from take all rule): it does not.
-Rule for deciding whether all includes people while taking or taking off or
+Rule for deciding whether all includes people while an actor taking or taking off or
 	removing (this is the exclude people from take all rule): it does not.
-Rule for deciding whether all includes fixed in place things while taking or
+Rule for deciding whether all includes fixed in place things while an actor taking or
 	taking off or removing (this is the exclude fixed in place things from
 	take all rule): it does not.
 Rule for deciding whether all includes things enclosed by the person reaching
-	while taking or taking off (this is the exclude indirect possessions from
+	while an actor taking or taking off (this is the exclude indirect possessions from
 	take all rule): it does not.
-Rule for deciding whether all includes a person while dropping or throwing
+Rule for deciding whether all includes a person while an actor dropping or throwing
 	or inserting or putting (this is the exclude people from drop all rule):
 	it does not.
 
@@ -1284,14 +1365,14 @@ This is the print the final question rule:
 	repeat through the Table of Final Question Options:
 		if the only if victorious entry is false or the story has ended finally:
 			if there is a final response rule entry
-				or the final response activity entry [activity] is not empty:
+				or the final response activity entry is not empty:
 				if there is a final question wording entry, increase named options count by 1;
 	if the named options count is less than 1, abide by the immediately quit rule;
 	say "Would you like to " (A);
 	repeat through the Table of Final Question Options:
 		if the only if victorious entry is false or the story has ended finally:
 			if there is a final response rule entry
-				or the final response activity entry [activity] is not empty:
+				or the final response activity entry is not empty:
 				if there is a final question wording entry:
 					say final question wording entry;
 					decrease named options count by 1;
@@ -1307,7 +1388,7 @@ This is the standard respond to final question rule:
 	repeat through the Table of Final Question Options:
 		if the only if victorious entry is false or the story has ended finally:
 			if there is a final response rule entry
-				or the final response activity entry [activity] is not empty:
+				or the final response activity entry is not empty:
 				if the player's command matches the topic entry:
 					if there is a final response rule entry, abide by final response rule entry;
 					otherwise carry out the final response activity entry activity;
@@ -1374,6 +1455,7 @@ For printing the locale description (this is the interesting locale paragraphs r
 For printing the locale description (this is the you-can-also-see rule):
 	let the domain be the parameter-object;
 	let the mentionable count be 0;
+	if the domain is a thing and the domain holds the player and the domain is falsely-unoccupied, continue the activity;
 	repeat with item running through things:
 		now the item is not marked for listing;
 	repeat through the Table of Locale Priorities:
@@ -1413,7 +1495,7 @@ For printing the locale description (this is the you-can-also-see rule):
 						giving brief inventory information, tersely, not listing
 						concealed items, listing marked items only;
 				otherwise say "[a list of marked for listing things including contents]";
-				if the domain is the location, say " here" (F);
+				if the domain is the location, say " [here]" (F);
 				say ".[paragraph break]";
 				unfilter list recursion;
 			end the listing nondescript items activity with the domain;
@@ -1501,22 +1583,32 @@ For printing a locale paragraph about a supporter (called the tabletop)
 Definition: a thing (called the item) is locale-supportable if the item is not
 scenery and the item is not mentioned and the item is not undescribed.
 
-For printing a locale paragraph about a thing (called the item)
+For printing a locale paragraph about a thing (called the platform)
 	(this is the describe what's on scenery supporters in room descriptions rule):
-	if the item is scenery and the item does not enclose the player:
-		if a locale-supportable thing is on the item:
-			set pronouns from the item;
-			repeat with possibility running through things on the item:
-				now the possibility is marked for listing;
-				if the possibility is mentioned:
-					now the possibility is not marked for listing;
-			increase the locale paragraph count by 1;
-			say "On [the item] " (A);
-			list the contents of the item, as a sentence, including contents,
-				giving brief inventory information, tersely, not listing
-				concealed items, prefacing with is/are, listing marked items only;
-			say ".[paragraph break]";
-	continue the activity.
+    if the platform is not a scenery supporter that does not enclose the player, continue the activity;
+    let print a paragraph be false;
+    let item be the first thing held by the platform;
+    while item is not nothing begin;
+      if the item is not scenery and the item is described and the platform does not conceal the item begin;
+        if the item is mentioned begin;
+          now the item is not marked for listing;
+        else;
+          now the item is marked for listing;
+          now print a paragraph is true;
+        end if;
+      end if;
+      now the item is the next thing held after the item;
+    end while;
+    if print a paragraph is true begin;
+      set pronouns from the platform;
+      increase the locale paragraph count by 1;
+      say "On [the platform] " (A);
+      list the contents of the platform, as a sentence, including contents,
+        giving brief inventory information, tersely, not listing
+        concealed items, prefacing with is/are, listing marked items only;
+      say ".[paragraph break]";
+    end if;
+    continue the activity
 
 For printing a locale paragraph about a thing (called the item)
 	(this is the describe what's on mentioned supporters in room descriptions rule):
@@ -1611,8 +1703,9 @@ Carry out taking inventory (this is the print empty inventory rule):
 
 Carry out taking inventory (this is the print standard inventory rule):
 	say "[We] [are] carrying:[line break]" (A);
-	list the contents of the player, with newlines, indented, including contents,
-		giving inventory information, with extra indentation.
+	now all things enclosed by the player are unmarked for listing;
+	now all things held by the player are marked for listing;
+	list the contents of the player, with newlines, indented, giving inventory information, with extra indentation, listing marked items only, not listing concealed items, including contents.
 
 Report an actor taking inventory (this is the report other people taking
 	inventory rule):
@@ -1749,7 +1842,7 @@ do this is to write a rule about taking, which covers all possibilities."
 Check an actor removing something from (this is the can't remove what's not inside rule):
 	if the holder of the noun is not the second noun:
 		if the actor is the player:
-			say "But [regarding the noun][they] [aren't] there now." (A);
+			say "But [regarding the noun][they] [aren't] there [now]." (A);
 		stop the action.
 
 Check an actor removing something from (this is the can't remove from people rule):
@@ -1795,7 +1888,7 @@ Check an actor dropping something which is part of the actor (this is the
 Check an actor dropping (this is the can't drop what's already dropped rule):
 	if the noun is in the holder of the actor:
 		if the actor is the player:
-			say "[The noun] [are] already here." (A);
+			say "[The noun] [are] already [here]." (A);
 		stop the action.
 
 Check an actor dropping (this is the can't drop what's not held rule):
@@ -2597,22 +2690,22 @@ Carry out examining (this is the examine directions rule):
 
 Carry out examining (this is the examine containers rule):
 	if the noun is a container:
-		if the noun is open or the noun is transparent:
-			if something described which is not scenery is in the noun and something which
-				is not the player is in the noun:
-				say "In [the noun] " (A);
-				list the contents of the noun, as a sentence, tersely, not listing
-					concealed items, prefacing with is/are;
-				say ".";
-				now examine text printed is true;
-			otherwise if examine text printed is false:
-				if the player is in the noun:
-					make no decision;
-				say "[The noun] [are] empty." (B);
-				now examine text printed is true;
+		if the noun is closed and the noun is opaque, make no decision;
+		if something described which is not scenery is in the noun and something which
+			is not the player is in the noun and the noun is not falsely-unoccupied:
+			say "In [the noun] " (A);
+			list the contents of the noun, as a sentence, tersely, not listing
+				concealed items, prefacing with is/are;
+			say ".";
+			now examine text printed is true;
+		otherwise if examine text printed is false:
+			if the player is in the noun:
+				make no decision;
+			say "[The noun] [are] empty." (B);
+			now examine text printed is true;
 
 Carry out examining (this is the examine supporters rule):
-	if the noun is a supporter:
+	if the noun is a supporter and the noun is not falsely-unoccupied:
 		if something described which is not scenery is on the noun and something which is
 			not the player is on the noun:
 			say "On [the noun] " (A);
@@ -2984,7 +3077,7 @@ Carry out an actor opening (this is the standard opening rule):
 Report an actor opening (this is the reveal any newly visible interior rule):
 	if the actor is the player and
 		the noun is an opaque container and
-		the first thing held by the noun is not nothing and
+		the noun is obviously-occupied and
 		the noun does not enclose the actor:
 		if the action is not silent:
 			if the actor is the player:
@@ -3692,7 +3785,7 @@ Check an actor pushing something to (this is the can't push vertically rule):
 Check an actor pushing something to (this is the can't push from within rule):
 	if the noun encloses the actor:
 		if the actor is the player:
-			say "[The noun] [cannot] be pushed from here." (A);
+			say "[The noun] [cannot] be pushed from [here]." (A);
 		stop the action.
 
 Check an actor pushing something to (this is the standard pushing in directions rule):
@@ -3914,7 +4007,7 @@ with some further check rules.)"
 Check an actor drinking (this is the block drinking rule):
 	if the actor is the player:
 		now the prior named object is nothing;
-		say "[There's] nothing suitable to drink here." (A);
+		say "[There's] nothing suitable to drink [here]." (A);
 	stop the action.
 
 Saying sorry is an action applying to nothing.
@@ -3948,7 +4041,7 @@ with some further check rules.)"
 Check an actor swinging (this is the block swinging rule):
 	if the actor is the player:
 		now the prior named object is nothing;
-		say "[There's] nothing sensible to swing here." (A);
+		say "[There's] nothing sensible to swing [here]." (A);
 	stop the action.
 
 Rubbing is an action applying to one thing.

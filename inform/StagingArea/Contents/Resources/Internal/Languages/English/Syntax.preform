@@ -30,30 +30,6 @@ language English
 	...... , _or ...... |
 	...... _or ......
 
-<extension-documentation-heading> ::=
-	chapter : ... |
-	chapter - ... |
-	section : ... |
-	section - ...
-
-<extension-example-header> ::=
-	example : <row-of-asterisks> ... - ... |
-	example - <row-of-asterisks> ... - ... |
-	example : ... - ...                    |
-	example - ... - ...
-
-<row-of-asterisks> ::=
-	* |
-	** |
-	\*** |
-	****
-
-<table-sentence> ::=
-	<if-start-of-paragraph> table ...
-
-<extension-documentation-paste-marker> ::=
-	* : ...
-
 <documentation-symbol-tail> ::=
 	... ( <documentation-symbol> ) |
 	... -- <documentation-symbol> --
@@ -2817,10 +2793,6 @@ language English
 
 <relation-name> internal
 
-<extension-body> ::=
-	*** ---- documentation ---- ... |
-	...
-
 <natural-language> internal
 
 <dividing-sentence> ::=
@@ -2981,22 +2953,15 @@ language English
 	memory economy |
 	no deprecated features |
 	numbered rules |
-	telemetry recordings |
 	scoring |
 	no scoring |
 	engineering notation |
 	unabbreviated object names |
+	no automatic plural synonyms |
 	index figure thumbnails |
-	undo prevention |
-	serial comma |
-	predictable randomisation |
-	command line echoing |
-	american dialect |
-	full-length room descriptions |
-	abbreviated room descriptions |
-	verbose room descriptions |
-	brief room descriptions |
-	superbrief room descriptions
+	fast route-finding |
+	slow route-finding |
+	dictionary resolution
 
 <language-element> internal
 
@@ -3151,7 +3116,26 @@ language English
 
 <use-translates-as-sentence-object> ::=
 	(- ### |
+	configuration <use-translates-as-configuration> |
+	<article> configuration <use-translates-as-configuration> |
+	a compiler feature |
 	...[issues PM_UseTranslatesNotI6]
+
+<use-translates-as-configuration> ::=
+	flag |
+	flag <quoted-text> |[issues PM_UseTranslatesNotI6]
+	flag ### |
+	flag ### = ### |[issues PM_UseTranslatesNotI6]
+	flag <quoted-text> in ### |[issues PM_UseTranslatesNotI6]
+	flag ### in ### |
+	flag ### = ### in ### |[issues PM_UseTranslatesNotI6]
+	value |
+	value <quoted-text> |[issues PM_UseTranslatesNotI6]
+	value ### |
+	value ### = ### |
+	value <quoted-text> in ### |[issues PM_UseTranslatesNotI6]
+	value ### in ### |
+	value ### = ### in ###
 
 <use-inter-pipeline> ::=
 	inter pipeline {<quoted-text>}
@@ -3160,10 +3144,12 @@ language English
 	... language index
 
 <use-memory-setting> ::=
+	... compiler option {<quoted-text>} |
 	### of <cardinal-number-unlimited>
 
 <use-setting> ::=
 	... of at least <cardinal-number-unlimited> |
+	... of <cardinal-number-unlimited> |
 	<definite-article> ...	|
 	...
 
@@ -3201,7 +3187,8 @@ language English
 	...[issues PM_TableUndefined]
 
 <defined-by-sentence-subject> ::=
-	kind/kinds of <s-type-expression> |
+	<article> kind/kinds of {<s-type-expression>} |
+	kind/kinds of {<s-type-expression>} |
 	<s-type-expression> |
 	...[issues PM_TableDefiningTheImpossible]
 
@@ -3297,12 +3284,20 @@ language English
 	......[issues PM_BadLPNameOption]
 
 <specifies-sentence-object> ::=
-	<kind-specified> <lp-specification-tail> |
-	<kind-specified>
+	<kind-specified-with-base> <lp-specification-tail> |
+	<kind-specified-with-base>
 
-<kind-specified> ::=
+<kind-specified-with-base> ::=
+	<k-kind-articled> in <number-base> |
 	<k-kind-articled> |
 	...[issues PM_LPNotKOV]
+
+<number-base> ::=
+	binary |
+	octal |
+	decimal |
+	hexadecimal |
+	base <cardinal-number>
 
 <lp-specification-tail> ::=
 	with parts <lp-part-list> |
@@ -3341,7 +3336,18 @@ language English
 <lp-part-option> ::=
 	optional |
 	preamble optional |
+	with leading zeros |
 	without leading zeros |
+	in <number-base> |
+	<cardinal-number> to <cardinal-number> |
+	up to <cardinal-number> <number-base> digit/digits |
+	up to <cardinal-number> digit/digits |
+	<cardinal-number> <number-base> digit/digits |
+	<cardinal-number> digit/digits |
+	digits { <quoted-text> } |
+	values { <quoted-text> } |
+	corresponding to <k-kind> |
+	corresponding to <article> <k-kind> |
 	......[issues PM_BadLPPartOption]
 
 <new-relation-sentence-subject> ::=
@@ -3885,14 +3891,16 @@ language English
 	no outcome
 
 <activity-sentence-subject> ::=
-	<activity-noted> ( <documentation-symbol> ) |
-	<activity-noted> -- <documentation-symbol> -- |
-	<activity-noted>
-
-<activity-noted> ::=
-	<activity-new-name> ( future action ) |
-	<activity-new-name> ( ... )	|[issues PM_ActivityNoteUnknown]
+	<activity-sentence-subject> ( <activity-note> ) |
+	<activity-sentence-subject> -- <activity-note> -- |
+	<activity-sentence-subject> ( ...... ) |[issues PM_ActivityNoteUnknown]
+	<activity-sentence-subject> -- ... -- |[issues PM_ActivityNoteUnknown]
 	<activity-new-name>
+
+<activity-note> ::=
+	<documentation-symbol> |
+	future action |
+	hidden in RULES command
 
 <activity-new-name> ::=
 	... of/for something/anything |
@@ -4027,6 +4035,9 @@ language English
 <s-literal> ::=
 	<cardinal-number> |
 	minus <cardinal-number> |
+	hexadecimal <hexadecimal-number> |
+	binary <binary-number> |
+	octal <octal-number> |
 	<quoted-text> ( <response-letter> ) |
 	<quoted-text> |
 	<s-literal-real-number> |
@@ -4041,6 +4052,12 @@ language English
 <s-literal-truth-state> ::=
 	false |
 	true
+
+<hexadecimal-number> internal
+
+<octal-number> internal
+
+<binary-number> internal
 
 <lp-group-name> internal
 
@@ -4625,6 +4642,17 @@ language English
 
 <value-understood-variable-name> ::=
 	<k-kind> understood
+
+<traditional-class-number> ::=
+	room |
+	thing |
+	direction |
+	door |
+	container |
+	supporter |
+	backdrop |
+	person |
+	region
 
 <heading-with-parenthesis> ::=
 	{<heading-name-hyphenated>} ( <definite-article> ... ) |

@@ -456,7 +456,7 @@ static int compare(const void* a, const void* b) {
         @"string", @"table", nil];
     
     for( NSString* key in codeKwSet ) {
-        const char* str = [[key lowercaseString] UTF8String];
+        const char* str = key.lowercaseString.UTF8String;
         
         numCodeKeywords++;
         
@@ -466,7 +466,7 @@ static int compare(const void* a, const void* b) {
     }
 
     for( NSString* key in otherKwSet ) {
-        const char* str = [[key lowercaseString] UTF8String];
+        const char* str = key.lowercaseString.UTF8String;
         
         numOtherKeywords++;
         
@@ -542,8 +542,8 @@ static int compare(const void* a, const void* b) {
     int x;
     int chr;
 	
-	const char* str = [line UTF8String];
-	int strLen = (int) [line length];
+	const char* str = line.UTF8String;
+	int strLen = (int) line.length;
     
     // Firstly, any characters with colour Q (quoted-text) which have special
     // meanings are given "escape-character colour" instead.  This applies

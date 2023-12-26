@@ -123,11 +123,6 @@ use the list's own preferred comparison function to judge the items in turn,
 stopping as soon as a pair of corresponding items differs: thus we sort
 lists of equal size in lexicographic order.
 
-Since the comparison function depends only on the KOV, it may seem wasteful
-of a word of memory to store it in the list, given that we are already storing
-the KOV in any case. But we do this because comparisons have to be fast: we
-don't want to incur the overhead of translating KOV to comparison function.
-
 =
 [ LIST_OF_TY_Compare listleft listright delta no_items i cf;
 	delta = BlkValueRead(listleft, LIST_LENGTH_F) - BlkValueRead(listright, LIST_LENGTH_F);
@@ -205,10 +200,10 @@ use the "listing contents of..." activity in any circumstances.
 		if (i<no_items-2) print ", ";
 		if (i==no_items-2) {
 			if (format == 1) print ", "; else {
-				if (KIT_CONFIGURATION_BITMAP & SERIAL_COMMA_TCBIT) {
+				if (BasicInformKit`SERIAL_COMMA_CFGF) {
 					if (no_items ~= 2) print ",";
 				}
-				LIST_WRITER_INTERNAL_RM('C');
+				LW_Response('C');
 			}
 		}
 	}
@@ -293,10 +288,11 @@ where $N$ is the number of items in the list at present.
 	BlkValueWrite(list, LIST_LENGTH_F, no_items); ! Forces the list to be mutable
 	contents_kind = BlkValueRead(list, LIST_ITEM_KOV_F);
 	if ((posnflag) && ((posn<1) || (posn > no_items+1))) {
+		IssueRTP("AccessedNonExistentListItem",	
+    		"Attempt to use list item which does not exist.", BasicInformKitRTPs);
 		print "*** Couldn't add at entry ", posn, " in the list ";
 		LIST_OF_TY_Say(list, true);
 		print ", which has entries in the range 1 to ", no_items, " ***^";
-		RunTimeProblem(RTP_LISTRANGEERROR);
 		rfalse;
 	}
 	ex = BlkValueLBCapacity(list);
@@ -336,10 +332,11 @@ value |v| to insert, the specification is the same as for
 	no_items = BlkValueRead(list, LIST_LENGTH_F);
 	BlkValueWrite(list, LIST_LENGTH_F, no_items); ! Forces the list to be mutable
 	if ((posnflag) && ((posn<1) || (posn > no_items+1))) {
+		IssueRTP("AccessedNonExistentListItem",	
+    		"Attempt to use list item which does not exist.", BasicInformKitRTPs);
 		print "*** Couldn't add at entry ", posn, " in the list ";
 		LIST_OF_TY_Say(list, true);
 		print ", which has entries in the range 1 to ", no_items, " ***^";
-		RunTimeProblem(RTP_LISTRANGEERROR);
 		rfalse;
 	}
 	msize = BlkValueRead(more, LIST_LENGTH_F);
@@ -414,12 +411,13 @@ destroyed with |BlkValueFree| before being overwritten as the items shuffle down
 	}
 	if (odsize ~= no_items) rfalse;
 	if (forgive) rfalse;
+	IssueRTP("AccessedNonExistentListItem",	
+    	"Attempt to use list item which does not exist.", BasicInformKitRTPs);
 	print "*** Couldn't remove: the value ";
 	PrintKindValuePair(BlkValueRead(list, LIST_ITEM_KOV_F), v);
 	print " was not present in the list ";
 	LIST_OF_TY_Say(list, true);
 	print " ***^";
-	RunTimeProblem(RTP_LISTRANGEERROR);
 ];
 
 @h Remove Item Range.
@@ -442,10 +440,11 @@ as the list shuffles down to fill the void.
 			if (to >= no_items) to = no_items;
 			if (from > to) return list;
 		} else {
+			IssueRTP("AccessedNonExistentListItem",	
+    			"Attempt to use list item which does not exist.", BasicInformKitRTPs);
 			print "*** Couldn't remove entries ", from, " to ", to, " from the list ";
 			LIST_OF_TY_Say(list, true);
 			print ", which has entries in the range 1 to ", no_items, " ***^";
-			RunTimeProblem(RTP_LISTRANGEERROR);
 			rfalse;
 		}
 	}
@@ -535,7 +534,8 @@ if |truncation_end| is 1, or from the start if it is $-1$.
 =
 [ LIST_OF_TY_SetLength list newsize this_way_only truncation_end no_items ex i dv;
 	if ((list==0) || (BlkValueWeakKind(list) ~= LIST_OF_TY)) return 0;
-	if (newsize < 0) return RunTimeProblem(RTP_LISTSIZENEGATIVE, newsize);
+	if (newsize < 0) return IssueRTP("ResizedListToNegativeSize",	
+    		"Attempt to resize list to negative size.", BasicInformKitRTPs);
 	BlkMakeMutable(list);
 	no_items = BlkValueRead(list, LIST_LENGTH_F);
 	if (no_items < newsize) {
@@ -577,13 +577,14 @@ if |truncation_end| is 1, or from the start if it is $-1$.
 	no_items = BlkValueRead(list, LIST_LENGTH_F);
 	if ((i<=0) || (i>no_items)) {
 		if (forgive) return false;
+		IssueRTP("AccessedNonExistentListItem",	
+    		"Attempt to use list item which does not exist.", BasicInformKitRTPs);
 		print "*** Couldn't read from entry ", i, " of a list which";
 		switch (no_items) {
 			0: print " is empty ***^";
 			1: print " has only one entry, numbered 1 ***^";
 			default: print " has entries numbered from 1 to ", no_items, " ***^";
 		}
-		RunTimeProblem(RTP_LISTRANGEERROR);
 		if (no_items >= 1) i = 1;
 		else return false;
 	}
@@ -600,15 +601,17 @@ to convert an rvalue such as |LIST_OF_TY_GetItem(L, 4)| is to prefix
 	if ((list==0) || (BlkValueWeakKind(list) ~= LIST_OF_TY)) return false;
 	no_items = BlkValueRead(list, LIST_LENGTH_F);
 	if ((i<=0) || (i>no_items)) {
+		IssueRTP("AccessedNonExistentListItem",	
+    		"Attempt to use list item which does not exist.", BasicInformKitRTPs);
 		print "*** Couldn't write to list entry ", i, " of a list which";
 		switch (no_items) {
 			0: print " is empty ***^";
 			1: print " has only one entry, numbered 1 ***^";
 			default: print " has entries numbered from 1 to ", no_items, " ***^";
 		}
-		return RunTimeProblem(RTP_LISTRANGEERROR);
+	} else {
+		BlkValueWrite(list, LIST_ITEM_BASE+i-1, val);
 	}
-	BlkValueWrite(list, LIST_ITEM_BASE+i-1, val);
 ];
 
 @h Put Item.
@@ -687,13 +690,19 @@ the list, unless the optional argument |prop| is supplied, in which case
 we sort based not on the item values but on their values for the property
 |prop|. (This only makes sense if the list contains objects.)
 
+|LIST_OF_TY_Sort(list, dir, 0, 0, cf)| sorts the given |list| with the custom
+comparison function |cf|, which must behave as any standard comparison function
+would.
+
 =
+Constant SORT_LIST_RANDOM = 2;
+
 Global LIST_OF_TY_Sort_cf;
 
-[ LIST_OF_TY_Sort list dir prop cf  i j no_items v;
+[ LIST_OF_TY_Sort list dir prop prop_is_bv cf  i j no_items v;
 	BlkMakeMutable(list);
 	no_items = BlkValueRead(list, LIST_LENGTH_F);
-	if (dir == 2) {
+	if (dir == SORT_LIST_RANDOM) {
 		if (no_items < 2) return;
 		for (i=1:i<no_items:i++) {
 			j = random(i+1) - 1;
@@ -704,8 +713,20 @@ Global LIST_OF_TY_Sort_cf;
 		return;
 	}
 	SetSortDomain(ListSwapEntries, ListCompareEntries);
-	if (cf) LIST_OF_TY_Sort_cf = BlkValueCompare;
-	else LIST_OF_TY_Sort_cf = 0;
+	if (cf) {
+		LIST_OF_TY_Sort_cf = cf;
+	}
+	else if (prop) {
+		if (prop_is_bv) {
+			LIST_OF_TY_Sort_cf = BlkValueCompare;
+		}
+		else {
+			LIST_OF_TY_Sort_cf = 0;
+		}
+	}
+	else {
+		LIST_OF_TY_Sort_cf = LIST_OF_TY_ComparisonFn(list);
+	}
 	SortArray(list, prop, dir, no_items, 0);
 ];
 
@@ -716,21 +737,19 @@ Global LIST_OF_TY_Sort_cf;
 	BlkValueWrite(list, LIST_ITEM_BASE+j-1, v);
 ];
 
-[ ListCompareEntries list col i j d cf;
+[ ListCompareEntries list col i j d;
 	if (i==j) return 0;
 	i = BlkValueRead(list, LIST_ITEM_BASE+i-1);
 	j = BlkValueRead(list, LIST_ITEM_BASE+j-1);
 	if (I7S_Col) {
 		if (i provides I7S_Col) i=i.I7S_Col; else i=0;
 		if (j provides I7S_Col) j=j.I7S_Col; else j=0;
-		cf = LIST_OF_TY_Sort_cf;
-	} else {
-		cf = LIST_OF_TY_ComparisonFn(list);
 	}
-	if (cf == 0) {
+	if (LIST_OF_TY_Sort_cf == 0) {
 		if (i > j) return 1;
 		if (i < j) return -1;
 		return 0;
-	} else
-		return cf(i, j);
+	} else {
+		return LIST_OF_TY_Sort_cf(i, j);
+	}
 ];

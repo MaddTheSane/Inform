@@ -7,24 +7,24 @@ Web Syntax Version: 2
 
 Sections
 	Definitions
+	Startup
 	Utilities
-	Glulx
-	ZMachine
 	Paragraphing
 	Mathematics
-	FileIO
 	Sort
 	Tables
 	MStack
 	Rulebooks
+	Activities
+	Printing
 	Flex
 	BlockValues
 	Text
-	UnicodeData
 	Char
 	RegExp
 	Lists
 	Combinations
 	RelationKind
 	Relations
+	Properties
 	RTP

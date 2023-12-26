@@ -75,7 +75,7 @@ import RegexBuilder
 		}
 		}
 	}
-	
+
 	private override init() {}
 	
 	@objcMembers @objc(IFCompilerListEntry) class Entry: NSObject {
