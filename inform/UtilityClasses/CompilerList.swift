@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RegexBuilder
 
 @objcMembers final class CompilerList: NSObject {
 	static let compilerList = readCompilerRetrospectiveFile()
@@ -14,6 +15,47 @@ import Foundation
 		let fileURL = Bundle.main.url(forResource: "retrospective", withExtension: "txt", subdirectory: "App/Compilers")!
 		let contents = try! String(contentsOf: fileURL, encoding: .utf8)
 		
+		if #available(macOS 13.0, *) {
+			let regex1 = Regex {
+				ZeroOrMore(.whitespace)
+				"'"
+				Capture {
+					ZeroOrMore(.reluctant) {
+						/./
+					}
+				}
+				"'"
+				ZeroOrMore(.whitespace)
+				","
+				ZeroOrMore(.whitespace)
+				"'"
+				Capture {
+					ZeroOrMore(.reluctant) {
+						/./
+					}
+				}
+				"'"
+				ZeroOrMore(.whitespace)
+				","
+				ZeroOrMore(.whitespace)
+				"'"
+				Capture {
+					ZeroOrMore(.reluctant) {
+						/./
+					}
+				}
+				"'"
+				ZeroOrMore(.whitespace)
+			}
+			let matches = contents.matches(of: regex1)
+			return matches.map { match -> Entry in
+				let identifier = match.1
+				let displayName = match.2
+				let description = match.3
+				
+				return Entry(identifier: String(identifier), displayName: String(displayName), description: String(description))
+			}
+		} else {
 		let regex = try! NSRegularExpression(pattern: #"\s*\'(.*?)\'\s*,\s*\'(.*?)\'\s*,\s*\'(.*?)\'\s*"#, options: [.useUnicodeWordBoundaries])
 		let matches = regex.matches(in: contents, options: [], range: NSRange(contents.startIndex ..< contents.endIndex, in: contents))
 		
@@ -30,6 +72,7 @@ import Foundation
 			let description = getString(in: match, capture: 3)
 			
 			return Entry(identifier: identifier, displayName: displayName, description: description)
+		}
 		}
 	}
 	

@@ -12,7 +12,7 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
     
     func providePreview(for request: QLFilePreviewRequest) async throws -> QLPreviewReply {
     
-        var isInform6 = false;
+        var isInform6 = false
         var sourceCodeString: String? = nil
 
         let resKeys = try request.fileURL.resourceValues(forKeys: [.contentTypeKey])
@@ -41,7 +41,6 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
             if sourceCodeString == nil {
                 sourceCodeString = try String(contentsOf: request.fileURL.appendingPathComponent("Source").appendingPathComponent("main.inf"), encoding: .isoLatin1)
                 isInform6 = true
-
             }
             
         case UTType("org.inform-fiction.xproject"):
@@ -55,7 +54,7 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
         }
         
         guard let sourceCodeString else {
-            throw CocoaError(.fileReadCorruptFile)
+            throw CocoaError(.fileReadInapplicableStringEncoding)
         }
         
         let contentType = UTType.rtf // replace with your data type
@@ -72,7 +71,10 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
             
             IFSyntaxManager.unregisterTextStorage(storage)
             
-            return theRTF ?? Data()
+            guard let theRTF else {
+                throw CocoaError(.fileReadUnknown)
+            }
+            return theRTF
         }
                 
         return reply

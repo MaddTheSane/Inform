@@ -71,7 +71,6 @@
 		55E7FDD3299AE97D00D554FB /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7FDD2299AE97D00D554FB /* PreviewProvider.swift */; };
 		55E7FDDB299AE97D00D554FB /* InformPreview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 55E7FDCD299AE97C00D554FB /* InformPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		55FF5AC7275A250A000B0D21 /* GlkSound.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55BFAC0C2744983B0049646A /* GlkSound.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		55FF5B8B275ADBFD000B0D21 /* Ogg.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55FF5B63275ADB78000B0D21 /* Ogg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55FF5B8D275ADBFD000B0D21 /* SFBAudioEngine.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55FF5B8A275ADBBC000B0D21 /* SFBAudioEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C32E842529DAD4F600DEA0DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32E842429DAD4F600DEA0DC /* Colors.xcassets */; };
 		FF00CB7919085EB200B5D911 /* IFI7OutputSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = FF00CB7719085EB200B5D911 /* IFI7OutputSettings.m */; };
@@ -592,8 +591,8 @@
 		4BA3792A0CD3E46F00C7B1D4 /* Copy QuickLook bundle */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = ../Library/QuickLook;
-			dstSubfolderSpec = 7;
+			dstPath = Contents/Library/QuickLook;
+			dstSubfolderSpec = 1;
 			files = (
 				4BA379290CD3E44900C7B1D4 /* InformQL.qlgenerator in Copy QuickLook bundle */,
 			);
@@ -606,7 +605,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				55FF5B8B275ADBFD000B0D21 /* Ogg.framework in Copy Frameworks */,
 				55FF5B8D275ADBFD000B0D21 /* SFBAudioEngine.framework in Copy Frameworks */,
 				55FF5AC7275A250A000B0D21 /* GlkSound.framework in Copy Frameworks */,
 				FFDBF73018F9BA18004F53DD /* GlkView.framework in Copy Frameworks */,
@@ -1671,7 +1669,7 @@
 		55FF5B4C275ADB78000B0D21 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				55FF5B63275ADB78000B0D21 /* Ogg.framework */,
+				55FF5B63275ADB78000B0D21 /* libogg.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1871,8 +1869,8 @@
 				4BD95A2E055EE949008DEFF4 /* Copy Frameworks */,
 				4B81D2E408112D1300CF609F /* Copy interpreters */,
 				4BA3792A0CD3E46F00C7B1D4 /* Copy QuickLook bundle */,
-				FFC9D46319F681CF0027181C /* (Script) Final Build Phase */,
 				55E7FDB9299ADDD300D554FB /* Embed Foundation Extensions */,
+				FFC9D46319F681CF0027181C /* (Script) Final Build Phase */,
 			);
 			buildRules = (
 			);
@@ -2229,10 +2227,10 @@
 			remoteRef = 55BFAC132744983B0049646A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		55FF5B63275ADB78000B0D21 /* Ogg.framework */ = {
+		55FF5B63275ADB78000B0D21 /* libogg.a */ = {
 			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Ogg.framework;
+			fileType = archive.ar;
+			path = libogg.a;
 			remoteRef = 55FF5B62275ADB78000B0D21 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
