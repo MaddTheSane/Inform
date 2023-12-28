@@ -54,9 +54,9 @@ typedef NS_ENUM(unsigned int, IFCompilerTabId) {
 @property (atomic, strong) IFCompiler *compiler;
 
 /// Tells the compiler to start
-@property (NS_NONATOMIC_IOSONLY, readonly) BOOL startCompiling;
+- (BOOL) startCompiling;
 /// Tells the compiler to stop
-@property (NS_NONATOMIC_IOSONLY, readonly) BOOL abortCompiling;
+- (BOOL) abortCompiling;
 
 /// Adds an error to the display
 - (void) addErrorForFile: (NSString*) file
