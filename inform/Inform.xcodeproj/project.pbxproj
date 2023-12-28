@@ -38,6 +38,23 @@
 		557AB2E3274C786A000E8F0B /* ThinSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557AB2E2274C786A000E8F0B /* ThinSplitView.swift */; };
 		557AB309274D96CB000E8F0B /* PreferenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557AB308274D96CB000E8F0B /* PreferenceController.swift */; };
 		557AB30B274E1A6F000E8F0B /* AuthorPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557AB30A274E1A6F000E8F0B /* AuthorPreferences.swift */; };
+		557FDC3A2B3D10B600A66301 /* IFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C4B5E2A3C5C7C0078DBF0 /* IFUtility.m */; };
+		557FDC3B2B3D10B600A66301 /* IFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C4B5E2A3C5C7C0078DBF0 /* IFUtility.m */; };
+		557FDC3C2B3D10C500A66301 /* IFSyntaxStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = FF61DE3B29F0362C0047E7D8 /* IFSyntaxStyles.m */; };
+		557FDC3D2B3D10C600A66301 /* IFSyntaxStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = FF61DE3B29F0362C0047E7D8 /* IFSyntaxStyles.m */; };
+		557FDC3E2B3D10F800A66301 /* IFSyntaxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DF18F18890006717B3 /* IFSyntaxManager.m */; };
+		557FDC3F2B3D110C00A66301 /* IFPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B34334A07B158720022C278 /* IFPreferences.m */; };
+		557FDC402B3D113B00A66301 /* IFInform6Highlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D718F18890006717B3 /* IFInform6Highlighter.m */; };
+		557FDC412B3D113B00A66301 /* IFColourTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536C1628205101004E4069 /* IFColourTheme.m */; };
+		557FDC422B3D113B00A66301 /* IFIntelSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712F118F188B9006717B3 /* IFIntelSymbol.m */; };
+		557FDC432B3D113B00A66301 /* IFNoHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DB18F18890006717B3 /* IFNoHighlighter.m */; };
+		557FDC442B3D113B00A66301 /* IFEditingPreferencesSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7BF1F818D7115300A1E9FD /* IFEditingPreferencesSet.m */; };
+		557FDC452B3D113B00A66301 /* IFNaturalHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712D918F18890006717B3 /* IFNaturalHighlighter.m */; };
+		557FDC462B3D113B00A66301 /* IFIntelFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712EF18F188B9006717B3 /* IFIntelFile.m */; };
+		557FDC472B3D113B00A66301 /* IFProjectTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71A86818F14B9B00CB9B31 /* IFProjectTypes.m */; };
+		557FDC482B3D113B00A66301 /* IFSyntaxData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712DD18F18890006717B3 /* IFSyntaxData.m */; };
+		557FDC492B3D113B00A66301 /* IFFakeProjectPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA379370CD3E73E00C7B1D4 /* IFFakeProjectPane.m */; };
+		557FDC4A2B3D113B00A66301 /* IFNaturalIntel.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4712F318F188B9006717B3 /* IFNaturalIntel.m */; };
 		55BFABF0274481760049646A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55BFABEF274481760049646A /* Images.xcassets */; };
 		55C916EB27518B6B003725D4 /* ProblemHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C916EA27518B6B003725D4 /* ProblemHandlers.swift */; };
 		55D6F088275C50830098620E /* GlkSound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BFAC0C2744983B0049646A /* GlkSound.framework */; };
@@ -2443,11 +2460,13 @@
 				55E7FDBE299ADE1F00D554FB /* IFIntelSymbol.m in Sources */,
 				55E7FDC5299ADE1F00D554FB /* IFNoHighlighter.m in Sources */,
 				55E7FDBA299ADE1F00D554FB /* IFInform6Highlighter.m in Sources */,
+				557FDC3C2B3D10C500A66301 /* IFSyntaxStyles.m in Sources */,
 				55E7FDC4299ADE1F00D554FB /* IFColourTheme.m in Sources */,
 				55E7FDC3299ADE1F00D554FB /* IFSyntaxManager.m in Sources */,
 				55E7FDC6299ADE1F00D554FB /* IFFakeProjectPane.m in Sources */,
 				55E7FDBB299ADE1F00D554FB /* IFNaturalHighlighter.m in Sources */,
 				55E7FDC0299ADE1F00D554FB /* IFEditingPreferencesSet.m in Sources */,
+				557FDC3A2B3D10B600A66301 /* IFUtility.m in Sources */,
 				55E7FDB0299ADDD300D554FB /* ThumbnailProvider.swift in Sources */,
 				55E7FDBC299ADE1F00D554FB /* IFPreferences.m in Sources */,
 				55E7FDC1299ADE1F00D554FB /* IFProjectTypes.m in Sources */,
@@ -2459,7 +2478,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				557FDC3F2B3D110C00A66301 /* IFPreferences.m in Sources */,
+				557FDC492B3D113B00A66301 /* IFFakeProjectPane.m in Sources */,
+				557FDC482B3D113B00A66301 /* IFSyntaxData.m in Sources */,
+				557FDC472B3D113B00A66301 /* IFProjectTypes.m in Sources */,
+				557FDC3D2B3D10C600A66301 /* IFSyntaxStyles.m in Sources */,
+				557FDC402B3D113B00A66301 /* IFInform6Highlighter.m in Sources */,
+				557FDC422B3D113B00A66301 /* IFIntelSymbol.m in Sources */,
+				557FDC432B3D113B00A66301 /* IFNoHighlighter.m in Sources */,
+				557FDC442B3D113B00A66301 /* IFEditingPreferencesSet.m in Sources */,
+				557FDC452B3D113B00A66301 /* IFNaturalHighlighter.m in Sources */,
+				557FDC3E2B3D10F800A66301 /* IFSyntaxManager.m in Sources */,
 				55E7FDD3299AE97D00D554FB /* PreviewProvider.swift in Sources */,
+				557FDC3B2B3D10B600A66301 /* IFUtility.m in Sources */,
+				557FDC4A2B3D113B00A66301 /* IFNaturalIntel.m in Sources */,
+				557FDC412B3D113B00A66301 /* IFColourTheme.m in Sources */,
+				557FDC462B3D113B00A66301 /* IFIntelFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
