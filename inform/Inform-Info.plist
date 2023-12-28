@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -252,7 +252,7 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>Inform</string>
+	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -260,11 +260,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.83</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>INfm</string>
 	<key>CFBundleVersion</key>
-	<string>1.83.0</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>InformConfiguration</key>
 	<dict>
 		<key>AvailableInterpreters</key>
