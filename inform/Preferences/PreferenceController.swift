@@ -30,7 +30,7 @@ final class PreferenceController : NSWindowController, NSWindowDelegate, NSToolb
 		super.init(window: NSWindow(contentRect: NSRect(x: mainScreenRect.minX + 200, y: mainScreenRect.maxY - 400, width: 512, height: 300), styleMask: [.titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: true))
 
 		// Set up window
-		self.windowFrameAutosaveName = "PreferenceWindow";
+		self.windowFrameAutosaveName = "PreferenceWindow"
 		self.window?.delegate = self
 		self.window?.title = IFUtility.localizedString("Inform Preferences")
 		if #available(macOS 11.0, *) {
@@ -115,8 +115,7 @@ final class PreferenceController : NSWindowController, NSWindowDelegate, NSToolb
 		newItem.label = newPane.preferenceName
 		newItem.toolTip = newPane.tooltip
 		
-		toolbarItems[newPane.identifier!] = newItem;
-		
+		toolbarItems[newPane.identifier!] = newItem
 	}
 	
 	public func removeAllPreferencePanes() {
@@ -135,7 +134,7 @@ final class PreferenceController : NSWindowController, NSWindowDelegate, NSToolb
 		for possibleToolId in preferenceViews {
 			if possibleToolId.identifier == paneIdentifier {
 				toolId = possibleToolId
-				break;
+				break
 			}
 		}
 		
@@ -218,7 +217,7 @@ final class PreferenceController : NSWindowController, NSWindowDelegate, NSToolb
 	}
 	
 	@objc private func switchPrefPane(_ sender: NSToolbarItem?) {
-		if let sender = sender {
+		if let sender {
 			`switch`(toPreferencePane: sender.itemIdentifier)
 		}
 	}

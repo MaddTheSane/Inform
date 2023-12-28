@@ -12,7 +12,7 @@ import Foundation
 }
 
 class IFFindResultsTableView: NSTableView {
-    @IBOutlet public var extendedDelegate:IFFindClickableTableViewDelegate!
+    @IBOutlet public var extendedDelegate: IFFindClickableTableViewDelegate?
 
     override func mouseDown(with: NSEvent) {
         let globalLocation:NSPoint = with.locationInWindow

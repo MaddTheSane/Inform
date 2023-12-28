@@ -191,7 +191,7 @@ static const CGFloat  toolbarStatusWidth    = 300.0f;
                                                    object: nil];
         [[NSNotificationCenter defaultCenter] addObserver: self
                                                  selector: @selector(toolbarChangedVisibility:)
-                                                     name: IFToolbar.ChangedVisibility
+                                                     name: IFToolbar.changedVisibility
                                                    object: nil];
 
         // Only 10.7 Lion or later has Full Screen support

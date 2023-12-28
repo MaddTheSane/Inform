@@ -9,8 +9,8 @@ import Foundation
 
 class IFSkeinLinkView: NSView {
 
-    override init(frame frameRect:NSRect) {
-        super.init(frame:frameRect)
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
 
         self.wantsLayer = true
         self.layerContentsRedrawPolicy = NSView.LayerContentsRedrawPolicy.onSetNeedsDisplay
@@ -34,9 +34,9 @@ class IFSkeinLinkView: NSView {
 
         // Draw rectangle
         NSColor(deviceRed:0.25,
-                               green:0.25,
-                                blue:0.25,
-                               alpha:1.0).set()
+                green:0.25,
+                blue:0.25,
+                alpha:1.0).set()
         blackRect.fill()
     }
 }
